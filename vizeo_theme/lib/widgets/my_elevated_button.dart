@@ -70,7 +70,7 @@ class MyElevatedButton extends StatefulWidget {
     this.myRightChild,
     this.isEnable = true,
     this.myBackgroundColor = Colors.transparent,
-    this.myHoveredColor = secondaryButtonSoft,
+    this.myHoveredColor = Colors.transparent,
     this.myTextColor = redVizeo,
     this.myPadding = EdgeInsets.zero,
     this.myIconPadding = const EdgeInsets.only(left: 8),
