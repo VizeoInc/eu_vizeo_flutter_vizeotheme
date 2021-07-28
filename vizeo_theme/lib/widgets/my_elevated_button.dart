@@ -113,8 +113,8 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
   void initState() {
     super.initState();
     // change value has focus when user click on TextField
-    widget.focus.addListener(() {
-      if (widget.focus.hasFocus) {
+    widget.focus?.addListener(() {
+      if (widget.focus!.hasFocus) {
         hasFocus = true;
       } else {
         hasFocus = false;
