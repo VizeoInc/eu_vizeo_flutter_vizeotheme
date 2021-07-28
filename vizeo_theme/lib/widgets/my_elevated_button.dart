@@ -16,6 +16,7 @@ class MyElevatedButton extends StatefulWidget {
     this.myFontWeight = FontWeight.normal,
     this.myFont = myFontFamily,
     this.isEnable = true,
+    this.myRadius = 55.0,
   });
   late VoidCallback? onPressedFunc;
   late String myTitle, myFont;
@@ -27,6 +28,7 @@ class MyElevatedButton extends StatefulWidget {
   Widget? myRightChild, myLeftChild;
   bool isEnable = true;
   late FocusNode focus;
+  late double myRadius;
 
   MyElevatedButton.typePrimary({
     required this.myTitle,
@@ -43,6 +45,7 @@ class MyElevatedButton extends StatefulWidget {
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
     this.myFont = myFontFamily,
+    this.myRadius = 55.0,
   });
 
   MyElevatedButton.typeSecondary({
@@ -60,6 +63,7 @@ class MyElevatedButton extends StatefulWidget {
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
     this.myFont = myFontFamily,
+    this.myRadius = 55.0,
   });
 
   MyElevatedButton.typeTertiary({
@@ -70,13 +74,14 @@ class MyElevatedButton extends StatefulWidget {
     this.myRightChild,
     this.isEnable = true,
     this.myBackgroundColor = Colors.transparent,
-    this.myHoveredColor = Colors.transparent,
+    this.myHoveredColor = secondaryButtonSoft,
     this.myTextColor = redVizeo,
     this.myPadding = EdgeInsets.zero,
     this.myIconPadding = const EdgeInsets.only(left: 8),
     this.myFontSize = 14,
     this.myFontWeight = FontWeight.w400,
     this.myFont = myFontFamily,
+    this.myRadius = 5.0,
   });
 
   MyElevatedButton.typeSmall({
@@ -94,6 +99,7 @@ class MyElevatedButton extends StatefulWidget {
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
     this.myFont = myFontFamily,
+    this.myRadius = 55.0,
   });
 
   @override
@@ -145,7 +151,8 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
       }),
 
       ///-----Shadow du bouton
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(55.0))),
+      shape:
+          MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(widget.myRadius))),
       shadowColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return Colors.transparent;
       }),
@@ -177,28 +184,6 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
 
       /// style du text suivant les etats
       textStyle: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.pressed)) {
-          return TextStyle(
-              color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
-              fontSize: widget.myFontSize,
-              fontWeight: widget.myFontWeight,
-              fontFamily: myFontFamily);
-        }
-        if (states.contains(MaterialState.focused)) {
-          return TextStyle(
-              color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
-              fontSize: widget.myFontSize,
-              fontWeight: widget.myFontWeight,
-              fontFamily: myFontFamily);
-        }
-        if (states.contains(MaterialState.hovered)) {
-          return TextStyle(
-              color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
-              fontSize: widget.myFontSize,
-              fontWeight: widget.myFontWeight,
-              fontFamily: myFontFamily);
-        }
-
         return TextStyle(
             color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
             fontSize: widget.myFontSize,
