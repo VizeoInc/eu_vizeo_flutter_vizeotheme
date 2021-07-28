@@ -4,7 +4,7 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton({
     required this.myTitle,
     required this.onPressedFunc,
-    required this.focus,
+    this.focus,
     this.myBackgroundColor = redVizeo,
     this.myHoveredColor = redVizeo,
     this.myTextColor = textPrimaryLight,
@@ -27,13 +27,13 @@ class MyElevatedButton extends StatefulWidget {
   late FontWeight myFontWeight;
   Widget? myRightChild, myLeftChild;
   bool isEnable = true;
-  late FocusNode focus;
+  FocusNode? focus;
   late double myRadius;
 
   MyElevatedButton.typePrimary({
     required this.myTitle,
     required this.onPressedFunc,
-    required this.focus,
+    this.focus,
     this.myLeftChild,
     this.myRightChild,
     this.isEnable = true,
@@ -51,7 +51,7 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton.typeSecondary({
     required this.myTitle,
     required this.onPressedFunc,
-    required this.focus,
+    this.focus,
     this.myLeftChild,
     this.myRightChild,
     this.isEnable = true,
@@ -69,7 +69,7 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton.typeTertiary({
     required this.myTitle,
     required this.onPressedFunc,
-    required this.focus,
+    this.focus,
     this.myLeftChild,
     this.myRightChild,
     this.isEnable = true,
@@ -87,7 +87,7 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton.typeSmall({
     required this.myTitle,
     required this.onPressedFunc,
-    required this.focus,
+    this.focus,
     this.myLeftChild,
     this.myRightChild,
     this.isEnable = true,
@@ -195,7 +195,8 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {}, //TODO
+      onPressed: widget.onPressedFunc,
+
       ///-----Background du bouton
       style: myStyleConfig(),
       focusNode: widget.focus,
