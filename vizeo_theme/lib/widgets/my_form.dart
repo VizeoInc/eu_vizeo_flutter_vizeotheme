@@ -1,10 +1,13 @@
 part of '../vizeo_theme.dart';
 
+//TODO validator, completer comportement de typePassword
+
 class MyTextForm extends StatefulWidget {
   MyTextForm({
     required this.focus,
     Key? key,
     String? myHint,
+    this.myKeyboardType = TextInputType.name,
     //this.validator,
   }) : super(key: key) {
     this.myHint = myHint!;
@@ -16,6 +19,7 @@ class MyTextForm extends StatefulWidget {
   late bool _isPassword = false;
   late bool _isTel = false;
   late FocusNode focus;
+  late TextInputType myKeyboardType;
   //StringCallback? validator;
 
   MyTextForm.typeMail({
@@ -24,6 +28,7 @@ class MyTextForm extends StatefulWidget {
     this.myHint = "Mail",
   }) : super(key: key) {
     _isMail = true;
+    myKeyboardType = TextInputType.emailAddress;
   }
 
   MyTextForm.typePassword({
@@ -32,6 +37,7 @@ class MyTextForm extends StatefulWidget {
     this.myHint = "Password",
   }) : super(key: key) {
     _isPassword = true;
+    myKeyboardType = TextInputType.text;
   }
 
   MyTextForm.typeTelNumber({
@@ -40,6 +46,7 @@ class MyTextForm extends StatefulWidget {
     this.myHint = "Téléphone",
   }) : super(key: key) {
     _isTel = true;
+    myKeyboardType = TextInputType.phone;
   }
 
   @override
@@ -75,6 +82,7 @@ class _MyTextForm extends State<MyTextForm> {
       autocorrect: false,
       style: const TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w400),
       obscureText: widget._isPassword,
+      keyboardType: widget.myKeyboardType,
       focusNode: widget.focus,
       //validator: widget.validator,
       decoration: InputDecoration(
