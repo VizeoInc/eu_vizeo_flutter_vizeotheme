@@ -8,4 +8,7 @@ part 'widgets/my_chip.dart';
 part 'widgets/my_elevated_button.dart';
 part 'widgets/my_form.dart';
 part 'widgets/my_switch.dart';
-part 'themes/my_theme.dart';
+part 'themes/my_light_theme.dart';
+part 'themes/my_dark_theme.dart';
+part 'themes/my_strings.dart';
+part 'themes/my_colors.dart';

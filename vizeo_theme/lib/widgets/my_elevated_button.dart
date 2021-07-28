@@ -37,7 +37,7 @@ class MyElevatedButton extends StatefulWidget {
     this.isEnable = true,
     this.myBackgroundColor = redVizeo,
     this.myHoveredColor = redVizeoSoft,
-    this.myTextColor = textOnRed,
+    this.myTextColor = textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myFontSize = 18,
@@ -54,7 +54,7 @@ class MyElevatedButton extends StatefulWidget {
     this.isEnable = true,
     this.myBackgroundColor = secondaryButton,
     this.myHoveredColor = secondaryButtonSoft,
-    this.myTextColor = textOnRed,
+    this.myTextColor = textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myFontSize = 18,
@@ -88,7 +88,7 @@ class MyElevatedButton extends StatefulWidget {
     this.isEnable = true,
     this.myBackgroundColor = secondaryButton,
     this.myHoveredColor = secondaryButtonSoft,
-    this.myTextColor = textOnRed,
+    this.myTextColor = textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(horizontal: 8),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myFontSize = 18,
@@ -140,13 +140,18 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
 
   ButtonStyle myStyleConfig() {
     return ButtonStyle(
-      backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-        return widget.isEnable ? widget.myBackgroundColor : secondaryButton.withOpacity(0.3);
+      backgroundColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        return widget.isEnable
+            ? widget.myBackgroundColor
+            : secondaryButton.withOpacity(0.3);
       }),
 
       ///-----Shadow du bouton
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(55.0))),
-      shadowColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(borderRadius: BorderRadius.circular(55.0))),
+      shadowColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return Colors.transparent;
       }),
 
@@ -160,18 +165,19 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
         }
       }),
 
-      /// style du text et icone suivant les etats
-      /*foregroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-            if (states.contains(MaterialState.pressed)) return TextSecondaryLight;
-            if (states.contains(MaterialState.hovered)) return TextTertiaryLight;
-            return Colors.black; // Defer to the widget's default.
-          }),*/
-
       /// style du fond suivant les etats
       overlayColor: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.pressed)) return widget.isEnable ? widget.myBackgroundColor : Colors.transparent;
-        if (states.contains(MaterialState.focused)) return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
-        if (states.contains(MaterialState.hovered)) return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
+        if (states.contains(MaterialState.pressed)) {
+          return widget.isEnable
+              ? widget.myBackgroundColor
+              : Colors.transparent;
+        }
+        if (states.contains(MaterialState.focused)) {
+          return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
+        }
+        if (states.contains(MaterialState.hovered)) {
+          return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
+        }
         return Colors.transparent;
       }),
 
@@ -179,28 +185,36 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
       textStyle: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.pressed)) {
           return TextStyle(
-              color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
+              color: widget.isEnable
+                  ? widget.myTextColor
+                  : widget.myTextColor.withOpacity(0.3),
               fontSize: widget.myFontSize,
               fontWeight: widget.myFontWeight,
               fontFamily: myFontFamily);
         }
         if (states.contains(MaterialState.focused)) {
           return TextStyle(
-              color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
+              color: widget.isEnable
+                  ? widget.myTextColor
+                  : widget.myTextColor.withOpacity(0.3),
               fontSize: widget.myFontSize,
               fontWeight: widget.myFontWeight,
               fontFamily: myFontFamily);
         }
         if (states.contains(MaterialState.hovered)) {
           return TextStyle(
-              color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
+              color: widget.isEnable
+                  ? widget.myTextColor
+                  : widget.myTextColor.withOpacity(0.3),
               fontSize: widget.myFontSize,
               fontWeight: widget.myFontWeight,
               fontFamily: myFontFamily);
         }
 
         return TextStyle(
-            color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
+            color: widget.isEnable
+                ? widget.myTextColor
+                : widget.myTextColor.withOpacity(0.3),
             fontSize: widget.myFontSize,
             fontWeight: widget.myFontWeight,
             fontFamily: myFontFamily);
