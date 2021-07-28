@@ -1,13 +1,13 @@
 part of '../vizeo_theme.dart';
 
-//TODO validator, completer comportement de typePassword
+//TODO validator, completer comportement de typePassword, definir une taille
 
 class MyTextForm extends StatefulWidget {
   MyTextForm({
     required this.focus,
     Key? key,
     String? myHint,
-    this.myKeyboardType = TextInputType.name,
+    this.myKeyboardType = TextInputType.text,
     //this.validator,
   }) : super(key: key) {
     this.myHint = myHint!;
