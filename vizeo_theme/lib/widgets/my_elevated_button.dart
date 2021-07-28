@@ -146,19 +146,14 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
 
   ButtonStyle myStyleConfig() {
     return ButtonStyle(
-      backgroundColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-        return widget.isEnable
-            ? widget.myBackgroundColor
-            : secondaryButton.withOpacity(0.3);
+      backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        return widget.isEnable ? widget.myBackgroundColor : secondaryButton.withOpacity(0.3);
       }),
 
       ///-----Shadow du bouton
       shape:
-          MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(widget.myRadius))),
-      shadowColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+          MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(widget.myRadius))),
+      shadowColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return Colors.transparent;
       }),
 
@@ -175,9 +170,7 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
       /// style du fond suivant les etats
       overlayColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.pressed)) {
-          return widget.isEnable
-              ? widget.myBackgroundColor
-              : Colors.transparent;
+          return widget.isEnable ? widget.myBackgroundColor : Colors.transparent;
         }
         if (states.contains(MaterialState.focused)) {
           return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
@@ -191,9 +184,7 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
       /// style du text suivant les etats
       textStyle: MaterialStateProperty.resolveWith((states) {
         return TextStyle(
-            color: widget.isEnable
-                ? widget.myTextColor
-                : widget.myTextColor.withOpacity(0.3),
+            color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
             fontSize: widget.myFontSize,
             fontWeight: widget.myFontWeight,
             fontFamily: myFontFamily);
