@@ -17,12 +17,19 @@ class MyChip extends StatefulWidget {
 
   @override
   _MyChip createState() => _MyChip();
+
+  InkWell getMyChip() => getMyChip();
 }
 
 class _MyChip extends State<MyChip> {
   bool hasFocus = false;
   bool isSelected = false;
   bool isEntered = false;
+  late InkWell _chip;
+
+  InkWell getMyChip() {
+    return _chip;
+  }
 
   @override
   void initState() {
@@ -40,11 +47,26 @@ class _MyChip extends State<MyChip> {
   @override
   Widget build(BuildContext context) {
     final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    final enableColor =
-        isDark ? accentDark.withOpacity(0.2) : accentLight.withOpacity(0.2);
-    final hoverColor =
-        isDark ? accentDark.withOpacity(0.4) : accentLight.withOpacity(0.4);
+    final enableColor = isDark ? accentDark.withOpacity(0.2) : accentLight.withOpacity(0.2);
+    final hoverColor = isDark ? accentDark.withOpacity(0.4) : accentLight.withOpacity(0.4);
     final pressedColor = isDark ? accentDark : accentLight;
+
+    _chip = InkWell(
+      highlightColor: pressedColor,
+      borderRadius: BorderRadius.circular(55.0),
+      focusNode: widget.focus,
+      hoverColor: hoverColor,
+      focusColor: hoverColor,
+      onTap: () => updateState(),
+      child: Center(
+        child: Text(
+          widget.myLabel,
+          style: TextStyle(
+            color: _colorText(),
+          ),
+        ),
+      ),
+    );
 
     return Container(
       height: widget.height,
@@ -53,22 +75,7 @@ class _MyChip extends State<MyChip> {
         borderRadius: BorderRadius.circular(55.0),
         color: isSelected ? pressedColor : enableColor,
       ),
-      child: InkWell(
-        highlightColor: pressedColor,
-        borderRadius: BorderRadius.circular(55.0),
-        focusNode: widget.focus,
-        hoverColor: hoverColor,
-        focusColor: hoverColor,
-        onTap: () => updateState(),
-        child: Center(
-          child: Text(
-            widget.myLabel,
-            style: TextStyle(
-              color: _colorText(),
-            ),
-          ),
-        ),
-      ),
+      child: _chip,
     );
   }
 

@@ -105,10 +105,17 @@ class MyElevatedButton extends StatefulWidget {
 
   @override
   _MyElevatedButtonState createState() => _MyElevatedButtonState();
+
+  ElevatedButton getMyButton() => getMyButton();
 }
 
 class _MyElevatedButtonState extends State<MyElevatedButton> {
   bool hasFocus = false;
+  late ElevatedButton _button;
+
+  ElevatedButton getMyButton() {
+    return _button;
+  }
 
   @override
   void initState() {
@@ -195,7 +202,7 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
+    return _button = ElevatedButton(
       onPressed: widget.onPressedFunc,
 
       ///-----Background du bouton

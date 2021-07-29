@@ -11,15 +11,23 @@ class MySwitch extends StatefulWidget {
 
   @override
   _MySwitch createState() => _MySwitch();
+
+  CupertinoSwitch getMySwitch() => getMySwitch();
 }
 
 class _MySwitch extends State<MySwitch> {
+  late CupertinoSwitch _switch;
+
+  CupertinoSwitch getMySwitch() {
+    return _switch;
+  }
+
   @override
   Widget build(BuildContext context) {
-    return CupertinoSwitch(
+    return _switch = CupertinoSwitch(
         value: widget.value,
-        activeColor: greenValidate,
         trackColor: redNegativeWarning,
+        activeColor: greenValidate,
         onChanged: (bool value) {
           setState(() {
             widget.value = !widget.value;
