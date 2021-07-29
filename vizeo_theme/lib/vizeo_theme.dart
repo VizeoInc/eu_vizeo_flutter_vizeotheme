@@ -1,6 +1,7 @@
 library vizeo_theme;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 part 'versionning_project.dart';
 part 'widgets/my_text.dart';

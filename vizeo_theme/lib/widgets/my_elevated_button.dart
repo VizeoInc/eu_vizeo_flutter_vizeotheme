@@ -4,102 +4,103 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton({
     required this.myTitle,
     required this.onPressedFunc,
-    this.focus,
+    this.myTextColor = textPrimaryLight,
     this.myBackgroundColor = redVizeo,
     this.myHoveredColor = redVizeo,
-    this.myTextColor = textPrimaryLight,
+    this.myRadius = 55.0,
     this.myPadding = const EdgeInsets.all(8.0),
     this.myIconPadding = const EdgeInsets.all(8.0),
-    this.myFontSize = 15,
-    this.myLeftChild,
     this.myRightChild,
+    this.myLeftChild,
+    this.myFontSize = 15,
     this.myFontWeight = FontWeight.normal,
     this.myFont = myFontFamily,
     this.isEnable = true,
-    this.myRadius = 55.0,
+    this.focus,
   });
-  late VoidCallback? onPressedFunc;
+
   late String myTitle, myFont;
+  late VoidCallback? onPressedFunc;
   late Color myBackgroundColor, myHoveredColor, myTextColor;
+  late double myRadius;
   late EdgeInsets myPadding;
   late EdgeInsets myIconPadding;
+  Widget? myRightChild, myLeftChild;
   late double myFontSize;
   late FontWeight myFontWeight;
-  Widget? myRightChild, myLeftChild;
   bool isEnable = true;
   FocusNode? focus;
-  late double myRadius;
 
   MyElevatedButton.typePrimary({
     required this.myTitle,
     required this.onPressedFunc,
-    this.focus,
-    this.myLeftChild,
-    this.myRightChild,
-    this.isEnable = true,
     this.myBackgroundColor = redVizeo,
     this.myHoveredColor = redVizeoSoft,
     this.myTextColor = textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
+    this.myLeftChild,
+    this.myRightChild,
+    this.myRadius = 55.0,
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
     this.myFont = myFontFamily,
-    this.myRadius = 55.0,
+    this.isEnable = true,
+    this.focus,
   });
 
   MyElevatedButton.typeSecondary({
     required this.myTitle,
     required this.onPressedFunc,
-    this.focus,
-    this.myLeftChild,
-    this.myRightChild,
-    this.isEnable = true,
     this.myBackgroundColor = secondaryButton,
     this.myHoveredColor = secondaryButtonSoft,
     this.myTextColor = textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
+    this.myRadius = 55.0,
+    this.myLeftChild,
+    this.myRightChild,
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
     this.myFont = myFontFamily,
-    this.myRadius = 55.0,
+    this.isEnable = true,
+    this.focus,
   });
 
   MyElevatedButton.typeTertiary({
     required this.myTitle,
     required this.onPressedFunc,
-    this.focus,
-    this.myLeftChild,
-    this.myRightChild,
-    this.isEnable = true,
     this.myBackgroundColor = Colors.transparent,
     this.myHoveredColor = secondaryButtonSoft,
     this.myTextColor = redVizeo,
     this.myPadding = EdgeInsets.zero,
     this.myIconPadding = const EdgeInsets.only(left: 8),
+    this.myRadius = 5.0,
+    this.myLeftChild,
+    this.myRightChild,
     this.myFontSize = 14,
     this.myFontWeight = FontWeight.w400,
     this.myFont = myFontFamily,
-    this.myRadius = 5.0,
+    this.isEnable = true,
+    this.focus,
   });
 
   MyElevatedButton.typeSmall({
     required this.myTitle,
     required this.onPressedFunc,
-    this.focus,
-    this.myLeftChild,
-    this.myRightChild,
-    this.isEnable = true,
     this.myBackgroundColor = secondaryButton,
     this.myHoveredColor = secondaryButtonSoft,
     this.myTextColor = textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(horizontal: 8),
     this.myIconPadding = const EdgeInsets.only(left: 12),
+    this.myRadius = 55.0,
+    this.myLeftChild,
+    this.myRightChild,
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
     this.myFont = myFontFamily,
-    this.myRadius = 55.0,
+    this.isEnable = true,
+    this.focus,
   });
 
   @override

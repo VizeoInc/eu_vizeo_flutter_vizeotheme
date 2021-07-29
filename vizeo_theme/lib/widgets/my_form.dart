@@ -5,48 +5,49 @@ part of '../vizeo_theme.dart';
 class MyTextForm extends StatefulWidget {
   MyTextForm({
     required this.focus,
-    Key? key,
-    String? myHint,
+    required this.controller,
     this.myKeyboardType = TextInputType.text,
-    //this.validator,
+    this.validator,
+    String? myHint,
+    Key? key,
   }) : super(key: key) {
     this.myHint = myHint!;
   }
 
-  late Color myBackgroundColor;
+  late FocusNode focus;
+  late TextEditingController controller;
+  late TextInputType myKeyboardType;
+  late String? Function(String?)? validator;
   late String myHint;
   late bool _isMail = false;
   late bool _isPassword = false;
   late bool _isTel = false;
-  late FocusNode focus;
-  late TextInputType myKeyboardType;
-  //StringCallback? validator;
 
   MyTextForm.typeMail({
     required this.focus,
-    Key? key,
     this.myHint = "Mail",
+    Key? key,
   }) : super(key: key) {
-    _isMail = true;
     myKeyboardType = TextInputType.emailAddress;
+    _isMail = true;
   }
 
   MyTextForm.typePassword({
     required this.focus,
-    Key? key,
     this.myHint = "Password",
+    Key? key,
   }) : super(key: key) {
-    _isPassword = true;
     myKeyboardType = TextInputType.text;
+    _isPassword = true;
   }
 
   MyTextForm.typeTelNumber({
     required this.focus,
-    Key? key,
     this.myHint = "Téléphone",
+    Key? key,
   }) : super(key: key) {
-    _isTel = true;
     myKeyboardType = TextInputType.phone;
+    _isTel = true;
   }
 
   @override
@@ -84,7 +85,8 @@ class _MyTextForm extends State<MyTextForm> {
       obscureText: widget._isPassword,
       keyboardType: widget.myKeyboardType,
       focusNode: widget.focus,
-      //validator: widget.validator,
+      controller: widget.controller,
+      validator: widget.validator,
       decoration: InputDecoration(
           hintText: widget.myHint,
           hintStyle: const TextStyle(color: textTertiaryDark),
