@@ -1,6 +1,5 @@
 part of '../vizeo_theme.dart';
 
-
 ThemeData themeLight(BuildContext context) {
   final typo = Typography.material2018(platform: Theme.of(context).platform);
   final textTheme = typo.black.copyWith(
@@ -20,54 +19,53 @@ ThemeData themeLight(BuildContext context) {
     primaryColorBrightness: Brightness.light,
     brightness: Brightness.light,
     accentColorBrightness: Brightness.light,
-    scaffoldBackgroundColor: backgroundPrimaryLight,
+    scaffoldBackgroundColor: ColorVizeo.backgroundPrimaryLight,
     fontFamily: myFontFamily,
 
     ///splashColor: backgroundTertiaryDark.withAlpha(40),
-    disabledColor: transparent,
-    hintColor: textTertiaryLight,
-    cardColor: backgroundSecondaryLight,
+    disabledColor: ColorVizeo.transparent,
+    hintColor: ColorVizeo.textTertiaryLight,
+    cardColor: ColorVizeo.backgroundSecondaryLight,
 
     ///textTheme: textTheme,
     colorScheme: const ColorScheme(
       ///primary variant temporaire, secondaire background inverse
-      primary: redVizeo,
-      primaryVariant: redVizeoSoft,
-      secondary: backgroundSecondaryDark,
-      secondaryVariant: backgroundTertiaryDark,
-      surface: backgroundPrimaryLight,
-      background: backgroundPrimaryLight,
-      error: redNegativeWarning,
-      onPrimary: textOnRedVizeo,
-      onSecondary: textSecondaryDark,
-      onSurface: textPrimaryLight,
-      onBackground: textPrimaryLight,
-      onError: textOnRedVizeo,
+      primary: ColorVizeo.redVizeo,
+      primaryVariant: ColorVizeo.redVizeoSoft,
+      secondary: ColorVizeo.backgroundSecondaryDark,
+      secondaryVariant: ColorVizeo.backgroundTertiaryDark,
+      surface: ColorVizeo.backgroundPrimaryLight,
+      background: ColorVizeo.backgroundPrimaryLight,
+      error: ColorVizeo.redNegativeWarning,
+      onPrimary: ColorVizeo.textOnRedVizeo,
+      onSecondary: ColorVizeo.textSecondaryDark,
+      onSurface: ColorVizeo.textPrimaryLight,
+      onBackground: ColorVizeo.textPrimaryLight,
+      onError: ColorVizeo.textOnRedVizeo,
       brightness: Brightness.light,
     ),
     appBarTheme: AppBarTheme(
       brightness: Brightness.light,
-      color: backgroundSecondaryLight,
+      color: ColorVizeo.backgroundSecondaryLight,
       elevation: 0,
       textTheme: textTheme.copyWith(
         headline6: const TextStyle(
-          color: textSecondaryLight,
+          color: ColorVizeo.textSecondaryLight,
           fontFamily: myFontFamily,
         ),
       ),
-      iconTheme: const IconThemeData(color: textSecondaryLight),
+      iconTheme: const IconThemeData(color: ColorVizeo.textSecondaryLight),
       actionsIconTheme: const IconThemeData(
-        color: textSecondaryLight,
+        color: ColorVizeo.textSecondaryLight,
       ),
     ),
     floatingActionButtonTheme: const FloatingActionButtonThemeData(
-      backgroundColor: redVizeo,
-      foregroundColor: textOnRedVizeo,
+      backgroundColor: ColorVizeo.redVizeo,
+      foregroundColor: ColorVizeo.textOnRedVizeo,
     ),
     dividerTheme: const DividerThemeData(
-      color: backgroundPrimaryDark,
+      color: ColorVizeo.backgroundPrimaryDark,
       thickness: 1,
     ),
   );
 }
-

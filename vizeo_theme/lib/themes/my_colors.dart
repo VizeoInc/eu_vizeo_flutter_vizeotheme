@@ -1,37 +1,5 @@
 part of '../vizeo_theme.dart';
 
-const redVizeo = Color(0xFFF24C52);
-const redVizeoSoft = Color(0xFFF16066);
-const secondaryButton = Color(0xFF273464);
-const secondaryButtonSoft = Color(0xFF374475);
-const textOnRedVizeo = Color(0xFFECEFFF);
-
-const accentDark = Color(0xFF666B84);
-
-const backgroundPrimaryDark = Color(0xFF101735);
-const backgroundSecondaryDark = Color(0xFF1D2445);
-const backgroundTertiaryDark = Color(0xFF30395A);
-
-const textPrimaryDark = Color(0xFFECEFFF);
-const textSecondaryDark = Color(0xFFBBBFD2);
-const textTertiaryDark = Color(0xFF979BB1);
-
-const accentLight = Color(0xFFA1A5B9);
-
-const backgroundPrimaryLight = Color(0xFFEDEEF3);
-const backgroundSecondaryLight = Color(0xFFF3F4F8);
-const backgroundTertiaryLight = Color(0xFFF9FAFD);
-
-const textPrimaryLight = Color(0xFF16204E);
-const textSecondaryLight = Color(0xFF495175);
-const textTertiaryLight = Color(0xFF6F7592);
-
-const redNegativeWarning = Color(0xFFCE464B);
-const greenValidate = Color(0xFF2CA099);
-
-const transparent = Colors.transparent;
-const white = Colors.white;
-
 MaterialColor createMaterialColor(Color color) {
   final strengths = [.05];
   final Map<int, Color> swatch = {};
@@ -50,4 +18,38 @@ MaterialColor createMaterialColor(Color color) {
     );
   });
   return MaterialColor(color.value, swatch);
+}
+
+class ColorVizeo {
+  static const Color redVizeo = Color(0xFFF24C52);
+  static const Color redVizeoSoft = Color(0xFFF16066);
+  static const Color secondaryButton = Color(0xFF273464);
+  static const Color secondaryButtonSoft = Color(0xFF374475);
+  static const Color textOnRedVizeo = Color(0xFFECEFFF);
+
+  static const Color accentDark = Color(0xFF666B84);
+
+  static const Color backgroundPrimaryDark = Color(0xFF101735);
+  static const Color backgroundSecondaryDark = Color(0xFF1D2445);
+  static const Color backgroundTertiaryDark = Color(0xFF30395A);
+
+  static const Color textPrimaryDark = Color(0xFFECEFFF);
+  static const Color textSecondaryDark = Color(0xFFBBBFD2);
+  static const Color textTertiaryDark = Color(0xFF979BB1);
+
+  static const Color accentLight = Color(0xFFA1A5B9);
+
+  static const Color backgroundPrimaryLight = Color(0xFFEDEEF3);
+  static const Color backgroundSecondaryLight = Color(0xFFF3F4F8);
+  static const Color backgroundTertiaryLight = Color(0xFFF9FAFD);
+
+  static const Color textPrimaryLight = Color(0xFF16204E);
+  static const Color textSecondaryLight = Color(0xFF495175);
+  static const Color textTertiaryLight = Color(0xFF6F7592);
+
+  static const Color redNegativeWarning = Color(0xFFCE464B);
+  static const Color greenValidate = Color(0xFF2CA099);
+
+  static const Color transparent = Colors.transparent;
+  static const Color white = Colors.white;
 }

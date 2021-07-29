@@ -26,8 +26,8 @@ class _MySwitch extends State<MySwitch> {
   Widget build(BuildContext context) {
     return _switch = CupertinoSwitch(
         value: widget.value,
-        trackColor: redNegativeWarning,
-        activeColor: greenValidate,
+        trackColor: ColorVizeo.redNegativeWarning,
+        activeColor: ColorVizeo.greenValidate,
         onChanged: (bool value) {
           setState(() {
             widget.value = !widget.value;

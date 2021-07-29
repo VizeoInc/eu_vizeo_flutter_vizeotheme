@@ -47,9 +47,9 @@ class _MyChip extends State<MyChip> {
   @override
   Widget build(BuildContext context) {
     final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    final enableColor = isDark ? accentDark.withOpacity(0.2) : accentLight.withOpacity(0.2);
-    final hoverColor = isDark ? accentDark.withOpacity(0.4) : accentLight.withOpacity(0.4);
-    final pressedColor = isDark ? accentDark : accentLight;
+    final enableColor = isDark ? ColorVizeo.accentDark.withOpacity(0.2) : ColorVizeo.accentLight.withOpacity(0.2);
+    final hoverColor = isDark ? ColorVizeo.accentDark.withOpacity(0.4) : ColorVizeo.accentLight.withOpacity(0.4);
+    final pressedColor = isDark ? ColorVizeo.accentDark : ColorVizeo.accentLight;
 
     _chip = InkWell(
       highlightColor: pressedColor,
@@ -80,7 +80,7 @@ class _MyChip extends State<MyChip> {
   }
 
   Color? _colorText() {
-    return isSelected ? textPrimaryLight : null;
+    return isSelected ? ColorVizeo.textPrimaryLight : null;
   }
 
   BoxBorder chipFocused() {

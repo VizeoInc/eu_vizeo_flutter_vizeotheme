@@ -8,8 +8,8 @@ class MySlider extends StatefulWidget {
     this.min = 0,
     this.max = 100,
     this.division,
-    this.backColor = redVizeo,
-    this.cursorColor = white,
+    this.backColor = ColorVizeo.redVizeo,
+    this.cursorColor = ColorVizeo.white,
   });
 
   late double value;

@@ -4,9 +4,9 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton({
     required this.myTitle,
     required this.onPressedFunc,
-    this.myTextColor = textPrimaryLight,
-    this.myBackgroundColor = redVizeo,
-    this.myHoveredColor = redVizeo,
+    this.myTextColor = ColorVizeo.textPrimaryLight,
+    this.myBackgroundColor = ColorVizeo.redVizeo,
+    this.myHoveredColor = ColorVizeo.redVizeo,
     this.myRadius = 55.0,
     this.myPadding = const EdgeInsets.all(8.0),
     this.myIconPadding = const EdgeInsets.all(8.0),
@@ -34,9 +34,9 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton.typePrimary({
     required this.myTitle,
     required this.onPressedFunc,
-    this.myBackgroundColor = redVizeo,
-    this.myHoveredColor = redVizeoSoft,
-    this.myTextColor = textOnRedVizeo,
+    this.myBackgroundColor = ColorVizeo.redVizeo,
+    this.myHoveredColor = ColorVizeo.redVizeoSoft,
+    this.myTextColor = ColorVizeo.textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myLeftChild,
@@ -52,9 +52,9 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton.typeSecondary({
     required this.myTitle,
     required this.onPressedFunc,
-    this.myBackgroundColor = secondaryButton,
-    this.myHoveredColor = secondaryButtonSoft,
-    this.myTextColor = textOnRedVizeo,
+    this.myBackgroundColor = ColorVizeo.secondaryButton,
+    this.myHoveredColor = ColorVizeo.secondaryButtonSoft,
+    this.myTextColor = ColorVizeo.textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myRadius = 55.0,
@@ -71,8 +71,8 @@ class MyElevatedButton extends StatefulWidget {
     required this.myTitle,
     required this.onPressedFunc,
     this.myBackgroundColor = Colors.transparent,
-    this.myHoveredColor = secondaryButtonSoft,
-    this.myTextColor = redVizeo,
+    this.myHoveredColor = ColorVizeo.secondaryButtonSoft,
+    this.myTextColor = ColorVizeo.redVizeo,
     this.myPadding = EdgeInsets.zero,
     this.myIconPadding = const EdgeInsets.only(left: 8),
     this.myRadius = 5.0,
@@ -88,9 +88,9 @@ class MyElevatedButton extends StatefulWidget {
   MyElevatedButton.typeSmall({
     required this.myTitle,
     required this.onPressedFunc,
-    this.myBackgroundColor = secondaryButton,
-    this.myHoveredColor = secondaryButtonSoft,
-    this.myTextColor = textOnRedVizeo,
+    this.myBackgroundColor = ColorVizeo.secondaryButton,
+    this.myHoveredColor = ColorVizeo.secondaryButtonSoft,
+    this.myTextColor = ColorVizeo.textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(horizontal: 8),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myRadius = 55.0,
@@ -155,7 +155,7 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
   ButtonStyle myStyleConfig() {
     return ButtonStyle(
       backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-        return widget.isEnable ? widget.myBackgroundColor : secondaryButton.withOpacity(0.3);
+        return widget.isEnable ? widget.myBackgroundColor : ColorVizeo.secondaryButton.withOpacity(0.3);
       }),
 
       ///-----Shadow du bouton

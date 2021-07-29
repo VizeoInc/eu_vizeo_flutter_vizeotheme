@@ -1,10 +1,12 @@
 part of '../vizeo_theme.dart';
 
-//TODO validator, completer comportement de typePassword, definir une taille
+//TODO validator, completer comportement de typePassword, definir une taille, textinputaction, onfieldsubmited
 
 class MyTextForm extends StatefulWidget {
   MyTextForm({
     required this.controller,
+    this.textInputAction,
+    this.onFieldSubmitted,
     this.myKeyboardType = TextInputType.text,
     this.validator,
     String? myHint,
@@ -15,6 +17,8 @@ class MyTextForm extends StatefulWidget {
   }
 
   late TextEditingController controller;
+  late TextInputAction? textInputAction;
+  late void Function(String)? onFieldSubmitted;
   late TextInputType myKeyboardType;
   late String? Function(String?)? validator;
   late String myHint;
@@ -24,29 +28,41 @@ class MyTextForm extends StatefulWidget {
   late bool _isTel = false;
 
   MyTextForm.typeMail({
+    required this.controller,
+    this.textInputAction,
+    this.onFieldSubmitted,
+    this.myKeyboardType = TextInputType.emailAddress,
+    this.validator,
     this.myHint = "Mail",
     this.focus,
     Key? key,
   }) : super(key: key) {
-    myKeyboardType = TextInputType.emailAddress;
     _isMail = true;
   }
 
   MyTextForm.typePassword({
+    required this.controller,
+    this.textInputAction,
+    this.onFieldSubmitted,
+    this.myKeyboardType = TextInputType.text,
+    this.validator,
     this.myHint = "Password",
     this.focus,
     Key? key,
   }) : super(key: key) {
-    myKeyboardType = TextInputType.text;
     _isPassword = true;
   }
 
   MyTextForm.typeTelNumber({
+    required this.controller,
+    this.textInputAction,
+    this.onFieldSubmitted,
+    this.myKeyboardType = TextInputType.phone,
+    this.validator,
     this.myHint = "Téléphone",
     this.focus,
     Key? key,
   }) : super(key: key) {
-    myKeyboardType = TextInputType.phone;
     _isTel = true;
   }
 
@@ -81,21 +97,23 @@ class _MyTextForm extends State<MyTextForm> {
   Widget build(BuildContext context) {
     _myField = TextFormField(
       autocorrect: false,
-      style: const TextStyle(color: textPrimaryDark, fontWeight: FontWeight.w400),
+      style: const TextStyle(color: ColorVizeo.textPrimaryDark, fontWeight: FontWeight.w400),
       obscureText: widget._isPassword,
+      textInputAction: widget.textInputAction,
+      onFieldSubmitted: widget.onFieldSubmitted,
       keyboardType: widget.myKeyboardType,
       focusNode: widget.focus,
       controller: widget.controller,
       validator: widget.validator,
       decoration: InputDecoration(
           hintText: widget.myHint,
-          hintStyle: const TextStyle(color: textTertiaryDark),
+          hintStyle: const TextStyle(color: ColorVizeo.textTertiaryDark),
           enabledBorder: inputBorderNormal(),
           focusedBorder: inputBorderFocused(),
           errorBorder: inputBorderErrorBorder(),
           disabledBorder: inputBorderDisabledBorder(),
           focusedErrorBorder: inputBorderFocusedErrorBorder(),
-          errorStyle: const TextStyle(color: redVizeo)),
+          errorStyle: const TextStyle(color: ColorVizeo.redVizeo)),
     );
 
     return AnimatedContainer(
@@ -106,7 +124,7 @@ class _MyTextForm extends State<MyTextForm> {
               Radius.circular(38.0),
             ),
           ),
-          color: hasFocus ? backgroundTertiaryDark : backgroundSecondaryDark,
+          color: hasFocus ? ColorVizeo.backgroundTertiaryDark : ColorVizeo.backgroundSecondaryDark,
         ),
         child: Stack(
           alignment: Alignment.centerRight,
@@ -144,7 +162,7 @@ class _MyTextForm extends State<MyTextForm> {
         Radius.circular(38.0),
       ),
       borderSide: BorderSide(
-        color: redVizeo,
+        color: ColorVizeo.redVizeo,
       ),
     );
   }
@@ -167,7 +185,7 @@ class _MyTextForm extends State<MyTextForm> {
         Radius.circular(38.0),
       ),
       borderSide: BorderSide(
-        color: redVizeo,
+        color: ColorVizeo.redVizeo,
       ),
     );
   }
