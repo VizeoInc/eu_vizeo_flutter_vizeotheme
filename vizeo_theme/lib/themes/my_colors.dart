@@ -25,6 +25,7 @@ class ColorVizeo {
   static const Color redVizeoSoft = Color(0xFFF16066);
   static const Color secondaryButton = Color(0xFF273464);
   static const Color secondaryButtonSoft = Color(0xFF374475);
+  static const Color tertiaryButtonHovered = Color(0xFFF24C52);
   static const Color textOnRedVizeo = Color(0xFFECEFFF);
 
   static const Color accentDark = Color(0xFF666B84);

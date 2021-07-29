@@ -23,7 +23,7 @@ class MyText extends SelectableText {
             fontSize: fontSize,
             fontStyle: fontStyle,
             height: height,
-            fontFamily: "DIN2014",
+            fontFamily: myFontFamily,
             shadows: [
               Shadow(
                 color: colorShadow,

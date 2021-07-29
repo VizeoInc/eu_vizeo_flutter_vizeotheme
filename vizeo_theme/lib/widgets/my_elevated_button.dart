@@ -30,6 +30,7 @@ class MyElevatedButton extends StatefulWidget {
   late FontWeight myFontWeight;
   bool isEnable = true;
   FocusNode? focus;
+  late bool isDark;
 
   MyElevatedButton.typePrimary({
     required this.myTitle,
@@ -71,7 +72,7 @@ class MyElevatedButton extends StatefulWidget {
     required this.myTitle,
     required this.onPressedFunc,
     this.myBackgroundColor = Colors.transparent,
-    this.myHoveredColor = ColorVizeo.secondaryButtonSoft,
+    this.myHoveredColor = ColorVizeo.transparent,
     this.myTextColor = ColorVizeo.redVizeo,
     this.myPadding = EdgeInsets.zero,
     this.myIconPadding = const EdgeInsets.only(left: 8),
@@ -202,6 +203,8 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
 
   @override
   Widget build(BuildContext context) {
+    widget.isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     return _button = ElevatedButton(
       onPressed: widget.onPressedFunc,
 

@@ -78,6 +78,7 @@ class _MyTextForm extends State<MyTextForm> {
   @override
   void initState() {
     super.initState();
+
     // change value has focus when user click on TextField
     widget.focus?.addListener(() {
       if (widget.focus!.hasFocus) {
@@ -95,9 +96,12 @@ class _MyTextForm extends State<MyTextForm> {
 
   @override
   Widget build(BuildContext context) {
+    final bool isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+
     _myField = TextFormField(
       autocorrect: false,
-      style: const TextStyle(color: ColorVizeo.textPrimaryDark, fontWeight: FontWeight.w400),
+      style: TextStyle(
+          color: isDark ? ColorVizeo.textPrimaryDark : ColorVizeo.textPrimaryLight, fontWeight: FontWeight.w400, fontFamily: myFontFamily),
       obscureText: widget._isPassword,
       textInputAction: widget.textInputAction,
       onFieldSubmitted: widget.onFieldSubmitted,
@@ -107,7 +111,7 @@ class _MyTextForm extends State<MyTextForm> {
       validator: widget.validator,
       decoration: InputDecoration(
           hintText: widget.myHint,
-          hintStyle: const TextStyle(color: ColorVizeo.textTertiaryDark),
+          hintStyle: TextStyle(color: isDark ? ColorVizeo.textTertiaryDark : ColorVizeo.textTertiaryLight, fontFamily: myFontFamily),
           enabledBorder: inputBorderNormal(),
           focusedBorder: inputBorderFocused(),
           errorBorder: inputBorderErrorBorder(),
@@ -124,12 +128,17 @@ class _MyTextForm extends State<MyTextForm> {
               Radius.circular(38.0),
             ),
           ),
-          color: hasFocus ? ColorVizeo.backgroundTertiaryDark : ColorVizeo.backgroundSecondaryDark,
+          color: isDark
+              ? (hasFocus ? ColorVizeo.backgroundTertiaryDark : ColorVizeo.backgroundSecondaryDark)
+              : (hasFocus ? ColorVizeo.backgroundTertiaryLight : ColorVizeo.backgroundSecondaryLight),
         ),
         child: Stack(
           alignment: Alignment.centerRight,
           children: [
-            _myField,
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
+              child: _myField,
+            ),
           ],
         ));
   }
