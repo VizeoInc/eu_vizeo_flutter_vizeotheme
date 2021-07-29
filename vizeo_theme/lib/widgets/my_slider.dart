@@ -4,6 +4,7 @@ class MySlider extends StatefulWidget {
   MySlider({
     required this.value,
     required this.onChanged,
+    this.width,
     this.min = 0,
     this.max = 100,
     this.backColor = redVizeo,
@@ -12,6 +13,7 @@ class MySlider extends StatefulWidget {
 
   late double value;
   late Function(double) onChanged;
+  late double? width;
   late double min;
   late double max;
   late Color backColor;
@@ -24,18 +26,21 @@ class MySlider extends StatefulWidget {
 class _MySlider extends State<MySlider> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoSlider(
-      value: widget.value.toDouble(),
-      min: widget.min,
-      max: widget.max,
-      activeColor: widget.backColor,
-      thumbColor: widget.cursorColor,
-      onChanged: (double newValue) {
-        setState(() {
-          widget.value = newValue.round() as double;
-          widget.onChanged(widget.value);
-        });
-      },
+    return Container(
+      width: (widget.width != null) ? widget.width : null,
+      child: CupertinoSlider(
+        value: widget.value.toDouble(),
+        min: widget.min,
+        max: widget.max,
+        activeColor: widget.backColor,
+        thumbColor: widget.cursorColor,
+        onChanged: (double newValue) {
+          setState(() {
+            widget.value = newValue.round() as double;
+            widget.onChanged(widget.value);
+          });
+        },
+      ),
     );
   }
 }

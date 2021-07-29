@@ -4,28 +4,28 @@ part of '../vizeo_theme.dart';
 
 class MyTextForm extends StatefulWidget {
   MyTextForm({
-    required this.focus,
     required this.controller,
     this.myKeyboardType = TextInputType.text,
     this.validator,
     String? myHint,
+    this.focus,
     Key? key,
   }) : super(key: key) {
     this.myHint = myHint!;
   }
 
-  late FocusNode focus;
   late TextEditingController controller;
   late TextInputType myKeyboardType;
   late String? Function(String?)? validator;
   late String myHint;
+  late FocusNode? focus;
   late bool _isMail = false;
   late bool _isPassword = false;
   late bool _isTel = false;
 
   MyTextForm.typeMail({
-    required this.focus,
     this.myHint = "Mail",
+    this.focus,
     Key? key,
   }) : super(key: key) {
     myKeyboardType = TextInputType.emailAddress;
@@ -33,8 +33,8 @@ class MyTextForm extends StatefulWidget {
   }
 
   MyTextForm.typePassword({
-    required this.focus,
     this.myHint = "Password",
+    this.focus,
     Key? key,
   }) : super(key: key) {
     myKeyboardType = TextInputType.text;
@@ -42,8 +42,8 @@ class MyTextForm extends StatefulWidget {
   }
 
   MyTextForm.typeTelNumber({
-    required this.focus,
     this.myHint = "Téléphone",
+    this.focus,
     Key? key,
   }) : super(key: key) {
     myKeyboardType = TextInputType.phone;
@@ -63,8 +63,8 @@ class _MyTextForm extends State<MyTextForm> {
   void initState() {
     super.initState();
     // change value has focus when user click on TextField
-    widget.focus.addListener(() {
-      if (widget.focus.hasFocus) {
+    widget.focus?.addListener(() {
+      if (widget.focus!.hasFocus) {
         hasFocus = true;
       } else {
         hasFocus = false;
