@@ -1,6 +1,5 @@
 part of '../vizeo_theme.dart';
 
-
 const redVizeo = Color(0xFFF24C52);
 const redVizeoSoft = Color(0xFFF16066);
 const secondaryButton = Color(0xFF273464);
@@ -31,6 +30,7 @@ const redNegativeWarning = Color(0xFFCE464B);
 const greenValidate = Color(0xFF2CA099);
 
 const transparent = Colors.transparent;
+const white = Colors.white;
 
 MaterialColor createMaterialColor(Color color) {
   final strengths = [.05];
