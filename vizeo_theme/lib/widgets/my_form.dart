@@ -4,31 +4,29 @@ part of '../vizeo_theme.dart';
 
 class MyTextForm extends StatefulWidget {
   MyTextForm({
-    required this.controller,
+    this.controller,
     this.textInputAction,
     this.onFieldSubmitted,
     this.myKeyboardType = TextInputType.text,
     this.validator,
-    String? myHint,
+    this.myHint,
     this.focus,
     Key? key,
-  }) : super(key: key) {
-    this.myHint = myHint!;
-  }
+  }) : super(key: key) {}
 
-  late TextEditingController controller;
+  late TextEditingController? controller;
   late TextInputAction? textInputAction;
   late void Function(String)? onFieldSubmitted;
   late TextInputType myKeyboardType;
   late String? Function(String?)? validator;
-  late String myHint;
+  late String? myHint;
   late FocusNode? focus;
   late bool _isMail = false;
   late bool _isPassword = false;
   late bool _isTel = false;
 
   MyTextForm.typeMail({
-    required this.controller,
+    this.controller,
     this.textInputAction,
     this.onFieldSubmitted,
     this.myKeyboardType = TextInputType.emailAddress,
@@ -41,7 +39,7 @@ class MyTextForm extends StatefulWidget {
   }
 
   MyTextForm.typePassword({
-    required this.controller,
+    this.controller,
     this.textInputAction,
     this.onFieldSubmitted,
     this.myKeyboardType = TextInputType.text,
@@ -54,7 +52,7 @@ class MyTextForm extends StatefulWidget {
   }
 
   MyTextForm.typeTelNumber({
-    required this.controller,
+    this.controller,
     this.textInputAction,
     this.onFieldSubmitted,
     this.myKeyboardType = TextInputType.phone,
@@ -96,12 +94,9 @@ class _MyTextForm extends State<MyTextForm> {
 
   @override
   Widget build(BuildContext context) {
-    final bool isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-
     _myField = TextFormField(
       autocorrect: false,
-      style: TextStyle(
-          color: isDark ? ColorVizeo.textPrimaryDark : ColorVizeo.textPrimaryLight, fontWeight: FontWeight.w400, fontFamily: myFontFamily),
+      style: Theme.of(context).textTheme.bodyText1,
       obscureText: widget._isPassword,
       textInputAction: widget.textInputAction,
       onFieldSubmitted: widget.onFieldSubmitted,
@@ -111,7 +106,7 @@ class _MyTextForm extends State<MyTextForm> {
       validator: widget.validator,
       decoration: InputDecoration(
           hintText: widget.myHint,
-          hintStyle: TextStyle(color: isDark ? ColorVizeo.textTertiaryDark : ColorVizeo.textTertiaryLight, fontFamily: myFontFamily),
+          hintStyle: TextStyle(color: Theme.of(context).hintColor, fontFamily: myFontFamily, fontSize: 18),
           enabledBorder: inputBorderNormal(),
           focusedBorder: inputBorderFocused(),
           errorBorder: inputBorderErrorBorder(),
@@ -128,17 +123,12 @@ class _MyTextForm extends State<MyTextForm> {
               Radius.circular(38.0),
             ),
           ),
-          color: isDark
-              ? (hasFocus ? ColorVizeo.backgroundTertiaryDark : ColorVizeo.backgroundSecondaryDark)
-              : (hasFocus ? ColorVizeo.backgroundTertiaryLight : ColorVizeo.backgroundSecondaryLight),
+          color: hasFocus ? Theme.of(context).focusColor : Theme.of(context).buttonColor,
         ),
         child: Stack(
           alignment: Alignment.centerRight,
           children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 20),
-              child: _myField,
-            ),
+            _myField,
           ],
         ));
   }

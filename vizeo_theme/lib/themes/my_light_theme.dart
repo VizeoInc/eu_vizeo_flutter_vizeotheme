@@ -7,27 +7,31 @@ ThemeData themeLight(BuildContext context) {
       color: Colors.green,
     ),
     bodyText2: typo.black.bodyText2?.copyWith(
-      color: Colors.yellow,
+      color: ColorVizeo.textPrimaryLight,
+      fontWeight: FontWeight.w400,
+      fontFamily: myFontFamily,
+      fontSize: 18,
     ),
     bodyText1: typo.black.bodyText1?.copyWith(
-      color: Colors.blue,
+      color: ColorVizeo.textPrimaryLight,
+      fontWeight: FontWeight.w400,
+      fontFamily: myFontFamily,
+      fontSize: 18,
     ),
   );
 
   return ThemeData(
-    //primarySwatch: themeColor,
-    primaryColorBrightness: Brightness.light,
     brightness: Brightness.light,
+    backgroundColor: ColorVizeo.backgroundPrimaryLight,
+    focusColor: ColorVizeo.backgroundTertiaryLight,
+    buttonColor: ColorVizeo.backgroundSecondaryLight,
+    primaryColorBrightness: Brightness.light,
     accentColorBrightness: Brightness.light,
     scaffoldBackgroundColor: ColorVizeo.backgroundPrimaryLight,
     fontFamily: myFontFamily,
-
-    ///splashColor: backgroundTertiaryDark.withAlpha(40),
     disabledColor: ColorVizeo.transparent,
     hintColor: ColorVizeo.textTertiaryLight,
     cardColor: ColorVizeo.backgroundSecondaryLight,
-
-    ///textTheme: textTheme,
     colorScheme: const ColorScheme(
       ///primary variant temporaire, secondaire background inverse
       primary: ColorVizeo.redVizeo,

@@ -4,7 +4,7 @@ class MyText extends SelectableText {
   MyText({
     required String data,
     double height: 1,
-    Color color: Colors.black,
+    Color? color,
     Color colorShadow: Colors.transparent,
     double fontSize: 18.0,
     FontStyle fontStyle: FontStyle.normal,
@@ -18,7 +18,7 @@ class MyText extends SelectableText {
           textScaleFactor: textScaleFactor,
           maxLines: maxLines,
           style: TextStyle(
-            color: color,
+            color: color == null ? ThemeData.fallback().textTheme.bodyText1!.color : color,
             fontWeight: bold ? FontWeight.bold : FontWeight.w400,
             fontSize: fontSize,
             fontStyle: fontStyle,

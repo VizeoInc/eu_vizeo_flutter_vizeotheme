@@ -2,11 +2,29 @@ part of '../vizeo_theme.dart';
 
 ThemeData themeDark(BuildContext context) {
   final typo = Typography.material2018(platform: Theme.of(context).platform);
-  final textTheme = typo.white;
+  final textTheme = typo.black.copyWith(
+    headline6: typo.black.headline6?.copyWith(
+      color: Colors.green,
+    ),
+    bodyText2: typo.black.bodyText2?.copyWith(
+      color: ColorVizeo.textPrimaryDark,
+      fontWeight: FontWeight.w400,
+      fontFamily: myFontFamily,
+      fontSize: 18,
+    ),
+    bodyText1: typo.black.bodyText1?.copyWith(
+      color: ColorVizeo.textPrimaryDark,
+      fontWeight: FontWeight.w400,
+      fontFamily: myFontFamily,
+      fontSize: 18,
+    ),
+  );
 
   return ThemeData(
       brightness: Brightness.dark,
       backgroundColor: ColorVizeo.backgroundPrimaryDark,
+      focusColor: ColorVizeo.backgroundTertiaryDark,
+      buttonColor: ColorVizeo.backgroundSecondaryDark,
       fontFamily: myFontFamily,
       accentColor: ColorVizeo.accentDark,
       primaryColorBrightness: Brightness.dark,
