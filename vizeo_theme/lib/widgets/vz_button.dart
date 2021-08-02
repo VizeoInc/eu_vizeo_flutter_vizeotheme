@@ -1,43 +1,43 @@
 part of '../vizeo_theme.dart';
 
-class MyElevatedButton extends StatefulWidget {
-  MyElevatedButton({
+class VzButton extends StatefulWidget {
+  late final String myTitle, myFont;
+  late final VoidCallback? onPressedFunc;
+  late final Color myBackgroundColor, myHoveredColor, myTextColor;
+  late final double myRadius;
+  late final EdgeInsets myPadding;
+  late final EdgeInsets myIconPadding;
+  final Widget? myRightChild, myLeftChild;
+  late final double myFontSize;
+  late final FontWeight myFontWeight;
+  late final bool isEnable;
+  final FocusNode? focus;
+  late final bool isDark;
+
+  // VzButton({
+  //   required this.myTitle,
+  //   required this.onPressedFunc,
+  //   this.myTextColor = VzColor.textPrimaryLight,
+  //   this.myBackgroundColor = VzColor.redVizeo,
+  //   this.myHoveredColor = VzColor.redVizeo,
+  //   this.myRadius = 55.0,
+  //   this.myPadding = const EdgeInsets.all(8.0),
+  //   this.myIconPadding = const EdgeInsets.all(8.0),
+  //   this.myRightChild,
+  //   this.myLeftChild,
+  //   this.myFontSize = 15,
+  //   this.myFontWeight = FontWeight.normal,
+  //   this.myFont = myFontFamily,
+  //   this.isEnable = true,
+  //   this.focus,
+  // });
+
+  VzButton.typePrimary({
     required this.myTitle,
     required this.onPressedFunc,
-    this.myTextColor = ColorVizeo.textPrimaryLight,
-    this.myBackgroundColor = ColorVizeo.redVizeo,
-    this.myHoveredColor = ColorVizeo.redVizeo,
-    this.myRadius = 55.0,
-    this.myPadding = const EdgeInsets.all(8.0),
-    this.myIconPadding = const EdgeInsets.all(8.0),
-    this.myRightChild,
-    this.myLeftChild,
-    this.myFontSize = 15,
-    this.myFontWeight = FontWeight.normal,
-    this.myFont = myFontFamily,
-    this.isEnable = true,
-    this.focus,
-  });
-
-  late String myTitle, myFont;
-  late VoidCallback? onPressedFunc;
-  late Color myBackgroundColor, myHoveredColor, myTextColor;
-  late double myRadius;
-  late EdgeInsets myPadding;
-  late EdgeInsets myIconPadding;
-  Widget? myRightChild, myLeftChild;
-  late double myFontSize;
-  late FontWeight myFontWeight;
-  bool isEnable = true;
-  FocusNode? focus;
-  late bool isDark;
-
-  MyElevatedButton.typePrimary({
-    required this.myTitle,
-    required this.onPressedFunc,
-    this.myBackgroundColor = ColorVizeo.redVizeo,
-    this.myHoveredColor = ColorVizeo.redVizeoSoft,
-    this.myTextColor = ColorVizeo.textOnRedVizeo,
+    this.myBackgroundColor = VzColor.redVizeo,
+    this.myHoveredColor = VzColor.redVizeoSoft,
+    this.myTextColor = VzColor.textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myLeftChild,
@@ -50,12 +50,12 @@ class MyElevatedButton extends StatefulWidget {
     this.focus,
   });
 
-  MyElevatedButton.typeSecondary({
+  VzButton.typeSecondary({
     required this.myTitle,
     required this.onPressedFunc,
-    this.myBackgroundColor = ColorVizeo.secondaryButton,
-    this.myHoveredColor = ColorVizeo.secondaryButtonSoft,
-    this.myTextColor = ColorVizeo.textOnRedVizeo,
+    this.myBackgroundColor = VzColor.secondaryButton,
+    this.myHoveredColor = VzColor.secondaryButtonSoft,
+    this.myTextColor = VzColor.textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myRadius = 55.0,
@@ -68,12 +68,12 @@ class MyElevatedButton extends StatefulWidget {
     this.focus,
   });
 
-  MyElevatedButton.typeTertiary({
+  VzButton.typeTertiary({
     required this.myTitle,
     required this.onPressedFunc,
     this.myBackgroundColor = Colors.transparent,
-    this.myHoveredColor = ColorVizeo.transparent,
-    this.myTextColor = ColorVizeo.redVizeo,
+    this.myHoveredColor = VzColor.transparent,
+    this.myTextColor = VzColor.redVizeo,
     this.myPadding = EdgeInsets.zero,
     this.myIconPadding = const EdgeInsets.only(left: 8),
     this.myRadius = 5.0,
@@ -86,12 +86,12 @@ class MyElevatedButton extends StatefulWidget {
     this.focus,
   });
 
-  MyElevatedButton.typeSmall({
+  VzButton.typeSmall({
     required this.myTitle,
     required this.onPressedFunc,
-    this.myBackgroundColor = ColorVizeo.secondaryButton,
-    this.myHoveredColor = ColorVizeo.secondaryButtonSoft,
-    this.myTextColor = ColorVizeo.textOnRedVizeo,
+    this.myBackgroundColor = VzColor.secondaryButton,
+    this.myHoveredColor = VzColor.secondaryButtonSoft,
+    this.myTextColor = VzColor.textOnRedVizeo,
     this.myPadding = const EdgeInsets.symmetric(horizontal: 8),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myRadius = 55.0,
@@ -105,12 +105,12 @@ class MyElevatedButton extends StatefulWidget {
   });
 
   @override
-  _MyElevatedButtonState createState() => _MyElevatedButtonState();
+  _VzButtonState createState() => _VzButtonState();
 
   ElevatedButton getMyButton() => getMyButton();
 }
 
-class _MyElevatedButtonState extends State<MyElevatedButton> {
+class _VzButtonState extends State<VzButton> {
   bool hasFocus = false;
   late ElevatedButton _button;
 
@@ -155,14 +155,19 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
 
   ButtonStyle myStyleConfig() {
     return ButtonStyle(
-      backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-        return widget.isEnable ? widget.myBackgroundColor : ColorVizeo.secondaryButton.withOpacity(0.3);
+      backgroundColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        return widget.isEnable
+            ? widget.myBackgroundColor
+            : VzColor.secondaryButton.withOpacity(0.3);
       }),
 
       ///-----Shadow du bouton
-      shape:
-          MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(widget.myRadius))),
-      shadowColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(widget.myRadius))),
+      shadowColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return Colors.transparent;
       }),
 
@@ -179,7 +184,9 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
       /// style du fond suivant les etats
       overlayColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.pressed)) {
-          return widget.isEnable ? widget.myBackgroundColor : Colors.transparent;
+          return widget.isEnable
+              ? widget.myBackgroundColor
+              : Colors.transparent;
         }
         if (states.contains(MaterialState.focused)) {
           return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
@@ -193,7 +200,9 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
       /// style du text suivant les etats
       textStyle: MaterialStateProperty.resolveWith((states) {
         return TextStyle(
-            color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
+            color: widget.isEnable
+                ? widget.myTextColor
+                : widget.myTextColor.withOpacity(0.3),
             fontSize: widget.myFontSize,
             fontWeight: widget.myFontWeight,
             fontFamily: myFontFamily);
@@ -203,7 +212,8 @@ class _MyElevatedButtonState extends State<MyElevatedButton> {
 
   @override
   Widget build(BuildContext context) {
-    widget.isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    widget.isDark =
+        MediaQuery.of(context).platformBrightness == Brightness.dark;
 
     return _button = ElevatedButton(
       onPressed: widget.onPressedFunc,

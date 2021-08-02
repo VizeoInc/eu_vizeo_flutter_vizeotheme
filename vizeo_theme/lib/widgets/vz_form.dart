@@ -2,8 +2,8 @@ part of '../vizeo_theme.dart';
 
 //TODO validator, completer comportement de typePassword, definir une taille, textinputaction, onfieldsubmited
 
-class MyTextForm extends StatefulWidget {
-  MyTextForm({
+class VzTextForm extends StatefulWidget {
+  VzTextForm({
     this.controller,
     this.textInputAction,
     this.onFieldSubmitted,
@@ -25,7 +25,7 @@ class MyTextForm extends StatefulWidget {
   late bool _isPassword = false;
   late bool _isTel = false;
 
-  MyTextForm.typeMail({
+  VzTextForm.typeMail({
     this.controller,
     this.textInputAction,
     this.onFieldSubmitted,
@@ -38,7 +38,7 @@ class MyTextForm extends StatefulWidget {
     _isMail = true;
   }
 
-  MyTextForm.typePassword({
+  VzTextForm.typePassword({
     this.controller,
     this.textInputAction,
     this.onFieldSubmitted,
@@ -51,7 +51,7 @@ class MyTextForm extends StatefulWidget {
     _isPassword = true;
   }
 
-  MyTextForm.typeTelNumber({
+  VzTextForm.typeTelNumber({
     this.controller,
     this.textInputAction,
     this.onFieldSubmitted,
@@ -69,7 +69,7 @@ class MyTextForm extends StatefulWidget {
   TextFormField getMyField() => getMyField();
 }
 
-class _MyTextForm extends State<MyTextForm> {
+class _MyTextForm extends State<VzTextForm> {
   late TextFormField _myField;
   bool hasFocus = false;
 
@@ -106,13 +106,17 @@ class _MyTextForm extends State<MyTextForm> {
       validator: widget.validator,
       decoration: InputDecoration(
           hintText: widget.myHint,
-          hintStyle: TextStyle(color: Theme.of(context).hintColor, fontFamily: myFontFamily, fontSize: 18),
+          hintStyle: TextStyle(
+            color: Theme.of(context).hintColor,
+            fontFamily: myFontFamily,
+            fontSize: 18,
+          ),
           enabledBorder: inputBorderNormal(),
           focusedBorder: inputBorderFocused(),
           errorBorder: inputBorderErrorBorder(),
           disabledBorder: inputBorderDisabledBorder(),
           focusedErrorBorder: inputBorderFocusedErrorBorder(),
-          errorStyle: const TextStyle(color: ColorVizeo.redVizeo)),
+          errorStyle: const TextStyle(color: VzColor.redVizeo)),
     );
 
     return AnimatedContainer(
@@ -123,7 +127,9 @@ class _MyTextForm extends State<MyTextForm> {
               Radius.circular(38.0),
             ),
           ),
-          color: hasFocus ? Theme.of(context).focusColor : Theme.of(context).buttonColor,
+          color: hasFocus
+              ? Theme.of(context).focusColor
+              : Theme.of(context).buttonColor,
         ),
         child: Stack(
           alignment: Alignment.centerRight,
@@ -161,7 +167,7 @@ class _MyTextForm extends State<MyTextForm> {
         Radius.circular(38.0),
       ),
       borderSide: BorderSide(
-        color: ColorVizeo.redVizeo,
+        color: VzColor.redVizeo,
       ),
     );
   }
@@ -184,7 +190,7 @@ class _MyTextForm extends State<MyTextForm> {
         Radius.circular(38.0),
       ),
       borderSide: BorderSide(
-        color: ColorVizeo.redVizeo,
+        color: VzColor.redVizeo,
       ),
     );
   }

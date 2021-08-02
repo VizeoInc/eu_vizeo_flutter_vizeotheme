@@ -1,15 +1,15 @@
 part of '../vizeo_theme.dart';
 
-class MySlider extends StatefulWidget {
-  MySlider({
+class VzSlider extends StatefulWidget {
+  VzSlider({
     required this.value,
     required this.onChanged,
     this.width,
     this.min = 0,
     this.max = 100,
     this.division,
-    this.backColor = ColorVizeo.redVizeo,
-    this.cursorColor = ColorVizeo.white,
+    this.backColor = VzColor.redVizeo,
+    this.cursorColor = VzColor.white,
   });
 
   late double value;
@@ -27,7 +27,7 @@ class MySlider extends StatefulWidget {
   CupertinoSlider getMySlider() => getMySlider();
 }
 
-class _MySlider extends State<MySlider> {
+class _MySlider extends State<VzSlider> {
   late CupertinoSlider _slide;
 
   CupertinoSlider getMySlider() {

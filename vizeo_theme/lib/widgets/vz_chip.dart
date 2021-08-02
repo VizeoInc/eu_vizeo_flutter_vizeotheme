@@ -1,7 +1,7 @@
 part of '../vizeo_theme.dart';
 
-class MyChip extends StatefulWidget {
-  MyChip({
+class VzChip extends StatefulWidget {
+  VzChip({
     required this.myLabel,
     this.focus,
     this.height = 30.0,
@@ -21,7 +21,7 @@ class MyChip extends StatefulWidget {
   InkWell getMyChip() => getMyChip();
 }
 
-class _MyChip extends State<MyChip> {
+class _MyChip extends State<VzChip> {
   bool hasFocus = false;
   bool isSelected = false;
   bool isEntered = false;
@@ -47,9 +47,9 @@ class _MyChip extends State<MyChip> {
   @override
   Widget build(BuildContext context) {
     final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    final enableColor = isDark ? ColorVizeo.accentDark.withOpacity(0.2) : ColorVizeo.accentLight.withOpacity(0.2);
-    final hoverColor = isDark ? ColorVizeo.accentDark.withOpacity(0.4) : ColorVizeo.accentLight.withOpacity(0.4);
-    final pressedColor = isDark ? ColorVizeo.accentDark : ColorVizeo.accentLight;
+    final enableColor = isDark ? VzColor.accentDark.withOpacity(0.2) : VzColor.accentLight.withOpacity(0.2);
+    final hoverColor = isDark ? VzColor.accentDark.withOpacity(0.4) : VzColor.accentLight.withOpacity(0.4);
+    final pressedColor = isDark ? VzColor.accentDark : VzColor.accentLight;
 
     _chip = InkWell(
       highlightColor: pressedColor,
@@ -80,7 +80,7 @@ class _MyChip extends State<MyChip> {
   }
 
   Color? _colorText() {
-    return isSelected ? ColorVizeo.textPrimaryLight : null;
+    return isSelected ? VzColor.textPrimaryLight : null;
   }
 
   BoxBorder chipFocused() {

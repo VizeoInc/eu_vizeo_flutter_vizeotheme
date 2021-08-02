@@ -1,7 +1,7 @@
 part of '../vizeo_theme.dart';
 
-class MySwitch extends StatefulWidget {
-  MySwitch({
+class VzSwitch extends StatefulWidget {
+  VzSwitch({
     required this.value,
     required this.onChanged,
   });
@@ -15,7 +15,7 @@ class MySwitch extends StatefulWidget {
   CupertinoSwitch getMySwitch() => getMySwitch();
 }
 
-class _MySwitch extends State<MySwitch> {
+class _MySwitch extends State<VzSwitch> {
   late CupertinoSwitch _switch;
 
   CupertinoSwitch getMySwitch() {
@@ -26,8 +26,8 @@ class _MySwitch extends State<MySwitch> {
   Widget build(BuildContext context) {
     return _switch = CupertinoSwitch(
         value: widget.value,
-        trackColor: ColorVizeo.redNegativeWarning,
-        activeColor: ColorVizeo.greenValidate,
+        trackColor: VzColor.redNegativeWarning,
+        activeColor: VzColor.greenValidate,
         onChanged: (bool value) {
           setState(() {
             widget.value = !widget.value;

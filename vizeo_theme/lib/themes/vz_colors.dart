@@ -20,7 +20,7 @@ MaterialColor createMaterialColor(Color color) {
   return MaterialColor(color.value, swatch);
 }
 
-class ColorVizeo {
+class VzColor {
   static const Color redVizeo = Color(0xFFF24C52);
   static const Color redVizeoSoft = Color(0xFFF16066);
   static const Color secondaryButton = Color(0xFF273464);
