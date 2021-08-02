@@ -1,4 +1,4 @@
-part of '../vizeo_theme.dart';
+part of '../vizeo_theme.dart'; 
 
 class VzButton extends StatefulWidget {
   late final String myTitle, myFont;
@@ -12,25 +12,6 @@ class VzButton extends StatefulWidget {
   late final FontWeight myFontWeight;
   late final bool isEnable;
   final FocusNode? focus;
-  late final bool isDark;
-
-  // VzButton({
-  //   required this.myTitle,
-  //   required this.onPressedFunc,
-  //   this.myTextColor = VzColor.textPrimaryLight,
-  //   this.myBackgroundColor = VzColor.redVizeo,
-  //   this.myHoveredColor = VzColor.redVizeo,
-  //   this.myRadius = 55.0,
-  //   this.myPadding = const EdgeInsets.all(8.0),
-  //   this.myIconPadding = const EdgeInsets.all(8.0),
-  //   this.myRightChild,
-  //   this.myLeftChild,
-  //   this.myFontSize = 15,
-  //   this.myFontWeight = FontWeight.normal,
-  //   this.myFont = myFontFamily,
-  //   this.isEnable = true,
-  //   this.focus,
-  // });
 
   VzButton.typePrimary({
     required this.myTitle,
@@ -212,9 +193,6 @@ class _VzButtonState extends State<VzButton> {
 
   @override
   Widget build(BuildContext context) {
-    widget.isDark =
-        MediaQuery.of(context).platformBrightness == Brightness.dark;
-
     return _button = ElevatedButton(
       onPressed: widget.onPressedFunc,
 
