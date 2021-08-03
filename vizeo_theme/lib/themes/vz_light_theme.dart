@@ -28,6 +28,7 @@ ThemeData vzThemeLight(BuildContext context) {
       onBackground: VzColor.textPrimaryLight,
       onError: VzColor.textOnRedVizeo,
       brightness: Brightness.light,
+
     ),
     appBarTheme: const AppBarTheme(
       brightness: Brightness.light,
@@ -50,6 +51,18 @@ ThemeData vzThemeLight(BuildContext context) {
       bodyText2: TextStyle(
         fontFamily: myFontFamily,
         color: VzColor.textPrimaryLight,
+        fontStyle: FontStyle.normal,
+      ),
+      // is for secondary button
+      headline6: TextStyle(
+        fontFamily: myFontFamily,
+        color: VzColor.textSecondaryLight,
+        fontStyle: FontStyle.normal,
+      ),
+      // is for terciary button
+      headline5: TextStyle(
+        fontFamily: myFontFamily,
+        color: VzColor.textTertiaryLight,
         fontStyle: FontStyle.normal,
       ),
     ),

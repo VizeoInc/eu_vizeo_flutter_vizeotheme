@@ -1,4 +1,4 @@
-part of '../vizeo_theme.dart'; 
+part of '../vizeo_theme.dart';
 
 class VzButton extends StatefulWidget {
   late final String myTitle, myFont;
@@ -12,6 +12,24 @@ class VzButton extends StatefulWidget {
   late final FontWeight myFontWeight;
   late final bool isEnable;
   final FocusNode? focus;
+
+  // VzButton({
+  //   required this.myTitle,
+  //   required this.onPressedFunc,
+  //   this.myTextColor = VzColor.textPrimaryLight,
+  //   this.myBackgroundColor = VzColor.redVizeo,
+  //   this.myHoveredColor = VzColor.redVizeo,
+  //   this.myRadius = 55.0,
+  //   this.myPadding = const EdgeInsets.all(8.0),
+  //   this.myIconPadding = const EdgeInsets.all(8.0),
+  //   this.myRightChild,
+  //   this.myLeftChild,
+  //   this.myFontSize = 15,
+  //   this.myFontWeight = FontWeight.normal,
+  //   this.myFont = myFontFamily,
+  //   this.isEnable = true,
+  //   this.focus,
+  // });
 
   VzButton.typePrimary({
     required this.myTitle,

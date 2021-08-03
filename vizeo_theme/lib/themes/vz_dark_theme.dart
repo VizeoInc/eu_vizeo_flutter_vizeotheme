@@ -51,6 +51,18 @@ ThemeData vzThemeDark(BuildContext context) {
         color: VzColor.textPrimaryDark,
         fontStyle: FontStyle.normal,
       ),
+      // is for secondary button
+      headline6: TextStyle(
+        fontFamily: myFontFamily,
+        color: VzColor.textSecondaryDark,
+        fontStyle: FontStyle.normal,
+      ),
+      // is for terciary button
+      headline5: TextStyle(
+        fontFamily: myFontFamily,
+        color: VzColor.textTertiaryDark,
+        fontStyle: FontStyle.normal,
+      ),
     ),
   );
 }

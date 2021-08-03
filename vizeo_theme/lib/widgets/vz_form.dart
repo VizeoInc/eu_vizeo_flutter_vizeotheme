@@ -12,7 +12,7 @@ class VzTextForm extends StatefulWidget {
     this.myHint,
     this.focus,
     Key? key,
-  }) : super(key: key) {}
+  }) : super(key: key);
 
   late TextEditingController? controller;
   late TextInputAction? textInputAction;
