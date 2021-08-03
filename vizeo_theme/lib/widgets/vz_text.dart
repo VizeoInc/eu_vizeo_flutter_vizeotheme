@@ -12,53 +12,54 @@ class VzText extends StatefulWidget {
   final TextAlign align;
   final double textScaleFactor;
   final int maxLines;
+  final Color? color;
   late final VzTextType _vzTextType;
 
-  VzText.typePrimary({
-    required this.data,
-    this.height = 1,
-    this.colorShadow = VzColor.transparent,
-    this.offset = const Offset(1, 1),
-    this.blurRadius = 0.0,
-    this.fontSize = 24.0,
-    this.fontStyle = FontStyle.normal,
-    this.fontWeight = FontWeight.w800,
-    this.align = TextAlign.left,
-    this.textScaleFactor = 1,
-    this.maxLines = 1,
-  }) {
+  VzText.typePrimary(
+      {required this.data,
+      this.height = 1,
+      this.colorShadow = VzColor.transparent,
+      this.offset = const Offset(1, 1),
+      this.blurRadius = 0.0,
+      this.fontSize = 24.0,
+      this.fontStyle = FontStyle.normal,
+      this.fontWeight = FontWeight.w800,
+      this.align = TextAlign.left,
+      this.textScaleFactor = 1,
+      this.maxLines = 1,
+      this.color = null}) {
     _vzTextType = VzTextType.typePrimary;
   }
 
-  VzText.typeSecondary({
-    required this.data,
-    this.height = 1,
-    this.colorShadow = VzColor.transparent,
-    this.offset = const Offset(1, 1),
-    this.blurRadius = 0.0,
-    this.fontSize = 18.0,
-    this.fontStyle = FontStyle.normal,
-    this.fontWeight = FontWeight.w700,
-    this.align = TextAlign.left,
-    this.textScaleFactor = 1,
-    this.maxLines = 1,
-  }) {
+  VzText.typeSecondary(
+      {required this.data,
+      this.height = 1,
+      this.colorShadow = VzColor.transparent,
+      this.offset = const Offset(1, 1),
+      this.blurRadius = 0.0,
+      this.fontSize = 18.0,
+      this.fontStyle = FontStyle.normal,
+      this.fontWeight = FontWeight.w700,
+      this.align = TextAlign.left,
+      this.textScaleFactor = 1,
+      this.maxLines = 1,
+      this.color = null}) {
     _vzTextType = VzTextType.typeSecondary;
   }
 
-  VzText.typeTertiary({
-    required this.data,
-    this.height = 1,
-    this.colorShadow = VzColor.transparent,
-    this.offset = const Offset(1, 1),
-    this.blurRadius = 0.0,
-    this.fontSize = 16.0,
-    this.fontStyle = FontStyle.normal,
-    this.fontWeight = FontWeight.w400,
-    this.align = TextAlign.left,
-    this.textScaleFactor = 1,
-    this.maxLines = 1,
-  }) {
+  VzText.typeTertiary(
+      {required this.data,
+      this.height = 1,
+      this.colorShadow = VzColor.transparent,
+      this.offset = const Offset(1, 1),
+      this.blurRadius = 0.0,
+      this.fontSize = 16.0,
+      this.fontStyle = FontStyle.normal,
+      this.fontWeight = FontWeight.w400,
+      this.align = TextAlign.left,
+      this.textScaleFactor = 1,
+      this.maxLines = 1,
+      this.color = null}) {
     _vzTextType = VzTextType.typeTertiary;
   }
 
@@ -75,7 +76,9 @@ class _VzTextState extends State<VzText> {
       textScaleFactor: widget.textScaleFactor,
       maxLines: widget.maxLines,
       style: TextStyle(
-        color: ColorUtils.colorStyle(context, widget._vzTextType),
+        color: widget.color != null
+            ? widget.color
+            : ColorUtils.colorStyle(context, widget._vzTextType),
         fontWeight: widget.fontWeight,
         fontSize: widget.fontSize,
         fontStyle: widget.fontStyle,
