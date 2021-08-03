@@ -116,6 +116,7 @@ class _MyTextForm extends State<VzTextForm> {
           errorBorder: inputBorderErrorBorder(),
           disabledBorder: inputBorderDisabledBorder(),
           focusedErrorBorder: inputBorderFocusedErrorBorder(),
+          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
           errorStyle: const TextStyle(color: VzColor.redVizeo)),
     );
 
@@ -127,9 +128,7 @@ class _MyTextForm extends State<VzTextForm> {
               Radius.circular(38.0),
             ),
           ),
-          color: hasFocus
-              ? Theme.of(context).focusColor
-              : Theme.of(context).buttonColor,
+          color: hasFocus ? Theme.of(context).focusColor : Theme.of(context).buttonColor,
         ),
         child: Stack(
           alignment: Alignment.centerRight,
