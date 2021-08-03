@@ -53,4 +53,25 @@ class VzColor {
 
   static const Color transparent = Colors.transparent;
   static const Color white = Colors.white;
+
+  static Color backgroundPrimary(BuildContext context) =>
+      Theme.of(context).colorScheme.background;
+
+  static Color backgroundSecondary(BuildContext context) =>
+      Theme.of(context).colorScheme.primary;
+
+  static Color backgroundTertiary(BuildContext context) =>
+      Theme.of(context).colorScheme.secondary;
+
+  static Color accentColor(BuildContext context) =>
+      Theme.of(context).accentColor;
+
+  static Color? textPrimary(BuildContext context) =>
+      Theme.of(context).textTheme.bodyText1!.color;
+
+  static Color? textSecondary(BuildContext context) =>
+      Theme.of(context).textTheme.headline6!.color;
+
+  static Color? textTerciary(BuildContext context) =>
+      Theme.of(context).textTheme.headline5!.color;
 }
