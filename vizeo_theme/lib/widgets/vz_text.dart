@@ -28,7 +28,6 @@ class VzText extends StatefulWidget {
     this.maxLines = 1,
   }) {
     _vzTextType = VzTextType.typePrimary;
-    print("création text primaire");
   }
 
   VzText.typeSecondary({
@@ -45,7 +44,6 @@ class VzText extends StatefulWidget {
     this.maxLines = 1,
   }) {
     _vzTextType = VzTextType.typeSecondary;
-    print("création text secondaire");
   }
 
   VzText.typeTertiary({
@@ -62,7 +60,6 @@ class VzText extends StatefulWidget {
     this.maxLines = 1,
   }) {
     _vzTextType = VzTextType.typeTertiary;
-    print("création text terciaire");
   }
 
   @override
