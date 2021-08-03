@@ -1,7 +1,6 @@
 part of '../vizeo_theme.dart';
 
 //TODO validator, completer comportement de typePassword, definir une taille, textinputaction, onfieldsubmited
-
 class VzTextForm extends StatefulWidget {
   VzTextForm({
     this.controller,
@@ -104,6 +103,7 @@ class _MyTextForm extends State<VzTextForm> {
       focusNode: widget.focus,
       controller: widget.controller,
       validator: widget.validator,
+      
       decoration: InputDecoration(
           hintText: widget.myHint,
           hintStyle: TextStyle(

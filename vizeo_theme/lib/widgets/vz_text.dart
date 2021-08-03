@@ -28,6 +28,7 @@ class VzText extends StatefulWidget {
     this.maxLines = 1,
   }) {
     _vzTextType = VzTextType.typePrimary;
+    print("création text primaire");
   }
 
   VzText.typeSecondary({
@@ -44,6 +45,7 @@ class VzText extends StatefulWidget {
     this.maxLines = 1,
   }) {
     _vzTextType = VzTextType.typeSecondary;
+    print("création text secondaire");
   }
 
   VzText.typeTertiary({
@@ -60,6 +62,7 @@ class VzText extends StatefulWidget {
     this.maxLines = 1,
   }) {
     _vzTextType = VzTextType.typeTertiary;
+    print("création text terciaire");
   }
 
   @override
@@ -75,7 +78,7 @@ class _VzTextState extends State<VzText> {
       textScaleFactor: widget.textScaleFactor,
       maxLines: widget.maxLines,
       style: TextStyle(
-        color: colorStyle(),
+        color: ColorUtils.colorStyle(context, widget._vzTextType),
         fontWeight: widget.fontWeight,
         fontSize: widget.fontSize,
         fontStyle: widget.fontStyle,
@@ -89,25 +92,5 @@ class _VzTextState extends State<VzText> {
         ],
       ),
     );
-  }
-
-  Color colorStyle() {
-    Color? color;
-
-    switch (widget._vzTextType) {
-      case VzTextType.typePrimary:
-        color = Theme.of(context).textTheme.bodyText1!.color;
-        break;
-      case VzTextType.typeSecondary:
-        color = Theme.of(context).textTheme.headline6!.color;
-        break;
-      case VzTextType.typeTertiary:
-        color = Theme.of(context).textTheme.headline5!.color;
-        break;
-      default:
-        color = Theme.of(context).textTheme.bodyText1!.color;
-    }
-
-    return color!;
   }
 }
