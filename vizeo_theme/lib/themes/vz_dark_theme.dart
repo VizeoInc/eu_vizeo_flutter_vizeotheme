@@ -28,7 +28,7 @@ ThemeData vzThemeDark(BuildContext context) {
       secondary: VzColor.backgroundSecondaryDark,
       secondaryVariant: VzColor.backgroundTertiaryDark,
       surface: VzColor.backgroundPrimaryLight,
-      background: VzColor.backgroundPrimaryLight,
+      background: VzColor.backgroundPrimaryDark,
       error: VzColor.redNegativeWarning,
       onPrimary: VzColor.textOnRedVizeo,
       onSecondary: VzColor.textSecondaryLight,
