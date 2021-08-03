@@ -1,5 +1,4 @@
 part of '../vizeo_theme.dart';
-
 class VzSwitch extends StatefulWidget {
   VzSwitch({
     required this.value,

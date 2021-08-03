@@ -1,5 +1,4 @@
 part of '../vizeo_theme.dart';
-
 class VzButton extends StatefulWidget {
   late final String myTitle, myFont;
   late final VoidCallback? onPressedFunc;

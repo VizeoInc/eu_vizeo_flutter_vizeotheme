@@ -89,7 +89,7 @@ class _VzTextSeletableState extends State<VzTextSelectable> {
         selectAll: true,
       ),
       style: TextStyle(
-        color: colorStyle(),
+        color: ColorUtils.colorStyle(context, widget._vzTextType),
         fontWeight: widget.fontWeight,
         fontSize: widget.fontSize,
         fontStyle: widget.fontStyle,
@@ -103,26 +103,5 @@ class _VzTextSeletableState extends State<VzTextSelectable> {
         ],
       ),
     );
-  }
-
-  
-  Color colorStyle() {
-    Color? color;
-
-    switch (widget._vzTextType) {
-      case VzTextType.typePrimary:
-        color = Theme.of(context).textTheme.bodyText1!.color;
-        break;
-      case VzTextType.typeSecondary:
-        color = Theme.of(context).textTheme.headline6!.color;
-        break;
-      case VzTextType.typeTertiary:
-        color = Theme.of(context).textTheme.headline5!.color;
-        break;
-      default:
-        color = Theme.of(context).textTheme.bodyText1!.color;
-    }
-
-    return color!;
   }
 }

@@ -13,16 +13,6 @@ ThemeData vzThemeDark(BuildContext context) {
     scaffoldBackgroundColor: VzColor.backgroundPrimaryDark,
     cardColor: VzColor.backgroundSecondaryDark,
     hintColor: VzColor.textTertiaryDark,
-    buttonTheme: ButtonThemeData(
-      buttonColor: VzColor.secondaryButton,
-      hoverColor: VzColor.secondaryButtonSoft,
-      focusColor: VzColor.secondaryButtonSoft,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
-    ),
-    cardTheme: CardTheme(
-      color: VzColor.backgroundSecondaryDark,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-    ),
     colorScheme: const ColorScheme(
       primary: VzColor.redVizeo,
       primaryVariant: VzColor.redVizeoSoft,

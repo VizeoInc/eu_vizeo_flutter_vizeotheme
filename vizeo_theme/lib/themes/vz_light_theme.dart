@@ -12,16 +12,7 @@ ThemeData vzThemeLight(BuildContext context) {
     fontFamily: myFontFamily,
     disabledColor: VzColor.transparent,
     hintColor: VzColor.textTertiaryLight,
-    buttonTheme: ButtonThemeData(
-      buttonColor: VzColor.secondaryButton,
-      hoverColor: VzColor.secondaryButtonSoft,
-      focusColor: VzColor.secondaryButtonSoft,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
-    ),
-    cardTheme: CardTheme(
-      color: VzColor.backgroundSecondaryLight,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
-    ),
+    cardColor: VzColor.backgroundSecondaryLight,
     colorScheme: const ColorScheme(
       ///primary variant temporaire, secondaire background inverse
       primary: VzColor.redVizeo,
