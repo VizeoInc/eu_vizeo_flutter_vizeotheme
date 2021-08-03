@@ -103,7 +103,6 @@ class _MyTextForm extends State<VzTextForm> {
       focusNode: widget.focus,
       controller: widget.controller,
       validator: widget.validator,
-      
       decoration: InputDecoration(
           hintText: widget.myHint,
           hintStyle: TextStyle(
