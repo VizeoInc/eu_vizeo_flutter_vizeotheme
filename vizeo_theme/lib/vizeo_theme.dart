@@ -2,6 +2,7 @@ library vizeo_theme;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/painting.dart';
 import 'package:vizeo_theme/themes/enum.dart';
 
 part 'versionning_project.dart';
