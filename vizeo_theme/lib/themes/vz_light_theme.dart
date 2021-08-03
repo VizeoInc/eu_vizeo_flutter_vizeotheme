@@ -26,8 +26,8 @@ ThemeData vzThemeLight(BuildContext context) {
       ///primary variant temporaire, secondaire background inverse
       primary: VzColor.redVizeo,
       primaryVariant: VzColor.redVizeoSoft,
-      secondary: VzColor.backgroundSecondaryDark,
-      secondaryVariant: VzColor.backgroundTertiaryDark,
+      secondary: VzColor.backgroundSecondaryLight,
+      secondaryVariant: VzColor.backgroundTertiaryLight,
       surface: VzColor.backgroundPrimaryLight,
       background: VzColor.backgroundPrimaryLight,
       error: VzColor.redNegativeWarning,

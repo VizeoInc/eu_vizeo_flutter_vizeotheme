@@ -25,8 +25,8 @@ ThemeData vzThemeDark(BuildContext context) {
     colorScheme: const ColorScheme(
       primary: VzColor.redVizeo,
       primaryVariant: VzColor.redVizeoSoft,
-      secondary: VzColor.backgroundSecondaryLight,
-      secondaryVariant: VzColor.backgroundTertiaryLight,
+      secondary: VzColor.backgroundSecondaryDark,
+      secondaryVariant: VzColor.backgroundTertiaryDark,
       surface: VzColor.backgroundPrimaryLight,
       background: VzColor.backgroundPrimaryLight,
       error: VzColor.redNegativeWarning,
