@@ -1,4 +1,7 @@
-part of '../vizeo_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:vizeo_theme/vizeo_theme.dart';
+import 'package:vizeo_theme/private/vz_strings.dart';
+
 class VzButton extends StatefulWidget {
   late final String myTitle, myFont;
   late final VoidCallback? onPressedFunc;

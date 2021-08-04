@@ -1,4 +1,7 @@
-part of '../vizeo_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:vizeo_theme/vizeo_theme.dart';
+import 'package:vizeo_theme/private/enum.dart';
+import 'package:vizeo_theme/private/color_utils_lib.dart';
 
 class VzTextSelectable extends StatefulWidget {
   final String data;

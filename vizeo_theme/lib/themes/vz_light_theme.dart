@@ -1,4 +1,6 @@
-part of '../vizeo_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:vizeo_theme/vizeo_theme.dart';
+import 'package:vizeo_theme/private/vz_strings.dart';
 
 ThemeData vzThemeLight(BuildContext context) {
   return ThemeData(

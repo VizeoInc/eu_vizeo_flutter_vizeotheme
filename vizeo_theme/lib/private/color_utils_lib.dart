@@ -1,4 +1,6 @@
-part of '../vizeo_theme.dart';
+
+import 'package:flutter/material.dart';
+import 'enum.dart';
 
 class ColorUtils {
   static Color colorStyle(BuildContext context, VzTextType vzTextType) {

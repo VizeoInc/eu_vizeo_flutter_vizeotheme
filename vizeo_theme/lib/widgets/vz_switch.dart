@@ -1,12 +1,14 @@
-part of '../vizeo_theme.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:vizeo_theme/vizeo_theme.dart';
 class VzSwitch extends StatefulWidget {
+  late bool value;
+  late Function(bool) onChanged;
+
   VzSwitch({
     required this.value,
     required this.onChanged,
   });
 
-  late Function(bool) onChanged;
-  late bool value;
 
   @override
   _MySwitch createState() => _MySwitch();

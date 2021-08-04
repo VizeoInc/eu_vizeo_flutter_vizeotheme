@@ -1,4 +1,4 @@
-part of '../vizeo_theme.dart';
+import 'package:flutter/material.dart';
 
 MaterialColor createMaterialColor(Color color) {
   final strengths = [.05];

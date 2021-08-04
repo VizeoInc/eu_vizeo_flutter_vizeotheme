@@ -1,4 +1,5 @@
-part of '../vizeo_theme.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:vizeo_theme/vizeo_theme.dart';
 
 class VzSlider extends StatefulWidget {
   VzSlider({
