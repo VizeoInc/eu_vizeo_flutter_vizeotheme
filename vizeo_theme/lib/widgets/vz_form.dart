@@ -5,7 +5,7 @@ import 'package:vizeo_theme/private/enum.dart';
 
 class VzTextForm extends StatefulWidget {
   late final TextEditingController? controller;
-  late final double width;
+  late final double? width;
   late final TextInputAction? textInputAction;
   late void Function(String)? onFieldSubmitted;
   late final TextInputType keyboardType;
@@ -17,7 +17,6 @@ class VzTextForm extends StatefulWidget {
   late final VzTextFormType _vzTextFormType;
 
   VzTextForm({
-    required this.width,
     required this.controller,
     required this.onFieldSubmitted,
     this.textInputAction,
@@ -25,13 +24,13 @@ class VzTextForm extends StatefulWidget {
     this.validator,
     this.hint,
     this.focus,
+    this.width,
     this.isEnable = true,
   }) : super() {
     _vzTextFormType = VzTextFormType.GENERAL;
   }
 
   VzTextForm.typeMail({
-    required this.width,
     required this.controller,
     required this.onFieldSubmitted,
     this.textInputAction,
@@ -39,13 +38,13 @@ class VzTextForm extends StatefulWidget {
     this.validator,
     this.hint = "Mail",
     this.focus,
+    this.width,
     this.isEnable = true,
   }) : super() {
     _vzTextFormType = VzTextFormType.MAIL;
   }
 
   VzTextForm.typePassword({
-    required this.width,
     required this.controller,
     required this.onFieldSubmitted,
     this.textInputAction,
@@ -53,6 +52,7 @@ class VzTextForm extends StatefulWidget {
     this.validator,
     this.hint = "Mot de Passe",
     this.focus,
+    this.width,
     this.isEnable = true,
   }) : super() {
     isPassword = true;
@@ -60,7 +60,6 @@ class VzTextForm extends StatefulWidget {
   }
 
   VzTextForm.typeTelNumber({
-    required this.width,
     required this.controller,
     required this.onFieldSubmitted,
     this.textInputAction,
@@ -68,6 +67,7 @@ class VzTextForm extends StatefulWidget {
     this.validator,
     this.hint = "Téléphone",
     this.focus,
+    this.width,
     this.isEnable = true,
   }) : super() {
     _vzTextFormType = VzTextFormType.TELEPHONE;
@@ -150,7 +150,7 @@ class _MyTextForm extends State<VzTextForm> {
     );
 
     return AnimatedContainer(
-      width: widget.width,
+      width: widget.width ?? Get.width,
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 150),
       decoration: ShapeDecoration(
