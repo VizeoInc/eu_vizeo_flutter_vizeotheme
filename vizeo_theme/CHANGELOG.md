@@ -11,6 +11,6 @@
 * checkbox
 * VZTextForm
 * add [Get](https://github.com/jonataslaw/getx)
-## 0.0.12
+## 0.0.20
 
 * VzTextForm remove width required
