@@ -6,3 +6,8 @@
 * themeData
 * principal component
 * convert part of -> to export for create some private part fo the lib
+## 0.0.19
+
+* checkbox
+* VZTextForm
+* add [Get](https://github.com/jonataslaw/getx)
