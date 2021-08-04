@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/vizeo_theme.dart';
 
 class VzCheckbox extends StatefulWidget {
   late bool value;
@@ -18,11 +17,6 @@ class _VzCheckboxState extends State<VzCheckbox> {
   @override
   Widget build(BuildContext context) {
     return Checkbox(
-        fillColor: MaterialStateProperty.resolveWith<Color>(
-            (Set<MaterialState> states) {
-          // states.contains(MaterialState.selected) ?
-          return VzColor.backgroundPrimaryDark;
-        }),
         value: widget.value,
         onChanged: (bool? value) {
           setState(() {

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:vizeo_theme/private/constants_value.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 import 'package:vizeo_theme/private/vz_strings.dart';
 
@@ -23,6 +24,70 @@ ThemeData vzThemeLight(BuildContext context) {
     cardTheme: CardTheme(
       color: VzColor.backgroundSecondaryLight,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+    ),
+    checkboxTheme: CheckboxThemeData(
+      fillColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        return VzColor.backgroundPrimaryDark;
+      }),
+      checkColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        return VzColor.backgroundPrimaryLight;
+      }),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(5.0),
+        side: BorderSide(width: 0.5),
+      ),
+    ),
+    inputDecorationTheme: InputDecorationTheme(
+      hintStyle: TextStyle(
+        color: VzColor.textTertiaryLight,
+        fontFamily: myFontFamily,
+        fontSize: 18.0,
+      ),
+      enabledBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(ConstantValue.borderRadiusTextForm),
+        ),
+        borderSide: BorderSide(
+          color: VzColor.transparent,
+        ),
+      ),
+      focusedBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(ConstantValue.borderRadiusTextForm),
+        ),
+        borderSide: BorderSide(
+          color: VzColor.accentLight,
+        ),
+      ),
+      errorBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(ConstantValue.borderRadiusTextForm),
+        ),
+        borderSide: BorderSide(
+          color: VzColor.redVizeo,
+          width: 2.0,
+        ),
+      ),
+      disabledBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(ConstantValue.borderRadiusTextForm),
+        ),
+      ),
+      focusedErrorBorder: const OutlineInputBorder(
+        borderRadius: BorderRadius.all(
+          Radius.circular(ConstantValue.borderRadiusTextForm),
+        ),
+        borderSide: BorderSide(
+          color: VzColor.redVizeo,
+          width: 2.0,
+        ),
+      ),
+      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
+      errorStyle: const TextStyle(
+        color: VzColor.redVizeo,
+      ),
     ),
     colorScheme: const ColorScheme(
       ///primary variant temporaire, secondaire background inverse

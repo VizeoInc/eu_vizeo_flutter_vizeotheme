@@ -1,6 +1,6 @@
 name: vizeo_theme
 description: Vizeo Theme
-version: 0.0.18
+version: 0.0.19
 homepage:
 
 environment:
@@ -10,6 +10,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  # https://github.com/jonataslaw/getx
+  get:
 
 dev_dependencies:
   flutter_test:

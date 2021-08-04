@@ -56,6 +56,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "get",
+      "rootUri": "file:///C:/Users/BB/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/get-4.3.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "lint",
       "rootUri": "file:///C:/Users/BB/AppData/Local/Pub/Cache/hosted/pub.dartlang.org/lint-1.5.3",
       "packageUri": "lib/",
@@ -140,7 +146,7 @@
       "languageVersion": "2.12"
     }
   ],
-  "generated": "2021-08-04T08:07:53.464211Z",
+  "generated": "2021-08-04T13:58:53.144341Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }

@@ -1,68 +1,76 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/vizeo_theme.dart';
-import 'package:vizeo_theme/private/vz_strings.dart';
+import 'package:get/get.dart';
+import 'package:vizeo_theme/private/constants_value.dart';
+import 'package:vizeo_theme/private/enum.dart';
 
-//TODO validator, completer comportement de typePassword, definir une taille, textinputaction, onfieldsubmited
 class VzTextForm extends StatefulWidget {
-  VzTextForm({
-    this.controller,
-    this.textInputAction,
-    this.onFieldSubmitted,
-    this.myKeyboardType = TextInputType.text,
-    this.validator,
-    this.myHint,
-    this.focus,
-    Key? key,
-  }) : super(key: key);
-
-  late TextEditingController? controller;
-  late TextInputAction? textInputAction;
+  late final TextEditingController? controller;
+  late final double width;
+  late final TextInputAction? textInputAction;
   late void Function(String)? onFieldSubmitted;
-  late TextInputType myKeyboardType;
-  late String? Function(String?)? validator;
-  late String? myHint;
-  late FocusNode? focus;
-  late bool _isMail = false;
-  late bool _isPassword = false;
-  late bool _isTel = false;
+  late final TextInputType keyboardType;
+  late final String? Function(String?)? validator;
+  late final bool isEnable;
+  late final String? hint;
+  late final FocusNode? focus;
+  late bool isPassword = false;
+  late final VzTextFormType _vzTextFormType;
+
+  VzTextForm({
+    required this.width,
+    required this.controller,
+    required this.onFieldSubmitted,
+    this.textInputAction,
+    this.keyboardType = TextInputType.text,
+    this.validator,
+    this.hint,
+    this.focus,
+    this.isEnable = true,
+  }) : super() {
+    _vzTextFormType = VzTextFormType.GENERAL;
+  }
 
   VzTextForm.typeMail({
-    this.controller,
+    required this.width,
+    required this.controller,
+    required this.onFieldSubmitted,
     this.textInputAction,
-    this.onFieldSubmitted,
-    this.myKeyboardType = TextInputType.emailAddress,
+    this.keyboardType = TextInputType.emailAddress,
     this.validator,
-    this.myHint = "Mail",
+    this.hint = "Mail",
     this.focus,
-    Key? key,
-  }) : super(key: key) {
-    _isMail = true;
+    this.isEnable = true,
+  }) : super() {
+    _vzTextFormType = VzTextFormType.MAIL;
   }
 
   VzTextForm.typePassword({
-    this.controller,
+    required this.width,
+    required this.controller,
+    required this.onFieldSubmitted,
     this.textInputAction,
-    this.onFieldSubmitted,
-    this.myKeyboardType = TextInputType.text,
+    this.keyboardType = TextInputType.text,
     this.validator,
-    this.myHint = "Password",
+    this.hint = "Mot de Passe",
     this.focus,
-    Key? key,
-  }) : super(key: key) {
-    _isPassword = true;
+    this.isEnable = true,
+  }) : super() {
+    isPassword = true;
+    _vzTextFormType = VzTextFormType.PASSWORD;
   }
 
   VzTextForm.typeTelNumber({
-    this.controller,
+    required this.width,
+    required this.controller,
+    required this.onFieldSubmitted,
     this.textInputAction,
-    this.onFieldSubmitted,
-    this.myKeyboardType = TextInputType.phone,
+    this.keyboardType = TextInputType.phone,
     this.validator,
-    this.myHint = "Téléphone",
+    this.hint = "Téléphone",
     this.focus,
-    Key? key,
-  }) : super(key: key) {
-    _isTel = true;
+    this.isEnable = true,
+  }) : super() {
+    _vzTextFormType = VzTextFormType.TELEPHONE;
   }
 
   @override
@@ -71,7 +79,8 @@ class VzTextForm extends StatefulWidget {
 }
 
 class _MyTextForm extends State<VzTextForm> {
-  late TextFormField _myField;
+  late Form _myField;
+  final _formKey = GlobalKey<FormState>();
   bool hasFocus = false;
 
   @override
@@ -89,108 +98,74 @@ class _MyTextForm extends State<VzTextForm> {
     });
   }
 
-  TextFormField getMyField() {
+  Form getMyField() {
     return _myField;
   }
 
   @override
   Widget build(BuildContext context) {
-    _myField = TextFormField(
-      autocorrect: false,
-      style: Theme.of(context).textTheme.bodyText1,
-      obscureText: widget._isPassword,
-      textInputAction: widget.textInputAction,
-      onFieldSubmitted: widget.onFieldSubmitted,
-      keyboardType: widget.myKeyboardType,
-      focusNode: widget.focus,
-      controller: widget.controller,
-      validator: widget.validator,
-      decoration: InputDecoration(
-          hintText: widget.myHint,
-          hintStyle: TextStyle(
-            color: Theme.of(context).hintColor,
-            fontFamily: myFontFamily,
-            fontSize: 18,
-          ),
-          enabledBorder: inputBorderNormal(),
-          focusedBorder: inputBorderFocused(),
-          errorBorder: inputBorderErrorBorder(),
-          disabledBorder: inputBorderDisabledBorder(),
-          focusedErrorBorder: inputBorderFocusedErrorBorder(),
-          contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-          errorStyle: const TextStyle(color: VzColor.redVizeo)),
+    _myField = Form(
+      key: _formKey,
+      child: TextFormField(
+        autocorrect: false,
+        obscuringCharacter: "*",
+        enabled: widget.isEnable,
+        style: Theme.of(context).textTheme.bodyText1,
+        obscureText: widget.isPassword,
+        textInputAction: widget.textInputAction,
+        onFieldSubmitted: (txt) {
+          switch (widget._vzTextFormType) {
+            case VzTextFormType.MAIL:
+              var isEmail = GetUtils.isEmail(txt);
+              print("is Email => $isEmail");
+              //TODO override error if wrong mail
+              break;
+            case VzTextFormType.PASSWORD:
+              //TODO password check
+              widget.onFieldSubmitted!(txt);
+              break;
+            case VzTextFormType.TELEPHONE:
+              var isPhone = GetUtils.isPhoneNumber(txt);
+              print("is Phone => $isPhone");
+              //TODO override error if wrong phone
+              break;
+            case VzTextFormType.GENERAL:
+              break;
+            default:
+              debugPrint(
+                  "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+          }
+          widget.onFieldSubmitted!(txt);
+        },
+        keyboardType: widget.keyboardType,
+        focusNode: widget.focus,
+        controller: widget.controller,
+        validator: (value) {
+          widget.validator!(value);
+        },
+        decoration: InputDecoration(
+          hintText: widget.hint,
+        ),
+      ),
     );
 
     return AnimatedContainer(
-        duration: const Duration(milliseconds: 150),
-        decoration: ShapeDecoration(
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(38.0),
-            ),
+      width: widget.width,
+      curve: Curves.decelerate,
+      duration: const Duration(milliseconds: 150),
+      decoration: ShapeDecoration(
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(ConstantValue.borderRadiusTextForm),
           ),
-          color: hasFocus ? Theme.of(context).focusColor : Theme.of(context).buttonColor,
         ),
-        child: Stack(
-          alignment: Alignment.centerRight,
-          children: [
-            _myField,
-          ],
-        ));
-  }
-
-  InputBorder inputBorderNormal() {
-    return const OutlineInputBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(38.0),
+        color: hasFocus
+            ? Theme.of(context).focusColor
+            : Theme.of(context).buttonColor,
       ),
-      borderSide: BorderSide(
-        color: Colors.transparent,
-      ),
-    );
-  }
-
-  InputBorder inputBorderFocused() {
-    return OutlineInputBorder(
-      borderRadius: const BorderRadius.all(
-        Radius.circular(38.0),
-      ),
-      borderSide: BorderSide(
-        color: Colors.white.withOpacity(0.2),
-      ),
-    );
-  }
-
-  InputBorder inputBorderErrorBorder() {
-    return const OutlineInputBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(38.0),
-      ),
-      borderSide: BorderSide(
-        color: VzColor.redVizeo,
-      ),
-    );
-  }
-
-  InputBorder inputBorderDisabledBorder() {
-    return const OutlineInputBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(38.0),
-      ),
-      borderSide: BorderSide(
-        color: Colors.white,
-        width: 0.5,
-      ),
-    );
-  }
-
-  InputBorder inputBorderFocusedErrorBorder() {
-    return const OutlineInputBorder(
-      borderRadius: BorderRadius.all(
-        Radius.circular(38.0),
-      ),
-      borderSide: BorderSide(
-        color: VzColor.redVizeo,
+      child: Align(
+        alignment: Alignment.centerRight,
+        child: _myField,
       ),
     );
   }
