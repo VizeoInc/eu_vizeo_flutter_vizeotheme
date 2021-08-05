@@ -3,7 +3,7 @@ import 'package:vizeo_theme/vizeo_theme.dart';
 import 'package:vizeo_theme/private/vz_strings.dart';
 
 class VzButton extends StatefulWidget {
-  late final String myTitle, myFont;
+  late final String? myTitle, myFont;
   late final VoidCallback? onPressedFunc;
   late final Color myBackgroundColor, myHoveredColor, myTextColor;
   late final double myRadius;
@@ -16,8 +16,8 @@ class VzButton extends StatefulWidget {
   final FocusNode? focus;
 
   VzButton({
-    required this.myTitle,
     required this.onPressedFunc,
+    this.myTitle,
     this.myTextColor = VzColor.textPrimaryLight,
     this.myBackgroundColor = VzColor.redVizeo,
     this.myHoveredColor = VzColor.redVizeo,
@@ -34,8 +34,8 @@ class VzButton extends StatefulWidget {
   });
 
   VzButton.typePrimary({
-    required this.myTitle,
     required this.onPressedFunc,
+    this.myTitle,
     this.myBackgroundColor = VzColor.redVizeo,
     this.myHoveredColor = VzColor.redVizeoSoft,
     this.myTextColor = VzColor.textOnRedVizeo,
@@ -52,8 +52,8 @@ class VzButton extends StatefulWidget {
   });
 
   VzButton.typeSecondary({
-    required this.myTitle,
     required this.onPressedFunc,
+    this.myTitle,
     this.myBackgroundColor = VzColor.secondaryButton,
     this.myHoveredColor = VzColor.secondaryButtonSoft,
     this.myTextColor = VzColor.textOnRedVizeo,
@@ -70,8 +70,8 @@ class VzButton extends StatefulWidget {
   });
 
   VzButton.typeTertiary({
-    required this.myTitle,
     required this.onPressedFunc,
+    this.myTitle,
     this.myBackgroundColor = Colors.transparent,
     this.myHoveredColor = VzColor.transparent,
     this.myTextColor = VzColor.redVizeo,
@@ -88,8 +88,8 @@ class VzButton extends StatefulWidget {
   });
 
   VzButton.typeSmall({
-    required this.myTitle,
     required this.onPressedFunc,
+    this.myTitle,
     this.myBackgroundColor = VzColor.secondaryButton,
     this.myHoveredColor = VzColor.secondaryButtonSoft,
     this.myTextColor = VzColor.textOnRedVizeo,
@@ -141,10 +141,12 @@ class _VzButtonState extends State<VzButton> {
         padding: widget.myIconPadding,
       ));
     }
-    listChild.add(Text(
-      widget.myTitle,
-      style: TextStyle(color: widget.myTextColor),
-    ));
+    if (widget.myTitle != null) {
+      listChild.add(Text(
+        widget.myTitle!,
+        style: TextStyle(color: widget.myTextColor),
+      ));
+    }
     if (widget.myRightChild != null) {
       listChild.add(Padding(
         padding: widget.myIconPadding,
