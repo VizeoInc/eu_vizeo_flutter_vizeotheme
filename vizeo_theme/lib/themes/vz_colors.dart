@@ -56,8 +56,8 @@ class VzColor {
   static const Color transparent = Colors.transparent;
   static const Color white = Colors.white;
 
-  static Color backgroundPrimary(BuildContext context, bool isReverse) {
-    if (isReverse) {
+  static Color backgroundPrimary({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
       if (Theme.of(context).brightness == Brightness.dark) {
         return vzThemeLight(context).colorScheme.background;
       } else if (Theme.of(context).brightness == Brightness.light) {
@@ -67,8 +67,8 @@ class VzColor {
     return Theme.of(context).colorScheme.background;
   }
 
-  static Color backgroundSecondary(BuildContext context, bool isReverse) {
-    if (isReverse) {
+  static Color backgroundSecondary({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
       if (Theme.of(context).brightness == Brightness.dark) {
         return vzThemeLight(context).colorScheme.secondary;
       } else if (Theme.of(context).brightness == Brightness.light) {
@@ -78,8 +78,8 @@ class VzColor {
     return Theme.of(context).colorScheme.secondary;
   }
 
-  static Color backgroundTertiary(BuildContext context, bool isReverse) {
-    if (isReverse) {
+  static Color backgroundTertiary({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
       if (Theme.of(context).brightness == Brightness.dark) {
         return vzThemeLight(context).colorScheme.secondaryVariant;
       } else if (Theme.of(context).brightness == Brightness.light) {
@@ -89,8 +89,8 @@ class VzColor {
     return Theme.of(context).colorScheme.secondaryVariant;
   }
 
-  static Color accentColor(BuildContext context, bool isReverse) {
-    if (isReverse) {
+  static Color accentColor({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
       if (Theme.of(context).brightness == Brightness.dark) {
         return vzThemeLight(context).accentColor;
       } else if (Theme.of(context).brightness == Brightness.light) {
@@ -100,8 +100,8 @@ class VzColor {
     return Theme.of(context).accentColor;
   }
 
-  static Color? textPrimary(BuildContext context, bool isReverse) {
-    if (isReverse) {
+  static Color? textPrimary({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
       if (Theme.of(context).brightness == Brightness.dark) {
         return vzThemeLight(context).textTheme.bodyText1!.color;
       } else if (Theme.of(context).brightness == Brightness.light) {
@@ -111,8 +111,8 @@ class VzColor {
     return Theme.of(context).textTheme.bodyText1!.color;
   }
 
-  static Color? textSecondary(BuildContext context, bool isReverse) {
-    if (isReverse) {
+  static Color? textSecondary({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
       if (Theme.of(context).brightness == Brightness.dark) {
         return vzThemeLight(context).textTheme.headline6!.color;
       } else if (Theme.of(context).brightness == Brightness.light) {
@@ -122,8 +122,8 @@ class VzColor {
     return Theme.of(context).textTheme.headline6!.color;
   }
 
-  static Color? textTerciary(BuildContext context, bool isReverse) {
-    if (isReverse) {
+  static Color? textTerciary({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
       if (Theme.of(context).brightness == Brightness.dark) {
         return vzThemeLight(context).textTheme.headline5!.color;
       } else if (Theme.of(context).brightness == Brightness.light) {
