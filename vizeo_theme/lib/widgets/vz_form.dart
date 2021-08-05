@@ -116,7 +116,7 @@ class _MyTextForm extends State<VzTextForm> {
         onFieldSubmitted: (txt) {
           switch (widget._vzTextFormType) {
             case VzTextFormType.MAIL:
-              var isEmail = GetUtils.isEmail(txt);
+              final isEmail = GetUtils.isEmail(txt);
               print("is Email => $isEmail");
               //TODO override error if wrong mail
               break;
@@ -125,15 +125,14 @@ class _MyTextForm extends State<VzTextForm> {
               widget.onFieldSubmitted!(txt);
               break;
             case VzTextFormType.TELEPHONE:
-              var isPhone = GetUtils.isPhoneNumber(txt);
+              final isPhone = GetUtils.isPhoneNumber(txt);
               print("is Phone => $isPhone");
               //TODO override error if wrong phone
               break;
             case VzTextFormType.GENERAL:
               break;
             default:
-              debugPrint(
-                  "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+              debugPrint("Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
           }
           widget.onFieldSubmitted!(txt);
         },
@@ -159,9 +158,7 @@ class _MyTextForm extends State<VzTextForm> {
             Radius.circular(ConstantValue.borderRadiusTextForm),
           ),
         ),
-        color: hasFocus
-            ? Theme.of(context).focusColor
-            : Theme.of(context).buttonColor,
+        color: hasFocus ? Theme.of(context).focusColor : Theme.of(context).buttonColor,
       ),
       child: Align(
         alignment: Alignment.centerRight,

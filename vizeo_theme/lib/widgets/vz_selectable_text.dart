@@ -34,7 +34,7 @@ class VzTextSelectable extends StatefulWidget {
     this.align: TextAlign.left,
     this.textScaleFactor: 1,
     this.maxLines: 1,
-    this.color = null,
+    this.color,
   }) {
     _vzTextType = VzTextType.typePrimary;
   }
@@ -53,7 +53,7 @@ class VzTextSelectable extends StatefulWidget {
     this.align: TextAlign.left,
     this.textScaleFactor: 1,
     this.maxLines: 1,
-    this.color = null,
+    this.color,
   }) {
     _vzTextType = VzTextType.typeSecondary;
   }
@@ -72,7 +72,7 @@ class VzTextSelectable extends StatefulWidget {
     this.align: TextAlign.left,
     this.textScaleFactor: 1,
     this.maxLines: 1,
-    this.color = null,
+    this.color,
   }) {
     _vzTextType = VzTextType.typeTertiary;
   }
@@ -96,9 +96,7 @@ class _VzTextSeletableState extends State<VzTextSelectable> {
         selectAll: true,
       ),
       style: TextStyle(
-        color: widget.color != null
-            ? widget.color
-            : ColorUtils.colorStyle(context, widget._vzTextType),
+        color: widget.color ?? ColorUtils.colorStyle(context, widget._vzTextType),
         fontWeight: widget.fontWeight,
         fontSize: widget.fontSize,
         fontStyle: widget.fontStyle,

@@ -30,7 +30,7 @@ class VzText extends StatefulWidget {
       this.align = TextAlign.left,
       this.textScaleFactor = 1,
       this.maxLines = 1,
-      this.color = null}) {
+      this.color}) {
     _vzTextType = VzTextType.typePrimary;
   }
 
@@ -46,7 +46,7 @@ class VzText extends StatefulWidget {
       this.align = TextAlign.left,
       this.textScaleFactor = 1,
       this.maxLines = 1,
-      this.color = null}) {
+      this.color}) {
     _vzTextType = VzTextType.typeSecondary;
   }
 
@@ -62,7 +62,7 @@ class VzText extends StatefulWidget {
       this.align = TextAlign.left,
       this.textScaleFactor = 1,
       this.maxLines = 1,
-      this.color = null}) {
+      this.color}) {
     _vzTextType = VzTextType.typeTertiary;
   }
 
@@ -79,9 +79,7 @@ class _VzTextState extends State<VzText> {
       textScaleFactor: widget.textScaleFactor,
       maxLines: widget.maxLines,
       style: TextStyle(
-        color: widget.color != null
-            ? widget.color
-            : ColorUtils.colorStyle(context, widget._vzTextType),
+        color: widget.color ?? ColorUtils.colorStyle(context, widget._vzTextType),
         fontWeight: widget.fontWeight,
         fontSize: widget.fontSize,
         fontStyle: widget.fontStyle,

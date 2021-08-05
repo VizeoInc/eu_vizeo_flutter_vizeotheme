@@ -26,26 +26,24 @@ ThemeData vzThemeLight(BuildContext context) {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
     ),
     checkboxTheme: CheckboxThemeData(
-      fillColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return VzColor.backgroundPrimaryDark;
       }),
-      checkColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      checkColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return VzColor.backgroundPrimaryLight;
       }),
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(5.0),
-        side: BorderSide(width: 0.5),
+        side: const BorderSide(width: 0.5),
       ),
     ),
-    inputDecorationTheme: InputDecorationTheme(
+    inputDecorationTheme: const InputDecorationTheme(
       hintStyle: TextStyle(
         color: VzColor.textTertiaryLight,
         fontFamily: myFontFamily,
         fontSize: 18.0,
       ),
-      enabledBorder: const OutlineInputBorder(
+      enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(ConstantValue.borderRadiusTextForm),
         ),
@@ -53,7 +51,7 @@ ThemeData vzThemeLight(BuildContext context) {
           color: VzColor.transparent,
         ),
       ),
-      focusedBorder: const OutlineInputBorder(
+      focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(ConstantValue.borderRadiusTextForm),
         ),
@@ -61,7 +59,7 @@ ThemeData vzThemeLight(BuildContext context) {
           color: VzColor.accentLight,
         ),
       ),
-      errorBorder: const OutlineInputBorder(
+      errorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(ConstantValue.borderRadiusTextForm),
         ),
@@ -70,12 +68,12 @@ ThemeData vzThemeLight(BuildContext context) {
           width: 2.0,
         ),
       ),
-      disabledBorder: const OutlineInputBorder(
+      disabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(ConstantValue.borderRadiusTextForm),
         ),
       ),
-      focusedErrorBorder: const OutlineInputBorder(
+      focusedErrorBorder: OutlineInputBorder(
         borderRadius: BorderRadius.all(
           Radius.circular(ConstantValue.borderRadiusTextForm),
         ),
@@ -84,8 +82,8 @@ ThemeData vzThemeLight(BuildContext context) {
           width: 2.0,
         ),
       ),
-      contentPadding: const EdgeInsets.symmetric(horizontal: 20),
-      errorStyle: const TextStyle(
+      contentPadding: EdgeInsets.symmetric(horizontal: 20),
+      errorStyle: TextStyle(
         color: VzColor.redVizeo,
       ),
     ),
