@@ -15,23 +15,23 @@ class VzButton extends StatefulWidget {
   late final bool isEnable;
   final FocusNode? focus;
 
-  // VzButton({
-  //   required this.myTitle,
-  //   required this.onPressedFunc,
-  //   this.myTextColor = VzColor.textPrimaryLight,
-  //   this.myBackgroundColor = VzColor.redVizeo,
-  //   this.myHoveredColor = VzColor.redVizeo,
-  //   this.myRadius = 55.0,
-  //   this.myPadding = const EdgeInsets.all(8.0),
-  //   this.myIconPadding = const EdgeInsets.all(8.0),
-  //   this.myRightChild,
-  //   this.myLeftChild,
-  //   this.myFontSize = 15,
-  //   this.myFontWeight = FontWeight.normal,
-  //   this.myFont = myFontFamily,
-  //   this.isEnable = true,
-  //   this.focus,
-  // });
+  VzButton({
+    required this.myTitle,
+    required this.onPressedFunc,
+    this.myTextColor = VzColor.textPrimaryLight,
+    this.myBackgroundColor = VzColor.redVizeo,
+    this.myHoveredColor = VzColor.redVizeo,
+    this.myRadius = 55.0,
+    this.myPadding = const EdgeInsets.all(8.0),
+    this.myIconPadding = const EdgeInsets.all(8.0),
+    this.myRightChild,
+    this.myLeftChild,
+    this.myFontSize = 15,
+    this.myFontWeight = FontWeight.normal,
+    this.myFont = myFontFamily,
+    this.isEnable = true,
+    this.focus,
+  });
 
   VzButton.typePrimary({
     required this.myTitle,
@@ -156,19 +156,14 @@ class _VzButtonState extends State<VzButton> {
 
   ButtonStyle myStyleConfig() {
     return ButtonStyle(
-      backgroundColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-        return widget.isEnable
-            ? widget.myBackgroundColor
-            : VzColor.secondaryButton.withOpacity(0.3);
+      backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+        return widget.isEnable ? widget.myBackgroundColor : VzColor.secondaryButton.withOpacity(0.3);
       }),
 
       ///-----Shadow du bouton
-      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(widget.myRadius))),
-      shadowColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      shape:
+          MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(widget.myRadius))),
+      shadowColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return Colors.transparent;
       }),
 
@@ -185,9 +180,7 @@ class _VzButtonState extends State<VzButton> {
       /// style du fond suivant les etats
       overlayColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.pressed)) {
-          return widget.isEnable
-              ? widget.myBackgroundColor
-              : Colors.transparent;
+          return widget.isEnable ? widget.myBackgroundColor : Colors.transparent;
         }
         if (states.contains(MaterialState.focused)) {
           return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
@@ -201,9 +194,7 @@ class _VzButtonState extends State<VzButton> {
       /// style du text suivant les etats
       textStyle: MaterialStateProperty.resolveWith((states) {
         return TextStyle(
-            color: widget.isEnable
-                ? widget.myTextColor
-                : widget.myTextColor.withOpacity(0.3),
+            color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
             fontSize: widget.myFontSize,
             fontWeight: widget.myFontWeight,
             fontFamily: myFontFamily);
