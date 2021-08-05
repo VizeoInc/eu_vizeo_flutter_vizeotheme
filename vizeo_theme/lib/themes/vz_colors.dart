@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:vizeo_theme/themes/vz_dark_theme.dart';
+import 'package:vizeo_theme/themes/vz_light_theme.dart';
 
 MaterialColor createMaterialColor(Color color) {
   final strengths = [.05];
@@ -54,17 +56,80 @@ class VzColor {
   static const Color transparent = Colors.transparent;
   static const Color white = Colors.white;
 
-  static Color backgroundPrimary(BuildContext context) => Theme.of(context).colorScheme.background;
+  static Color backgroundPrimary(BuildContext context, bool isReverse) {
+    if (isReverse) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return vzThemeLight(context).colorScheme.background;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return vzThemeDark(context).colorScheme.background;
+      }
+    }
+    return Theme.of(context).colorScheme.background;
+  }
 
-  static Color backgroundSecondary(BuildContext context) => Theme.of(context).colorScheme.secondary;
+  static Color backgroundSecondary(BuildContext context, bool isReverse) {
+    if (isReverse) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return vzThemeLight(context).colorScheme.secondary;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return vzThemeDark(context).colorScheme.secondary;
+      }
+    }
+    return Theme.of(context).colorScheme.secondary;
+  }
 
-  static Color backgroundTertiary(BuildContext context) => Theme.of(context).colorScheme.secondaryVariant;
+  static Color backgroundTertiary(BuildContext context, bool isReverse) {
+    if (isReverse) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return vzThemeLight(context).colorScheme.secondaryVariant;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return vzThemeDark(context).colorScheme.secondaryVariant;
+      }
+    }
+    return Theme.of(context).colorScheme.secondaryVariant;
+  }
 
-  static Color accentColor(BuildContext context) => Theme.of(context).accentColor;
+  static Color accentColor(BuildContext context, bool isReverse) {
+    if (isReverse) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return vzThemeLight(context).accentColor;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return vzThemeDark(context).accentColor;
+      }
+    }
+    return Theme.of(context).accentColor;
+  }
 
-  static Color? textPrimary(BuildContext context) => Theme.of(context).textTheme.bodyText1!.color;
+  static Color? textPrimary(BuildContext context, bool isReverse) {
+    if (isReverse) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return vzThemeLight(context).textTheme.bodyText1!.color;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return vzThemeDark(context).textTheme.bodyText1!.color;
+      }
+    }
+    return Theme.of(context).textTheme.bodyText1!.color;
+  }
 
-  static Color? textSecondary(BuildContext context) => Theme.of(context).textTheme.headline6!.color;
+  static Color? textSecondary(BuildContext context, bool isReverse) {
+    if (isReverse) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return vzThemeLight(context).textTheme.headline6!.color;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return vzThemeDark(context).textTheme.headline6!.color;
+      }
+    }
+    return Theme.of(context).textTheme.headline6!.color;
+  }
 
-  static Color? textTerciary(BuildContext context) => Theme.of(context).textTheme.headline5!.color;
+  static Color? textTerciary(BuildContext context, bool isReverse) {
+    if (isReverse) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return vzThemeLight(context).textTheme.headline5!.color;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return vzThemeDark(context).textTheme.headline5!.color;
+      }
+    }
+    return Theme.of(context).textTheme.headline5!.color;
+  }
 }

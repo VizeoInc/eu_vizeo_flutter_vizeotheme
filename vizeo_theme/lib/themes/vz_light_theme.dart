@@ -9,6 +9,7 @@ ThemeData vzThemeLight(BuildContext context) {
     backgroundColor: VzColor.backgroundPrimaryLight,
     focusColor: VzColor.backgroundTertiaryLight,
     buttonColor: VzColor.backgroundSecondaryLight,
+    accentColor: VzColor.accentLight,
     primaryColorBrightness: Brightness.light,
     accentColorBrightness: Brightness.light,
     scaffoldBackgroundColor: VzColor.backgroundPrimaryLight,
