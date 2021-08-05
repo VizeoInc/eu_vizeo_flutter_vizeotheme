@@ -3,13 +3,13 @@ import 'package:vizeo_theme/vizeo_theme.dart';
 import 'package:vizeo_theme/private/vz_strings.dart';
 
 class VzButton extends StatefulWidget {
-  late final String myFont;
+  late final String? myTitle, myFont;
   late final VoidCallback? onPressedFunc;
   late final Color myBackgroundColor, myHoveredColor, myTextColor;
   late final double myRadius;
   late final EdgeInsets myPadding;
   late final EdgeInsets myIconPadding;
-  final Widget? myRightChild, myLeftChild, myTitle;
+  final Widget? myRightChild, myLeftChild;
   late final double myFontSize;
   late final FontWeight myFontWeight;
   late final bool isEnable;
@@ -142,7 +142,10 @@ class _VzButtonState extends State<VzButton> {
       ));
     }
     if (widget.myTitle != null) {
-      listChild.add(widget.myTitle!);
+      listChild.add(Text(
+        widget.myTitle!,
+        style: TextStyle(color: widget.myTextColor),
+      ));
     }
     if (widget.myRightChild != null) {
       listChild.add(Padding(
