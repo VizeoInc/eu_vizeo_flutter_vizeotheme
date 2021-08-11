@@ -1,7 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:vizeo_theme/private/constants_value.dart';
 import 'package:vizeo_theme/private/enum.dart';
+import 'package:vizeo_theme/private/regex_utils.dart';
+import 'package:vizeo_theme/vizeo_theme.dart';
 
 class VzTextForm extends StatefulWidget {
   late final TextEditingController? controller;
@@ -13,7 +16,10 @@ class VzTextForm extends StatefulWidget {
   late final bool isEnable;
   late final String? hint;
   late final FocusNode? focus;
-  late bool isPassword = false;
+  Function(PointerEnterEvent)? callbackOnEnter;
+  Function(PointerExitEvent)? callbackOnExit;
+  bool isPassword = false;
+  bool _isEyeEnable = false;
   late final VzTextFormType _vzTextFormType;
 
   VzTextForm({
@@ -117,22 +123,29 @@ class _MyTextForm extends State<VzTextForm> {
           switch (widget._vzTextFormType) {
             case VzTextFormType.MAIL:
               final isEmail = GetUtils.isEmail(txt);
-              print("is Email => $isEmail");
+              debugPrint("is Email => $isEmail");
               //TODO override error if wrong mail
               break;
             case VzTextFormType.PASSWORD:
               //TODO password check
-              widget.onFieldSubmitted!(txt);
+              final isGoodLegnthPwd = GetUtils.isLengthGreaterOrEqual(txt, 8);
+              final isOneCapitalize = regexUppercase(txt);
+              final isOneNumber = regexNumber(txt);
+              final isNotAlphaNumeric = !regexAlphaNumeric(txt);
+
+              debugPrint(
+                  "is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
               break;
             case VzTextFormType.TELEPHONE:
               final isPhone = GetUtils.isPhoneNumber(txt);
-              print("is Phone => $isPhone");
+              debugPrint("is Phone => $isPhone");
               //TODO override error if wrong phone
               break;
             case VzTextFormType.GENERAL:
               break;
             default:
-              debugPrint("Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+              debugPrint(
+                  "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
           }
           widget.onFieldSubmitted!(txt);
         },
@@ -140,6 +153,7 @@ class _MyTextForm extends State<VzTextForm> {
         focusNode: widget.focus,
         controller: widget.controller,
         validator: (value) {
+          // TODO made validator
           widget.validator!(value);
         },
         decoration: InputDecoration(
@@ -149,7 +163,7 @@ class _MyTextForm extends State<VzTextForm> {
     );
 
     return AnimatedContainer(
-      width: widget.width ?? Get.width,
+      width: widget.width ?? MediaQuery.of(context).size.width,
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 150),
       decoration: ShapeDecoration(
@@ -158,11 +172,40 @@ class _MyTextForm extends State<VzTextForm> {
             Radius.circular(ConstantValue.borderRadiusTextForm),
           ),
         ),
-        color: hasFocus ? Theme.of(context).focusColor : Theme.of(context).buttonColor,
+        color: hasFocus
+            ? Theme.of(context).focusColor
+            : Theme.of(context).buttonColor,
       ),
-      child: Align(
+      child: Stack(
         alignment: Alignment.centerRight,
-        child: _myField,
+        children: [
+          _myField,
+          widget._vzTextFormType == VzTextFormType.PASSWORD
+              ? Positioned(
+                  child: MouseRegion(
+                    onEnter: (event) {
+                      widget._isEyeEnable = true;
+                    },
+                    onExit: (exit) {
+                      widget._isEyeEnable = false;
+                    },
+                    child: IconButton(
+                      icon: widget.isPassword
+                          ? const Icon(Icons.visibility_off)
+                          : const Icon(Icons.visibility),
+                      color: VzColor.redVizeo,
+                      onPressed: () {
+                        widget._isEyeEnable
+                            ? setState(() {
+                                widget.isPassword = !widget.isPassword;
+                              })
+                            : print("error");
+                      },
+                    ),
+                  ),
+                )
+              : const SizedBox(),
+        ],
       ),
     );
   }

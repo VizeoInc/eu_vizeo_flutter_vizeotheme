@@ -49,3 +49,7 @@ linter:
     prefer_equal_for_default_values: false
 
     directives_ordering: false
+
+    avoid_bool_literals_in_conditional_expressions: false
+
+    prefer_if_elements_to_conditional_expressions: false
