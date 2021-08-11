@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:vizeo_theme/themes/vz_colors.dart';
 
 class VzRadioButton extends StatefulWidget {
-  late dynamic value;
-  late Object? groupValue;
-  late Function(dynamic)? onChanged;
+  late final dynamic value;
+  late final Object? groupValue;
+  late final Function(dynamic)? onChanged;
 
   VzRadioButton({
     required this.value,
@@ -19,15 +19,15 @@ class VzRadioButton extends StatefulWidget {
 }
 
 class _VzRadioButton extends State<VzRadioButton> {
-  late Radio _RadioButton;
+  late Radio _radioButton;
 
   Radio getVzRadioButton() {
-    return _RadioButton;
+    return _radioButton;
   }
 
   @override
   Widget build(BuildContext context) {
-    return _RadioButton = Radio(
+    return _radioButton = Radio(
       value: widget.value,
       groupValue: widget.groupValue,
       onChanged: widget.onChanged,
