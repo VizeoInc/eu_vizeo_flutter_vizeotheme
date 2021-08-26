@@ -116,14 +116,14 @@ class VzButton extends StatefulWidget {
   @override
   _VzButtonState createState() => _VzButtonState();
 
-  ElevatedButton getMyButton() => getMyButton();
+  Container getMyButton() => getMyButton();
 }
 
 class _VzButtonState extends State<VzButton> {
   bool hasFocus = false;
-  late ElevatedButton _button;
+  late Container _button;
 
-  ElevatedButton getMyButton() {
+  Container getMyButton() {
     return _button;
   }
 
@@ -171,16 +171,16 @@ class _VzButtonState extends State<VzButton> {
           return widget.isEnable ? VzColor.redVizeo : VzColor.secondaryButton.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.SECONDARY) {
-          final colourTheme = VzColor.secondaryButtonColor(context: context);
-          return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+          var couleurTheme = VzColor.secondaryButtonColor(context: context, isReverse: false);
+          return widget.isEnable ? couleurTheme : VzColor.secondaryButton.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.TERTIARY) {
-          final colourTheme = VzColor.tertiaryButtonColor(context: context);
-          return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+          var couleurTheme = VzColor.tertiaryButtonColor(context: context, isReverse: false);
+          return widget.isEnable ? couleurTheme : VzColor.secondaryButton.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.SMALL) {
-          final colourTheme = VzColor.secondaryButtonColor(context: context);
-          return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+          var couleurTheme = VzColor.secondaryButtonColor(context: context, isReverse: false);
+          return widget.isEnable ? couleurTheme : VzColor.secondaryButton.withOpacity(0.3);
         }
 
         return widget.isEnable ? widget.myBackgroundColor : VzColor.secondaryButton.withOpacity(0.3);
@@ -210,16 +210,16 @@ class _VzButtonState extends State<VzButton> {
             return widget.isEnable ? VzColor.redVizeo : VzColor.secondaryButton.withOpacity(0.3);
           }
           if (widget.type == _TypeButton.SECONDARY) {
-            final colourTheme = VzColor.secondaryButtonColor(context: context);
-            return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+            var couleurTheme = VzColor.secondaryButtonColor(context: context, isReverse: false);
+            return widget.isEnable ? couleurTheme : VzColor.secondaryButton.withOpacity(0.3);
           }
           if (widget.type == _TypeButton.TERTIARY) {
-            final colourTheme = VzColor.tertiaryButtonColor(context: context);
-            return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+            var couleurTheme = VzColor.tertiaryButtonColor(context: context, isReverse: false);
+            return widget.isEnable ? couleurTheme : VzColor.secondaryButton.withOpacity(0.3);
           }
           if (widget.type == _TypeButton.SMALL) {
-            final colourTheme = VzColor.secondaryButtonColor(context: context);
-            return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+            var couleurTheme = VzColor.secondaryButtonColor(context: context, isReverse: false);
+            return widget.isEnable ? couleurTheme : VzColor.secondaryButton.withOpacity(0.3);
           }
         }
         if (states.contains(MaterialState.focused)) {
@@ -244,17 +244,25 @@ class _VzButtonState extends State<VzButton> {
 
   @override
   Widget build(BuildContext context) {
-    return _button = ElevatedButton(
-      onPressed: widget.onPressedFunc,
+    return _button = Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        border: Border.all(
+          color: widget.myBackgroundColor,
+        ),
+      ),
+      child: ElevatedButton(
+        onPressed: widget.onPressedFunc,
 
-      ///-----Background du bouton
-      style: myStyleConfig(context),
-      focusNode: widget.focus,
-      child: Padding(
-        padding: widget.myPadding,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: maListChild(),
+        ///-----Background du bouton
+        style: myStyleConfig(context),
+        focusNode: widget.focus,
+        child: Padding(
+          padding: widget.myPadding,
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: maListChild(),
+          ),
         ),
       ),
     );
