@@ -150,10 +150,7 @@ class _MyTextForm extends State<VzTextForm> {
         keyboardType: widget.keyboardType,
         focusNode: widget.focus,
         controller: widget.controller,
-        validator: (value) {
-          // TODO made validator
-          widget.validator!(value);
-        },
+        validator: widget.validator,
         decoration: InputDecoration(
           hintText: widget.hint,
         ),
