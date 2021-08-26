@@ -122,7 +122,7 @@ ThemeData vzThemeDark(BuildContext context) {
     textTheme: const TextTheme(
       bodyText1: TextStyle(
         fontFamily: myFontFamily,
-        color: VzColor.textPrimaryLight,
+        color: VzColor.textPrimaryDark,
         fontStyle: FontStyle.normal,
       ),
       bodyText2: TextStyle(
