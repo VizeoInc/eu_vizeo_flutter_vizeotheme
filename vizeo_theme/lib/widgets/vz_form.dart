@@ -114,7 +114,7 @@ class _MyTextForm extends State<VzTextForm> {
       autocorrect: false,
       obscuringCharacter: "*",
       enabled: widget.isEnable,
-      style: Theme.of(context).textTheme.bodyText1,
+      style: vzThemeLight(context).textTheme.bodyText1,
       obscureText: widget.isPassword,
       textInputAction: widget.textInputAction,
       onFieldSubmitted: (txt) {

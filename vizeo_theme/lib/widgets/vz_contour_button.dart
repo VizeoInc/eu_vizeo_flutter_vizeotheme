@@ -20,7 +20,7 @@ class VzContourButton extends StatefulWidget {
 
   VzContourButton({
     required this.onPressedFunc,
-    this.myTitle,
+    required this.myTitle,
     this.myTextColor = VzColor.textPrimaryLight,
     this.myColor = VzColor.transparent,
     this.myRadius = 5.0,
@@ -28,8 +28,8 @@ class VzContourButton extends StatefulWidget {
     this.myIconPadding = const EdgeInsets.all(8.0),
     this.myRightChild,
     this.myLeftChild,
-    this.myFontSize = 15,
-    this.myFontWeight = FontWeight.normal,
+    this.myFontSize = 18,
+    this.myFontWeight = FontWeight.w700,
     this.myFont = myFontFamily,
     this.isEnable = true,
     this.focus,
@@ -38,7 +38,7 @@ class VzContourButton extends StatefulWidget {
 
   VzContourButton.typePrimary({
     required this.onPressedFunc,
-    this.myTitle,
+    required this.myTitle,
     this.myTextColor = VzColor.redVizeo,
     this.myColor = VzColor.redVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -56,7 +56,7 @@ class VzContourButton extends StatefulWidget {
 
   VzContourButton.typeSecondary({
     required this.onPressedFunc,
-    this.myTitle,
+    required this.myTitle,
     this.myTextColor = VzColor.textOnRedVizeo,
     this.myColor = VzColor.transparent,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
@@ -74,7 +74,7 @@ class VzContourButton extends StatefulWidget {
 
   VzContourButton.typeSmall({
     required this.onPressedFunc,
-    this.myTitle,
+    required this.myTitle,
     this.myTextColor = VzColor.textOnRedVizeo,
     this.myColor = VzColor.transparent,
     this.myPadding = const EdgeInsets.symmetric(horizontal: 8),
@@ -216,7 +216,7 @@ class _VzContourButtonState extends State<VzContourButton> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.type != _TypeButton.PRIMARY) {
+    if (widget.type != _TypeButton.PRIMARY && widget.type != _TypeButton.NOTYPE) {
       widget.myColor = VzColor.contourButtonSecondary(context: context);
     }
     return _button = Container(
