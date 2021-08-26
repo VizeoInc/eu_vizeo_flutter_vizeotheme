@@ -250,6 +250,7 @@ class _VzButtonState extends State<VzButton> {
         border: Border.all(
           color: widget.myBackgroundColor,
         ),
+        color: widget.myBackgroundColor,
       ),
       child: ElevatedButton(
         onPressed: widget.onPressedFunc,
