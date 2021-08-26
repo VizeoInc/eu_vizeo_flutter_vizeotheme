@@ -2,6 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 
 class VzSlider extends StatefulWidget {
+  late double value;
+  late Function(double) onChanged;
+  late double? width;
+  late double min;
+  late double max;
+  late int? division;
+  late Color backColor;
+  late Color cursorColor;
+
   VzSlider({
     required this.value,
     required this.onChanged,
@@ -13,14 +22,27 @@ class VzSlider extends StatefulWidget {
     this.cursorColor = VzColor.white,
   });
 
-  late double value;
-  late Function(double) onChanged;
-  late double? width;
-  late double min;
-  late double max;
-  late int? division;
-  late Color backColor;
-  late Color cursorColor;
+  VzSlider.typeImportant({
+    required this.value,
+    required this.onChanged,
+    this.width,
+    this.min = 0,
+    this.max = 100,
+    this.division,
+    this.backColor = VzColor.redVizeo,
+    this.cursorColor = VzColor.white,
+  });
+
+  VzSlider.typeDiscret({
+    required this.value,
+    required this.onChanged,
+    this.width,
+    this.min = 0,
+    this.max = 100,
+    this.division,
+    this.backColor = VzColor.accentLight,
+    this.cursorColor = VzColor.white,
+  });
 
   @override
   _MySlider createState() => _MySlider();

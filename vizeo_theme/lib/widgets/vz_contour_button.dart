@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/vizeo_theme.dart';
 import 'package:vizeo_theme/private/vz_strings.dart';
+import 'package:vizeo_theme/themes/vz_colors.dart';
 
-enum _TypeButton { PRIMARY, SECONDARY, TERTIARY, SMALL, NOTYPE }
+enum _TypeButton { PRIMARY, SECONDARY, SMALL, NOTYPE }
 
-class VzButton extends StatefulWidget {
+class VzContourButton extends StatefulWidget {
   late final String? myTitle, myFont;
   late final VoidCallback? onPressedFunc;
-  late final Color myBackgroundColor, myHoveredColor, myTextColor;
+  late Color myColor, myTextColor;
   late final double myRadius;
   late final EdgeInsets myPadding;
   late final EdgeInsets myIconPadding;
@@ -18,12 +18,11 @@ class VzButton extends StatefulWidget {
   final FocusNode? focus;
   late final _TypeButton type;
 
-  VzButton({
+  VzContourButton({
     required this.onPressedFunc,
     this.myTitle,
     this.myTextColor = VzColor.textPrimaryLight,
-    this.myBackgroundColor = VzColor.redVizeo,
-    this.myHoveredColor = VzColor.redVizeo,
+    this.myColor = VzColor.transparent,
     this.myRadius = 5.0,
     this.myPadding = const EdgeInsets.all(8.0),
     this.myIconPadding = const EdgeInsets.all(8.0),
@@ -37,12 +36,11 @@ class VzButton extends StatefulWidget {
     this.type = _TypeButton.NOTYPE,
   });
 
-  VzButton.typePrimary({
+  VzContourButton.typePrimary({
     required this.onPressedFunc,
     this.myTitle,
-    this.myBackgroundColor = VzColor.redVizeo,
-    this.myHoveredColor = VzColor.redVizeoSoft,
-    this.myTextColor = VzColor.textOnRedVizeo,
+    this.myTextColor = VzColor.redVizeo,
+    this.myColor = VzColor.redVizeo,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myLeftChild,
@@ -56,12 +54,11 @@ class VzButton extends StatefulWidget {
     this.type = _TypeButton.PRIMARY,
   });
 
-  VzButton.typeSecondary({
+  VzContourButton.typeSecondary({
     required this.onPressedFunc,
     this.myTitle,
-    this.myBackgroundColor = VzColor.secondaryButton,
-    this.myHoveredColor = VzColor.secondaryButtonSoft,
     this.myTextColor = VzColor.textOnRedVizeo,
+    this.myColor = VzColor.transparent,
     this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myRadius = 5.0,
@@ -75,31 +72,11 @@ class VzButton extends StatefulWidget {
     this.type = _TypeButton.SECONDARY,
   });
 
-  VzButton.typeTertiary({
+  VzContourButton.typeSmall({
     required this.onPressedFunc,
     this.myTitle,
-    this.myBackgroundColor = VzColor.textPrimaryLight,
-    this.myHoveredColor = VzColor.transparent,
     this.myTextColor = VzColor.textOnRedVizeo,
-    this.myPadding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-    this.myIconPadding = const EdgeInsets.only(left: 8),
-    this.myRadius = 5.0,
-    this.myLeftChild,
-    this.myRightChild,
-    this.myFontSize = 18,
-    this.myFontWeight = FontWeight.w700,
-    this.myFont = myFontFamily,
-    this.isEnable = true,
-    this.focus,
-    this.type = _TypeButton.TERTIARY,
-  });
-
-  VzButton.typeSmall({
-    required this.onPressedFunc,
-    this.myTitle,
-    this.myBackgroundColor = VzColor.redVizeo,
-    this.myHoveredColor = VzColor.secondaryButtonSoft,
-    this.myTextColor = VzColor.textOnRedVizeo,
+    this.myColor = VzColor.transparent,
     this.myPadding = const EdgeInsets.symmetric(horizontal: 8),
     this.myIconPadding = const EdgeInsets.only(left: 12),
     this.myRadius = 5.0,
@@ -114,16 +91,16 @@ class VzButton extends StatefulWidget {
   });
 
   @override
-  _VzButtonState createState() => _VzButtonState();
+  _VzContourButtonState createState() => _VzContourButtonState();
 
-  ElevatedButton getMyButton() => getMyButton();
+  Container getMyButton() => getMyButton();
 }
 
-class _VzButtonState extends State<VzButton> {
+class _VzContourButtonState extends State<VzContourButton> {
   bool hasFocus = false;
-  late ElevatedButton _button;
+  late Container _button;
 
-  ElevatedButton getMyButton() {
+  Container getMyButton() {
     return _button;
   }
 
@@ -141,7 +118,7 @@ class _VzButtonState extends State<VzButton> {
     });
   }
 
-  List<Widget> maListChild() {
+  /*List<Widget> maListChild() {
     final List<Widget> listChild = [];
     if (widget.myLeftChild != null) {
       listChild.add(widget.myLeftChild!);
@@ -152,7 +129,11 @@ class _VzButtonState extends State<VzButton> {
     if (widget.myTitle != null) {
       listChild.add(Text(
         widget.myTitle!,
-        style: TextStyle(color: widget.myTextColor),
+        style: TextStyle(
+          fontSize: widget.myFontSize,
+          fontWeight: widget.myFontWeight,
+          fontFamily: widget.myFont,
+        ),
       ));
     }
     if (widget.myRightChild != null) {
@@ -162,28 +143,24 @@ class _VzButtonState extends State<VzButton> {
       listChild.add(widget.myRightChild!);
     }
     return listChild;
-  }
+  }*/
 
   ButtonStyle myStyleConfig(BuildContext context) {
     return ButtonStyle(
       backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         if (widget.type == _TypeButton.PRIMARY) {
-          return widget.isEnable ? VzColor.redVizeo : VzColor.secondaryButton.withOpacity(0.3);
+          return widget.isEnable ? VzColor.transparent : VzColor.secondaryButton.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.SECONDARY) {
-          final colourTheme = VzColor.secondaryButtonColor(context: context);
-          return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
-        }
-        if (widget.type == _TypeButton.TERTIARY) {
-          final colourTheme = VzColor.tertiaryButtonColor(context: context);
-          return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+          //widget.myBackgroundColor = VzColor.secondaryButtonColor(context: context, isReverse: false);
+          return widget.isEnable ? VzColor.transparent : VzColor.secondaryButton.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.SMALL) {
-          final colourTheme = VzColor.secondaryButtonColor(context: context);
-          return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+          //widget.myBackgroundColor = VzColor.secondaryButtonColor(context: context, isReverse: false);
+          return widget.isEnable ? VzColor.transparent : VzColor.secondaryButton.withOpacity(0.3);
         }
 
-        return widget.isEnable ? widget.myBackgroundColor : VzColor.secondaryButton.withOpacity(0.3);
+        return widget.isEnable ? VzColor.transparent : VzColor.secondaryButton.withOpacity(0.3);
       }),
 
       ///-----Shadow du bouton
@@ -207,54 +184,64 @@ class _VzButtonState extends State<VzButton> {
       overlayColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.pressed)) {
           if (widget.type == _TypeButton.PRIMARY) {
-            return widget.isEnable ? VzColor.redVizeo : VzColor.secondaryButton.withOpacity(0.3);
+            return widget.isEnable ? widget.myColor : VzColor.secondaryButton.withOpacity(0.3);
           }
           if (widget.type == _TypeButton.SECONDARY) {
-            final colourTheme = VzColor.secondaryButtonColor(context: context);
-            return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
-          }
-          if (widget.type == _TypeButton.TERTIARY) {
-            final colourTheme = VzColor.tertiaryButtonColor(context: context);
-            return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+            return widget.isEnable ? widget.myColor : VzColor.secondaryButton.withOpacity(0.3);
           }
           if (widget.type == _TypeButton.SMALL) {
-            final colourTheme = VzColor.secondaryButtonColor(context: context);
-            return widget.isEnable ? colourTheme : VzColor.secondaryButton.withOpacity(0.3);
+            return widget.isEnable ? widget.myColor : VzColor.secondaryButton.withOpacity(0.3);
           }
         }
         if (states.contains(MaterialState.focused)) {
-          return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
+          return widget.isEnable ? widget.myColor.withOpacity(0.2) : Colors.transparent;
         }
         if (states.contains(MaterialState.hovered)) {
-          return widget.isEnable ? widget.myHoveredColor : Colors.transparent;
+          return widget.isEnable ? widget.myColor.withOpacity(0.2) : Colors.transparent;
         }
+
         return Colors.transparent;
       }),
 
       /// style du text suivant les etats
-      textStyle: MaterialStateProperty.resolveWith((states) {
-        return TextStyle(
-            color: widget.isEnable ? widget.myTextColor : widget.myTextColor.withOpacity(0.3),
-            fontSize: widget.myFontSize,
-            fontWeight: widget.myFontWeight,
-            fontFamily: myFontFamily);
+
+      foregroundColor: MaterialStateProperty.resolveWith((states) {
+        if (states.contains(MaterialState.pressed)) {
+          return VzColor.white;
+        }
+        return widget.myColor;
       }),
     );
   }
 
   @override
   Widget build(BuildContext context) {
-    return _button = ElevatedButton(
-      onPressed: widget.onPressedFunc,
+    if (widget.type != _TypeButton.PRIMARY) {
+      widget.myColor = VzColor.contourButtonSecondary(context: context);
+    }
+    return _button = Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        border: Border.all(
+          color: widget.myColor,
+        ),
+      ),
+      child: ElevatedButton(
+        onPressed: widget.onPressedFunc,
 
-      ///-----Background du bouton
-      style: myStyleConfig(context),
-      focusNode: widget.focus,
-      child: Padding(
-        padding: widget.myPadding,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: maListChild(),
+        ///-----Background du bouton
+        style: myStyleConfig(context),
+        focusNode: widget.focus,
+        child: Padding(
+          padding: widget.myPadding,
+          child: Text(
+            widget.myTitle!,
+            style: TextStyle(
+              fontSize: widget.myFontSize,
+              fontWeight: widget.myFontWeight,
+              fontFamily: widget.myFont,
+            ),
+          ),
         ),
       ),
     );

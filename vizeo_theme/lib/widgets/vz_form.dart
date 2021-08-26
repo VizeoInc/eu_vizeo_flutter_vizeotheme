@@ -133,8 +133,7 @@ class _MyTextForm extends State<VzTextForm> {
               final isOneNumber = regexNumber(txt);
               final isNotAlphaNumeric = !regexAlphaNumeric(txt);
 
-              debugPrint(
-                  "is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
+              debugPrint("is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
               break;
             case VzTextFormType.TELEPHONE:
               final isPhone = GetUtils.isPhoneNumber(txt);
@@ -144,8 +143,7 @@ class _MyTextForm extends State<VzTextForm> {
             case VzTextFormType.GENERAL:
               break;
             default:
-              debugPrint(
-                  "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+              debugPrint("Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
           }
           widget.onFieldSubmitted!(txt);
         },
@@ -166,15 +164,13 @@ class _MyTextForm extends State<VzTextForm> {
       width: widget.width ?? MediaQuery.of(context).size.width,
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 150),
-      decoration: ShapeDecoration(
-        shape: const RoundedRectangleBorder(
+      decoration: const ShapeDecoration(
+        shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(ConstantValue.borderRadiusTextForm),
           ),
         ),
-        color: hasFocus
-            ? Theme.of(context).focusColor
-            : Theme.of(context).buttonColor,
+        color: VzColor.backgroundSecondaryLight,
       ),
       child: Stack(
         alignment: Alignment.centerRight,
@@ -190,9 +186,7 @@ class _MyTextForm extends State<VzTextForm> {
                       widget._isEyeEnable = false;
                     },
                     child: IconButton(
-                      icon: widget.isPassword
-                          ? const Icon(Icons.visibility_off)
-                          : const Icon(Icons.visibility),
+                      icon: widget.isPassword ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
                       color: VzColor.redVizeo,
                       onPressed: () {
                         widget._isEyeEnable

@@ -1,6 +1,3 @@
-
-
 class ConstantValue {
-
-  static const borderRadiusTextForm = 38.0;
+  static const borderRadiusTextForm = 5.0;
 }

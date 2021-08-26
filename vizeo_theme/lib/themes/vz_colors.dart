@@ -132,4 +132,35 @@ class VzColor {
     }
     return Theme.of(context).textTheme.headline5!.color;
   }
+
+  static Color secondaryButtonColor({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return textPrimaryLight;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return textSecondaryLight;
+      }
+    }
+    return textPrimaryLight;
+  }
+
+  static Color tertiaryButtonColor({required BuildContext context, bool? isReverse = false}) {
+    if (isReverse!) {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return textSecondaryLight;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return textPrimaryLight;
+      }
+    }
+    return textSecondaryLight;
+  }
+
+  static Color contourButtonSecondary({required BuildContext context}) {
+    if (Theme.of(context).brightness == Brightness.dark) {
+      return textTertiaryDark;
+    } else if (Theme.of(context).brightness == Brightness.light) {
+      return textPrimaryLight;
+    }
+    return textPrimaryLight;
+  }
 }
