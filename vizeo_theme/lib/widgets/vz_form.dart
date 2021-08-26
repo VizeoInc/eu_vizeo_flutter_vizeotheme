@@ -85,7 +85,7 @@ class VzTextForm extends StatefulWidget {
 }
 
 class _MyTextForm extends State<VzTextForm> {
-  late Form _myField;
+  late TextFormField _myField;
   final _formKey = GlobalKey<FormState>();
   bool hasFocus = false;
 
@@ -104,56 +104,53 @@ class _MyTextForm extends State<VzTextForm> {
     });
   }
 
-  Form getMyField() {
+  TextFormField getMyField() {
     return _myField;
   }
 
   @override
   Widget build(BuildContext context) {
-    _myField = Form(
-      key: _formKey,
-      child: TextFormField(
-        autocorrect: false,
-        obscuringCharacter: "*",
-        enabled: widget.isEnable,
-        style: Theme.of(context).textTheme.bodyText1,
-        obscureText: widget.isPassword,
-        textInputAction: widget.textInputAction,
-        onFieldSubmitted: (txt) {
-          switch (widget._vzTextFormType) {
-            case VzTextFormType.MAIL:
-              final isEmail = GetUtils.isEmail(txt);
-              debugPrint("is Email => $isEmail");
-              //TODO override error if wrong mail
-              break;
-            case VzTextFormType.PASSWORD:
-              //TODO password check
-              final isGoodLegnthPwd = GetUtils.isLengthGreaterOrEqual(txt, 8);
-              final isOneCapitalize = regexUppercase(txt);
-              final isOneNumber = regexNumber(txt);
-              final isNotAlphaNumeric = !regexAlphaNumeric(txt);
+    _myField = TextFormField(
+      autocorrect: false,
+      obscuringCharacter: "*",
+      enabled: widget.isEnable,
+      style: Theme.of(context).textTheme.bodyText1,
+      obscureText: widget.isPassword,
+      textInputAction: widget.textInputAction,
+      onFieldSubmitted: (txt) {
+        switch (widget._vzTextFormType) {
+          case VzTextFormType.MAIL:
+            final isEmail = GetUtils.isEmail(txt);
+            debugPrint("is Email => $isEmail");
+            //TODO override error if wrong mail
+            break;
+          case VzTextFormType.PASSWORD:
+            //TODO password check
+            final isGoodLegnthPwd = GetUtils.isLengthGreaterOrEqual(txt, 8);
+            final isOneCapitalize = regexUppercase(txt);
+            final isOneNumber = regexNumber(txt);
+            final isNotAlphaNumeric = !regexAlphaNumeric(txt);
 
-              debugPrint("is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
-              break;
-            case VzTextFormType.TELEPHONE:
-              final isPhone = GetUtils.isPhoneNumber(txt);
-              debugPrint("is Phone => $isPhone");
-              //TODO override error if wrong phone
-              break;
-            case VzTextFormType.GENERAL:
-              break;
-            default:
-              debugPrint("Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
-          }
-          widget.onFieldSubmitted!(txt);
-        },
-        keyboardType: widget.keyboardType,
-        focusNode: widget.focus,
-        controller: widget.controller,
-        validator: widget.validator,
-        decoration: InputDecoration(
-          hintText: widget.hint,
-        ),
+            debugPrint("is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
+            break;
+          case VzTextFormType.TELEPHONE:
+            final isPhone = GetUtils.isPhoneNumber(txt);
+            debugPrint("is Phone => $isPhone");
+            //TODO override error if wrong phone
+            break;
+          case VzTextFormType.GENERAL:
+            break;
+          default:
+            debugPrint("Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+        }
+        widget.onFieldSubmitted!(txt);
+      },
+      keyboardType: widget.keyboardType,
+      focusNode: widget.focus,
+      controller: widget.controller,
+      validator: widget.validator,
+      decoration: InputDecoration(
+        hintText: widget.hint,
       ),
     );
 
