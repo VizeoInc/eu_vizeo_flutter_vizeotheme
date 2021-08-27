@@ -157,14 +157,14 @@ class _MyTextForm extends State<VzTextForm> {
     return AnimatedContainer(
       width: widget.width ?? MediaQuery.of(context).size.width,
       curve: Curves.decelerate,
-      duration: const Duration(milliseconds: 150),
-      decoration: const ShapeDecoration(
+      duration: Duration(milliseconds: 150),
+      decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(ConstantValue.borderRadiusTextForm),
           ),
         ),
-        color: VzColor.backgroundSecondaryLight,
+        color: widget.isEnable ? VzColor.backgroundSecondaryLight : VzColor.accentDark,
       ),
       child: Stack(
         alignment: Alignment.centerRight,
