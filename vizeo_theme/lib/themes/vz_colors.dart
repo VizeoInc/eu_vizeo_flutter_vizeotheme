@@ -140,6 +140,12 @@ class VzColor {
       } else if (Theme.of(context).brightness == Brightness.light) {
         return textSecondaryLight;
       }
+    } else {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return textSecondaryLight;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return textPrimaryLight;
+      }
     }
     return textPrimaryLight;
   }
@@ -149,7 +155,13 @@ class VzColor {
       if (Theme.of(context).brightness == Brightness.dark) {
         return textSecondaryLight;
       } else if (Theme.of(context).brightness == Brightness.light) {
-        return textPrimaryLight;
+        return backgroundSecondaryDark;
+      }
+    } else {
+      if (Theme.of(context).brightness == Brightness.dark) {
+        return backgroundSecondaryDark;
+      } else if (Theme.of(context).brightness == Brightness.light) {
+        return textSecondaryLight;
       }
     }
     return textSecondaryLight;
