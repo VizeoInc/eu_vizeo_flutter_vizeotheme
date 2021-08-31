@@ -16,6 +16,7 @@ class VzTextForm extends StatefulWidget {
   late final bool isEnable;
   late final String? hint;
   late final FocusNode? focus;
+  late final TextAlign textAlign;
   Function(PointerEnterEvent)? callbackOnEnter;
   Function(PointerExitEvent)? callbackOnExit;
   bool isPassword = false;
@@ -31,6 +32,7 @@ class VzTextForm extends StatefulWidget {
     this.hint,
     this.focus,
     this.width,
+    this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
     _vzTextFormType = VzTextFormType.GENERAL;
@@ -45,6 +47,7 @@ class VzTextForm extends StatefulWidget {
     this.hint = "Mail",
     this.focus,
     this.width,
+    this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
     _vzTextFormType = VzTextFormType.MAIL;
@@ -59,6 +62,7 @@ class VzTextForm extends StatefulWidget {
     this.hint = "Mot de Passe",
     this.focus,
     this.width,
+    this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
     isPassword = true;
@@ -74,6 +78,7 @@ class VzTextForm extends StatefulWidget {
     this.hint = "Téléphone",
     this.focus,
     this.width,
+    this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
     _vzTextFormType = VzTextFormType.TELEPHONE;
@@ -117,6 +122,7 @@ class _MyTextForm extends State<VzTextForm> {
       style: vzThemeLight(context).textTheme.bodyText1,
       obscureText: widget.isPassword,
       textInputAction: widget.textInputAction,
+      textAlign: widget.textAlign,
       onFieldSubmitted: (txt) {
         switch (widget._vzTextFormType) {
           case VzTextFormType.MAIL:
@@ -164,13 +170,13 @@ class _MyTextForm extends State<VzTextForm> {
             Radius.circular(ConstantValue.borderRadiusTextForm),
           ),
         ),
-        color: widget.isEnable ? VzColor.backgroundSecondaryLight : VzColor.accentDark,
+        color: widget.isEnable ? VzColor.backgroundSecondaryLight : VzColor.backgroundSecondaryLight.withOpacity(0.8),
       ),
       child: Stack(
         alignment: Alignment.centerRight,
         children: [
           _myField,
-          widget._vzTextFormType == VzTextFormType.PASSWORD
+          (widget._vzTextFormType == VzTextFormType.PASSWORD) && widget.isEnable
               ? Positioned(
                   child: MouseRegion(
                     onEnter: (event) {
