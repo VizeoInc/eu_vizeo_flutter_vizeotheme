@@ -192,11 +192,7 @@ class _VzButtonState extends State<VzButton> {
 
       side: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.focused)) {
-          return widget.isEnable
-              ? BorderSide(
-                  color: widget.myBackgroundColor!,
-                )
-              : null;
+          return widget.isEnable ? BorderSide(color: widget.myBackgroundColor!) : null;
         }
       }),
 
