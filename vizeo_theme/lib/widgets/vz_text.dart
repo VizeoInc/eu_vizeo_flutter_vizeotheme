@@ -71,7 +71,6 @@ class VzText extends StatefulWidget {
 }
 
 class _VzTextState extends State<VzText> {
-
   @override
   Widget build(BuildContext context) {
     var colorTheme = widget.color ?? ColorUtils.colorStyle(widget._vzTextType);
@@ -98,73 +97,48 @@ class _VzTextState extends State<VzText> {
   }
 }
 
+class VzTextV2 extends Text {
+  late String data;
+  late final int maxlines;
+  late final TypeDeTextStyle type;
+  late final Color? color;
 
+  VzTextV2.typePrimary({
+    required this.data,
+    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    this.maxlines = 10,
+    this.color,
+  }) : super(
+          data,
+          maxLines: maxlines,
+          style: style.textStyle.copyWith(
+            color: color ?? ColorUtils.colorStyle(VzTextType.typePrimary),
+          ),
+        );
 
-// enum TypeDeStyle { H1, H2, H3, Body1, Body2 }
+  VzTextV2.typeSecondary({
+    required this.data,
+    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    this.maxlines = 10,
+    this.color,
+  }) : super(
+          data,
+          maxLines: maxlines,
+          style: style.textStyle.copyWith(
+            color: color ?? ColorUtils.colorStyle(VzTextType.typeSecondary),
+          ),
+        );
 
-// extension TypeDeStyleExt on TypeDeStyle {
-//   TextStyle get textStyle {
-//     switch (this) {
-//       case TypeDeStyle.H1:
-//         return TextStyle(
-//           fontSize: 55,
-//           fontWeight: FontWeight.w700,
-          
-//         );
-//     }
-//     return TextStyle();
-//   }
-
-//   TextStyle get textStyleFromColor {
-//       switch (this) {
-//       case TypeDeStyle.H1:
-//         return const TextStyle(
-//           fontSize: 55,
-//           fontWeight: FontWeight.w700,
-//         );
-//         case TypeDeStyle.H2:
-//           return const TextStyle(
-//           fontSize: 55,
-//           fontWeight: FontWeight.w700,
-//         );
-//         case TypeDeStyle.H3:
-//          return const TextStyle(
-//           fontSize: 55,
-//           fontWeight: FontWeight.w700,
-//         );
-//         case TypeDeStyle.Body1:
-//           return const TextStyle(
-//           fontSize: 55,
-//           fontWeight: FontWeight.w700,
-//         );
-//         case TypeDeStyle.Body2:
-//           return const TextStyle(
-//           fontSize: 55,
-//           fontWeight: FontWeight.w700,
-//         );
-//           default:
-//           return const TextStyle();
-//     }
-
-//   }
-// }
-
-// class VzTextBG extends StatefulWidget {
-//   //  late String data;
-// /*
-//   VzTextBG(this.data) : super(data) {
-//     this.maxLines = 10;
-//   }
-//   */
-//   late String data;
-//   late int maxline;
-//   late TypeDeStyle type;
-
-//   VzTextBG.fromCeQuejeVeux(this.data, this.maxline,
-//       {this.type = TypeDeStyle.H1})
-//       : super() {
-
-       
-//     //_init();
-//   }
-// }
+  VzTextV2.typeTertiary({
+    required this.data,
+    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    this.maxlines = 10,
+    this.color,
+  }) : super(
+          data,
+          maxLines: maxlines,
+          style: style.textStyle.copyWith(
+            color: color ?? ColorUtils.colorStyle(VzTextType.typeTertiary),
+          ),
+        );
+}

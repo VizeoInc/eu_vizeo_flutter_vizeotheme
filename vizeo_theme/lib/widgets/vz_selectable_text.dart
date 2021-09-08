@@ -112,3 +112,74 @@ class _VzTextSeletableState extends State<VzTextSelectable> {
     );
   }
 }
+
+class VzTextSelectableV2 extends SelectableText {
+  String data;
+  final int maxlines;
+  final bool enableInteractiveSelection;
+  final Function()? onTap;
+  final Color? color;
+
+  VzTextSelectableV2.typePrimary({
+    required this.data,
+    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    this.onTap,
+    this.maxlines = 1,
+    this.enableInteractiveSelection = true,
+    this.color,
+  }) : super(
+          data,
+          maxLines: maxlines,
+          enableInteractiveSelection: enableInteractiveSelection,
+          onTap: onTap,
+          style: style.textStyle.copyWith(
+            color: color ?? ColorUtils.colorStyle(VzTextType.typePrimary),
+          ),
+          toolbarOptions: const ToolbarOptions(
+            copy: true,
+            selectAll: true,
+          ),
+        );
+
+  VzTextSelectableV2.typeSecondary({
+    required this.data,
+    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    this.onTap,
+    this.maxlines = 1,
+    this.enableInteractiveSelection = true,
+    this.color,
+  }) : super(
+          data,
+          maxLines: maxlines,
+          enableInteractiveSelection: enableInteractiveSelection,
+          onTap: onTap,
+          style: style.textStyle.copyWith(
+            color: color ?? ColorUtils.colorStyle(VzTextType.typeSecondary),
+          ),
+          toolbarOptions: const ToolbarOptions(
+            copy: true,
+            selectAll: true,
+          ),
+        );
+
+  VzTextSelectableV2.typeTertiary({
+    required this.data,
+    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    this.onTap,
+    this.maxlines = 1,
+    this.enableInteractiveSelection = true,
+    this.color,
+  }) : super(
+          data,
+          maxLines: maxlines,
+          enableInteractiveSelection: enableInteractiveSelection,
+          onTap: onTap,
+          style: style.textStyle.copyWith(
+            color: color ?? ColorUtils.colorStyle(VzTextType.typeTertiary),
+          ),
+          toolbarOptions: const ToolbarOptions(
+            copy: true,
+            selectAll: true,
+          ),
+        );
+}
