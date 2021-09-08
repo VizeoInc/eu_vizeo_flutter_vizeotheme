@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:vizeo_theme/themes/vz_dark_theme.dart';
 import 'package:vizeo_theme/themes/vz_light_theme.dart';
 
+GlobalKey<NavigatorState> vzThemeKey = GlobalKey<NavigatorState>();
+
 MaterialColor createMaterialColor(Color color) {
   final strengths = [.05];
   final Map<int, Color> swatch = {};
@@ -56,123 +58,90 @@ class VzColor {
   static const Color transparent = Colors.transparent;
   static const Color white = Colors.white;
 
-  static Color backgroundPrimary({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return vzThemeLight(context).colorScheme.background;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return vzThemeDark(context).colorScheme.background;
+  static Color backgroundPrimary({bool isReverse = false}) {
+    if (isReverse) {
+      if (Theme.of(vzThemeKey.currentContext!).brightness == Brightness.dark) {
+        return vzThemeLight().colorScheme.background;
+      } else if (Theme.of(vzThemeKey.currentContext!).brightness ==
+          Brightness.light) {
+        return vzThemeDark().colorScheme.background;
       }
     }
-    return Theme.of(context).colorScheme.background;
+    return Theme.of(vzThemeKey.currentContext!).colorScheme.background;
   }
 
-  static Color backgroundSecondary({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return vzThemeLight(context).colorScheme.secondary;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return vzThemeDark(context).colorScheme.secondary;
+  static Color backgroundSecondary({bool isReverse = false}) {
+    if (isReverse) {
+      if (Theme.of(vzThemeKey.currentContext!).brightness == Brightness.dark) {
+        return vzThemeLight().colorScheme.secondary;
+      } else if (Theme.of(vzThemeKey.currentContext!).brightness ==
+          Brightness.light) {
+        return vzThemeDark().colorScheme.secondary;
       }
     }
-    return Theme.of(context).colorScheme.secondary;
+    return Theme.of(vzThemeKey.currentContext!).colorScheme.secondary;
   }
 
-  static Color backgroundTertiary({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return vzThemeLight(context).colorScheme.secondaryVariant;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return vzThemeDark(context).colorScheme.secondaryVariant;
-      }
+  static Color backgroundTertiary({bool isReverse = false}) {
+    return themUsed(isReverse).colorScheme.secondaryVariant;
+  }
+
+  static Color accentColor({bool isReverse = false}) {
+    return themUsed(isReverse).accentColor;
+  }
+
+  static ThemeData themUsed(bool isReverse) {
+    ThemeData themeUsed = Theme.of(vzThemeKey.currentContext!);
+
+    if (isReverse) {
+      themeUsed =
+          Theme.of(vzThemeKey.currentContext!).brightness == Brightness.dark
+              ? vzThemeLight()
+              : vzThemeDark();
     }
-    return Theme.of(context).colorScheme.secondaryVariant;
+
+    return themeUsed;
   }
 
-  static Color accentColor({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return vzThemeLight(context).accentColor;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return vzThemeDark(context).accentColor;
-      }
-    }
-    return Theme.of(context).accentColor;
+  static Color? textPrimary({bool isReverse = false}) {
+    return themUsed(isReverse).textTheme.bodyText1!.color;
   }
 
-  static Color? textPrimary({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return vzThemeLight(context).textTheme.bodyText1!.color;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return vzThemeDark(context).textTheme.bodyText1!.color;
-      }
-    }
-    return Theme.of(context).textTheme.bodyText1!.color;
+  static Color? textSecondary({bool isReverse = false}) {
+    return themUsed(isReverse).textTheme.headline6!.color;
   }
 
-  static Color? textSecondary({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return vzThemeLight(context).textTheme.headline6!.color;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return vzThemeDark(context).textTheme.headline6!.color;
-      }
-    }
-    return Theme.of(context).textTheme.headline6!.color;
+  static Color? textTerciary({bool isReverse = false}) {
+    return themUsed(isReverse).textTheme.headline5!.color;
   }
 
-  static Color? textTerciary({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return vzThemeLight(context).textTheme.headline5!.color;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return vzThemeDark(context).textTheme.headline5!.color;
-      }
-    }
-    return Theme.of(context).textTheme.headline5!.color;
-  }
-
-  static Color secondaryButtonColor({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return textPrimaryLight;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return textSecondaryLight;
-      }
+  static Color secondaryButtonColor({bool isReverse = false}) {
+    if (isReverse) {
+      return themUsed(isReverse).brightness == Brightness.dark
+          ? textPrimaryLight
+          : textSecondaryLight;
     } else {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return textSecondaryLight;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return textPrimaryLight;
-      }
+      return themUsed(isReverse).brightness == Brightness.dark
+          ? textSecondaryLight
+          : textPrimaryLight;
     }
-    return textPrimaryLight;
   }
 
-  static Color tertiaryButtonColor({required BuildContext context, bool? isReverse = false}) {
-    if (isReverse!) {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return textSecondaryLight;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return backgroundSecondaryDark;
-      }
+  static Color tertiaryButtonColor({bool isReverse = false}) {
+    if (isReverse) {
+      return themUsed(isReverse).brightness == Brightness.dark
+          ? textSecondaryLight
+          : backgroundSecondaryDark;
     } else {
-      if (Theme.of(context).brightness == Brightness.dark) {
-        return backgroundSecondaryDark;
-      } else if (Theme.of(context).brightness == Brightness.light) {
-        return textSecondaryLight;
-      }
+      return themUsed(isReverse).brightness == Brightness.dark
+          ? backgroundSecondaryDark
+          : textSecondaryLight;
     }
-    return textSecondaryLight;
   }
 
-  static Color contourButtonSecondary({required BuildContext context}) {
-    if (Theme.of(context).brightness == Brightness.dark) {
-      return textTertiaryDark;
-    } else if (Theme.of(context).brightness == Brightness.light) {
-      return textPrimaryLight;
-    }
-    return textPrimaryLight;
+  static Color contourButtonSecondary({bool isReverse = false}) {
+    return themUsed(isReverse).brightness == Brightness.dark
+        ? textTertiaryDark
+        : textPrimaryLight;
   }
 }

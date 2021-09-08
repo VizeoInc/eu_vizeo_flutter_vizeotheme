@@ -1,23 +1,23 @@
-
 import 'package:flutter/material.dart';
+import 'package:vizeo_theme/themes/vz_colors.dart';
 import 'enum.dart';
 
 class ColorUtils {
-  static Color colorStyle(BuildContext context, VzTextType vzTextType) {
+  static Color colorStyle(VzTextType vzTextType) {
     Color? color;
 
     switch (vzTextType) {
       case VzTextType.typePrimary:
-        color = Theme.of(context).textTheme.bodyText1!.color;
+        color = VzColor.textPrimary();
         break;
       case VzTextType.typeSecondary:
-        color = Theme.of(context).textTheme.headline6!.color;
+        color = VzColor.textSecondary();
         break;
       case VzTextType.typeTertiary:
-        color = Theme.of(context).textTheme.headline5!.color;
+        color = VzColor.textTerciary();
         break;
       default:
-        color = Theme.of(context).textTheme.bodyText1!.color;
+        color = VzColor.textPrimary();
     }
 
     return color!;

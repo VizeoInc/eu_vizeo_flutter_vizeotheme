@@ -238,13 +238,13 @@ class _VzButtonState extends State<VzButton> {
       widget.myBackgroundColor = VzColor.redVizeo;
     }
     if (widget.type == _TypeButton.SECONDARY) {
-      widget.myBackgroundColor = VzColor.secondaryButtonColor(context: context);
+      widget.myBackgroundColor = VzColor.secondaryButtonColor();
     }
     if (widget.type == _TypeButton.TERTIARY) {
-      widget.myBackgroundColor = VzColor.tertiaryButtonColor(context: context);
+      widget.myBackgroundColor = VzColor.tertiaryButtonColor();
     }
     if (widget.type == _TypeButton.SMALL) {
-      widget.myBackgroundColor = VzColor.secondaryButtonColor(context: context);
+      widget.myBackgroundColor = VzColor.secondaryButtonColor();
     }
     return _button = Container(
       decoration: BoxDecoration(

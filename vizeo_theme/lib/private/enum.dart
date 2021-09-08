@@ -5,8 +5,8 @@ enum VzTextType {
 }
 
 enum VzTextFormType {
-  MAIL,
-  PASSWORD,
-  TELEPHONE,
-  GENERAL,
+  mail,
+  password,
+  telephone,
+  general,
 }

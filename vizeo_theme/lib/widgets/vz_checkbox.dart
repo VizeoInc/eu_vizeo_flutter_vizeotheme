@@ -18,9 +18,9 @@ class _VzCheckboxState extends State<VzCheckbox> {
   @override
   Widget build(BuildContext context) {
     return Checkbox(
-        activeColor: VzColor.backgroundPrimary(context: context, isReverse: true),
+        activeColor: VzColor.backgroundPrimary(isReverse: true),
         fillColor: MaterialStateProperty.resolveWith((states) {
-          return VzColor.backgroundPrimary(context: context, isReverse: true);
+          return VzColor.backgroundPrimary(isReverse: true);
         }),
         value: widget.value,
         onChanged: (bool? value) {

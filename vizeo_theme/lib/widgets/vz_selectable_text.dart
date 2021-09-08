@@ -96,7 +96,7 @@ class _VzTextSeletableState extends State<VzTextSelectable> {
         selectAll: true,
       ),
       style: TextStyle(
-        color: widget.color ?? ColorUtils.colorStyle(context, widget._vzTextType),
+        color: widget.color ?? ColorUtils.colorStyle(widget._vzTextType),
         fontWeight: widget.fontWeight,
         fontSize: widget.fontSize,
         fontStyle: widget.fontStyle,

@@ -3,8 +3,13 @@ import 'package:vizeo_theme/private/constants_value.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 import 'package:vizeo_theme/private/vz_strings.dart';
 
-ThemeData vzThemeDark(BuildContext context) {
+// class VzThemeDarkBis extends ThemeData {
+//   VzThemeDarkBis() : super(accentColor: VzColor.textTertiaryDark);
+// }
+
+ThemeData vzThemeDark() {
   return ThemeData(
+    visualDensity: VisualDensity.adaptivePlatformDensity,
     brightness: Brightness.dark,
     backgroundColor: VzColor.backgroundPrimaryDark,
     focusColor: VzColor.backgroundTertiaryDark,
@@ -26,10 +31,12 @@ ThemeData vzThemeDark(BuildContext context) {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
     ),
     checkboxTheme: CheckboxThemeData(
-      fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      fillColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return VzColor.backgroundPrimaryLight;
       }),
-      checkColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      checkColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return VzColor.backgroundPrimaryDark;
       }),
       shape: RoundedRectangleBorder(

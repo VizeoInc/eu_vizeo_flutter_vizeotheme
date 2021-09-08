@@ -147,26 +147,37 @@ class _VzContourButtonState extends State<VzContourButton> {
 
   ButtonStyle myStyleConfig(BuildContext context) {
     return ButtonStyle(
-      backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      backgroundColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         if (widget.type == _TypeButton.PRIMARY) {
-          return widget.isEnable ? VzColor.transparent : VzColor.secondaryButton.withOpacity(0.3);
+          return widget.isEnable
+              ? VzColor.transparent
+              : VzColor.secondaryButton.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.SECONDARY) {
           //widget.myBackgroundColor = VzColor.secondaryButtonColor(context: context, isReverse: false);
-          return widget.isEnable ? VzColor.transparent : VzColor.secondaryButton.withOpacity(0.3);
+          return widget.isEnable
+              ? VzColor.transparent
+              : VzColor.secondaryButton.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.SMALL) {
           //widget.myBackgroundColor = VzColor.secondaryButtonColor(context: context, isReverse: false);
-          return widget.isEnable ? VzColor.transparent : VzColor.secondaryButton.withOpacity(0.3);
+          return widget.isEnable
+              ? VzColor.transparent
+              : VzColor.secondaryButton.withOpacity(0.3);
         }
 
-        return widget.isEnable ? VzColor.transparent : VzColor.secondaryButton.withOpacity(0.3);
+        return widget.isEnable
+            ? VzColor.transparent
+            : VzColor.secondaryButton.withOpacity(0.3);
       }),
 
       ///-----Shadow du bouton
-      shape:
-          MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(borderRadius: BorderRadius.circular(widget.myRadius))),
-      shadowColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(widget.myRadius))),
+      shadowColor:
+          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return Colors.transparent;
       }),
 
@@ -184,20 +195,30 @@ class _VzContourButtonState extends State<VzContourButton> {
       overlayColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.pressed)) {
           if (widget.type == _TypeButton.PRIMARY) {
-            return widget.isEnable ? widget.myColor : VzColor.secondaryButton.withOpacity(0.3);
+            return widget.isEnable
+                ? widget.myColor
+                : VzColor.secondaryButton.withOpacity(0.3);
           }
           if (widget.type == _TypeButton.SECONDARY) {
-            return widget.isEnable ? widget.myColor : VzColor.secondaryButton.withOpacity(0.3);
+            return widget.isEnable
+                ? widget.myColor
+                : VzColor.secondaryButton.withOpacity(0.3);
           }
           if (widget.type == _TypeButton.SMALL) {
-            return widget.isEnable ? widget.myColor : VzColor.secondaryButton.withOpacity(0.3);
+            return widget.isEnable
+                ? widget.myColor
+                : VzColor.secondaryButton.withOpacity(0.3);
           }
         }
         if (states.contains(MaterialState.focused)) {
-          return widget.isEnable ? widget.myColor.withOpacity(0.2) : Colors.transparent;
+          return widget.isEnable
+              ? widget.myColor.withOpacity(0.2)
+              : Colors.transparent;
         }
         if (states.contains(MaterialState.hovered)) {
-          return widget.isEnable ? widget.myColor.withOpacity(0.2) : Colors.transparent;
+          return widget.isEnable
+              ? widget.myColor.withOpacity(0.2)
+              : Colors.transparent;
         }
 
         return Colors.transparent;
@@ -216,8 +237,9 @@ class _VzContourButtonState extends State<VzContourButton> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.type != _TypeButton.PRIMARY && widget.type != _TypeButton.NOTYPE) {
-      widget.myColor = VzColor.contourButtonSecondary(context: context);
+    if (widget.type != _TypeButton.PRIMARY &&
+        widget.type != _TypeButton.NOTYPE) {
+      widget.myColor = VzColor.contourButtonSecondary();
     }
     return _button = Container(
       decoration: BoxDecoration(

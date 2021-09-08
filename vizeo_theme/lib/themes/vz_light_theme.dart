@@ -3,7 +3,7 @@ import 'package:vizeo_theme/private/constants_value.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 import 'package:vizeo_theme/private/vz_strings.dart';
 
-ThemeData vzThemeLight(BuildContext context) {
+ThemeData vzThemeLight() {
   return ThemeData(
     brightness: Brightness.light,
     backgroundColor: VzColor.backgroundPrimaryLight,
