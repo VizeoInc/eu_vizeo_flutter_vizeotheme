@@ -14,3 +14,8 @@
 ## 0.0.20
 
 * VzTextForm remove width required
+
+## 0.043
+
+* bug fixe
+* add ENUM for different TextStyle  h1,h2,h3,h4,h5,h6,body1,body2,body3,
