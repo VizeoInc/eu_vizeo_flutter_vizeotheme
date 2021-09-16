@@ -53,3 +53,7 @@ linter:
     avoid_bool_literals_in_conditional_expressions: false
 
     prefer_if_elements_to_conditional_expressions: false
+
+    annotate_overrides:  false
+    
+    overridden_fields: false
