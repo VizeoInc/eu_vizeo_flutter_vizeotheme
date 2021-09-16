@@ -15,7 +15,12 @@
 
 * VzTextForm remove width required
 
-## 0.043
+## 0.0.43
 
 * bug fixe
 * add ENUM for different TextStyle  h1,h2,h3,h4,h5,h6,body1,body2,body3,
+## 0.0.44
+
+* bug fixe
+* update VZText & VzTextSelectable for can modifiy TextStyle if user want
+* update VzButton for car update Text inside the button more easily
