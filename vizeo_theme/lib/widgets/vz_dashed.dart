@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-class Vz_DashedRect extends StatelessWidget {
+class VzDashedRect extends StatelessWidget {
   late final Color color;
   final double strokeWidth;
   late final double gap;
 
-  Vz_DashedRect({this.color = Colors.black, this.strokeWidth = 1.0, this.gap = 5.0});
+  VzDashedRect({this.color = Colors.black, this.strokeWidth = 1.0, this.gap = 5.0});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       child: Padding(
         padding: EdgeInsets.all(strokeWidth / 2),
         child: CustomPaint(
@@ -30,34 +30,34 @@ class DashRectPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    Paint dashedPaint = Paint()
+    final dashedPaint = Paint()
       ..color = color
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke;
 
-    double x = size.width;
-    double y = size.height;
+    final x = size.width;
+    final y = size.height;
 
-    Path _topPath = getDashedPath(
-      a: math.Point(0, 0),
+    final _topPath = getDashedPath(
+      a: const math.Point(0, 0),
       b: math.Point(x, 0),
       gap: gap,
     );
 
-    Path _rightPath = getDashedPath(
+    final _rightPath = getDashedPath(
       a: math.Point(x, 0),
       b: math.Point(x, y),
       gap: gap,
     );
 
-    Path _bottomPath = getDashedPath(
+    final _bottomPath = getDashedPath(
       a: math.Point(0, y),
       b: math.Point(x, y),
       gap: gap,
     );
 
-    Path _leftPath = getDashedPath(
-      a: math.Point(0, 0),
+    final _leftPath = getDashedPath(
+      a: const math.Point(0, 0),
       b: math.Point(0.001, y),
       gap: gap,
     );
@@ -73,17 +73,17 @@ class DashRectPainter extends CustomPainter {
     required math.Point<double> b,
     required num gap,
   }) {
-    Size size = Size(b.x - a.x, b.y - a.y);
-    Path path = Path();
+    final size = Size(b.x - a.x, b.y - a.y);
+    final path = Path();
     path.moveTo(a.x, a.y);
     bool shouldDraw = true;
     math.Point currentPoint = math.Point(a.x, a.y);
 
-    num radians = math.atan(size.height / size.width);
+    final radians = math.atan(size.height / size.width);
 
-    num dx = math.cos(radians) * gap < 0 ? math.cos(radians) * gap * -1 : math.cos(radians) * gap;
+    final dx = math.cos(radians) * gap < 0 ? math.cos(radians) * gap * -1 : math.cos(radians) * gap;
 
-    num dy = math.sin(radians) * gap < 0 ? math.sin(radians) * gap * -1 : math.sin(radians) * gap;
+    final dy = math.sin(radians) * gap < 0 ? math.sin(radians) * gap * -1 : math.sin(radians) * gap;
 
     while (currentPoint.x <= b.x && currentPoint.y <= b.y) {
       shouldDraw
