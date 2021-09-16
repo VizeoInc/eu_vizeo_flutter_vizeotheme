@@ -131,10 +131,10 @@ class VzColor {
     if (isReverse) {
       return themUsed(isReverse).brightness == Brightness.dark
           ? textSecondaryLight
-          : backgroundSecondaryDark;
+          : backgroundPrimaryDark;
     } else {
       return themUsed(isReverse).brightness == Brightness.dark
-          ? backgroundSecondaryDark
+          ? backgroundPrimaryDark
           : textSecondaryLight;
     }
   }
