@@ -30,3 +30,7 @@
 * bug fix
 * correct bug change background color on VzButton
 * add VzFAB button
+
+## 0.0.46
+
+* optimize name
