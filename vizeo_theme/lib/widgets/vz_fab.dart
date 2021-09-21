@@ -9,6 +9,7 @@ class VzFab extends StatefulWidget {
   late final Color iconColor;
   late final Color? iconColorPressed;
   late final Color borderColor;
+  late final double borderSize;
 
   VzFab({
     required this.icon,
@@ -16,7 +17,8 @@ class VzFab extends StatefulWidget {
     this.iconColor = VzColor.redVizeo,
     this.borderColor = VzColor.redVizeo,
     this.iconColorPressed,
-    this.size = 20,
+    this.size = 20.0,
+    this.borderSize = 1.0
   });
 
   @override
@@ -36,7 +38,7 @@ class _VzFabState extends State<VzFab> {
       hoverColor: VzColor.backgroundPrimary(),
       shape: CircleBorder(
         side: BorderSide(
-          width: 4.0,
+          width: widget.borderSize,
           color: widget.borderColor,
         ),
       ),

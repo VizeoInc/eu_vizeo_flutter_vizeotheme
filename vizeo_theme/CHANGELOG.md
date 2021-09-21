@@ -34,3 +34,7 @@
 ## 0.0.46
 
 * optimize name
+
+## 0.0.47
+
+* correct borderSize VzFab
