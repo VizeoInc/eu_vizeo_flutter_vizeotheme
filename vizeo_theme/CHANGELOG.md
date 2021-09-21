@@ -38,3 +38,7 @@
 ## 0.0.47
 
 * correct borderSize VzFab
+
+## 0.0.48
+
+* correct size VzFab
