@@ -20,7 +20,7 @@ enum _TypeButton {
 
 class VzButton extends StatefulWidget {
   final String? title;
-  final VoidCallback? onPressedFunc;
+  final VoidCallback? onPressed;
   late final double radius;
   late final EdgeInsets padding;
   late final EdgeInsets iconPadding;
@@ -33,7 +33,7 @@ class VzButton extends StatefulWidget {
   Color? backgroundColor, hoveredColor, textColor;
 
   VzButton({
-    required this.onPressedFunc,
+    required this.onPressed,
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.redVizeo,
@@ -51,7 +51,7 @@ class VzButton extends StatefulWidget {
   });
 
   VzButton.typePrimary({
-    required this.onPressedFunc,
+    required this.onPressed,
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.redVizeoSoft,
@@ -69,7 +69,7 @@ class VzButton extends StatefulWidget {
   });
 
   VzButton.typeSecondary({
-    required this.onPressedFunc,
+    required this.onPressed,
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.secondaryButtonSoft,
@@ -87,7 +87,7 @@ class VzButton extends StatefulWidget {
   });
 
   VzButton.typeTertiary({
-    required this.onPressedFunc,
+    required this.onPressed,
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.transparent,
@@ -105,7 +105,7 @@ class VzButton extends StatefulWidget {
   });
 
   VzButton.typeSmall({
-    required this.onPressedFunc,
+    required this.onPressed,
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.secondaryButtonSoft,
@@ -337,7 +337,7 @@ class _VzButtonState extends State<VzButton> {
         color: widget.backgroundColor,
       ),
       child: ElevatedButton(
-        onPressed: widget.onPressedFunc,
+        onPressed: widget.onPressed,
 
         ///-----Background du bouton
         style: myStyleConfig(context),
