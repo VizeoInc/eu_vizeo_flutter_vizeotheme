@@ -17,10 +17,16 @@
 
 ## 0.0.43
 
-* bug fixe
+* bug fix
 * add ENUM for different TextStyle  h1,h2,h3,h4,h5,h6,body1,body2,body3,
 ## 0.0.44
 
-* bug fixe
+* bug fix
 * update VZText & VzTextSelectable for can modifiy TextStyle if user want
 * update VzButton for car update Text inside the button more easily
+
+## 0.0.45
+
+* bug fix
+* correct bug change background color on VzButton
+* add VzFAB button

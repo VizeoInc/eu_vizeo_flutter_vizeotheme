@@ -4,6 +4,7 @@ export 'widgets/vz_text.dart';
 export 'widgets/vz_chip.dart';
 export 'widgets/vz_checkbox.dart';
 export 'widgets/vz_button.dart';
+export 'widgets/vz_fab.dart';
 export 'widgets/vz_radio_button.dart';
 export 'widgets/vz_selectable_text.dart';
 export 'widgets/vz_form.dart';
