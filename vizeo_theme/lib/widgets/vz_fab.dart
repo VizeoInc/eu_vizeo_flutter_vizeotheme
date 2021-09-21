@@ -7,15 +7,15 @@ class VzFab extends StatefulWidget {
   late final IconData icon;
   late final double size;
   late final Color iconColor;
-  late final Color iconColorPressed;
+  late final Color? iconColorPressed;
   late final Color borderColor;
 
   VzFab({
     required this.icon,
     required this.onTap,
     this.iconColor = VzColor.redVizeo,
-    this.iconColorPressed = VzColor.white,
     this.borderColor = VzColor.redVizeo,
+    this.iconColorPressed,
     this.size = 20,
   });
 
@@ -28,14 +28,16 @@ class _VzFabState extends State<VzFab> {
 
   @override
   Widget build(BuildContext context) {
+    final colorPressed = widget.iconColorPressed ?? VzColor.backgroundPrimary();
+
     return RawMaterialButton(
       key: const Key("VzFab"),
-      fillColor: Colors.transparent,
-      hoverColor: Colors.transparent,
+      fillColor: VzColor.backgroundPrimary(),
+      hoverColor: VzColor.backgroundPrimary(),
       shape: CircleBorder(
         side: BorderSide(
           width: 4.0,
-          color: isPressed ? widget.iconColorPressed : widget.borderColor,
+          color: widget.borderColor,
         ),
       ),
       onPressed: widget.onTap,
@@ -47,7 +49,7 @@ class _VzFabState extends State<VzFab> {
       child: Icon(
         widget.icon,
         size: widget.size,
-        color: isPressed ? widget.iconColorPressed : widget.iconColor,
+        color: isPressed ? colorPressed : widget.iconColor,
       ),
     );
   }
