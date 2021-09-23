@@ -3,10 +3,11 @@ import 'package:vizeo_theme/private/enum.dart';
 import 'package:vizeo_theme/private/color_utils_lib.dart';
 
 class VzTextSelectable extends SelectableText {
-  String data;
+  final String data;
   final int maxlines;
   final bool enableInteractiveSelection;
   final Function()? onTap;
+  final TextStyle? textStyleCustom;
   final Color? color;
 
   VzTextSelectable.typePrimary({
@@ -16,12 +17,13 @@ class VzTextSelectable extends SelectableText {
     this.maxlines = 1,
     this.enableInteractiveSelection = true,
     this.color,
+    this.textStyleCustom,
   }) : super(
           data,
           maxLines: maxlines,
           enableInteractiveSelection: enableInteractiveSelection,
           onTap: onTap,
-          style: style.textStyle.copyWith(
+          style: textStyleCustom ?? style.textStyle.copyWith(
             color: color ?? ColorUtils.colorStyle(VzTextType.typePrimary),
           ),
           toolbarOptions: const ToolbarOptions(
@@ -37,12 +39,13 @@ class VzTextSelectable extends SelectableText {
     this.maxlines = 1,
     this.enableInteractiveSelection = true,
     this.color,
+    this.textStyleCustom,
   }) : super(
           data,
           maxLines: maxlines,
           enableInteractiveSelection: enableInteractiveSelection,
           onTap: onTap,
-          style: style.textStyle.copyWith(
+          style: textStyleCustom ?? style.textStyle.copyWith(
             color: color ?? ColorUtils.colorStyle(VzTextType.typeSecondary),
           ),
           toolbarOptions: const ToolbarOptions(
@@ -58,12 +61,13 @@ class VzTextSelectable extends SelectableText {
     this.maxlines = 1,
     this.enableInteractiveSelection = true,
     this.color,
+    this.textStyleCustom,
   }) : super(
           data,
           maxLines: maxlines,
           enableInteractiveSelection: enableInteractiveSelection,
           onTap: onTap,
-          style: style.textStyle.copyWith(
+          style: textStyleCustom ?? style.textStyle.copyWith(
             color: color ?? ColorUtils.colorStyle(VzTextType.typeTertiary),
           ),
           toolbarOptions: const ToolbarOptions(
