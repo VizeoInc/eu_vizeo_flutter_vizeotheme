@@ -46,14 +46,7 @@ class _VzItemDraggable extends State<VzItemDraggable> {
         data: widget,
         child: widget.child,
         childWhenDragging: widget.childWhenDragging,
-        feedback: Container(
-          height: 50,
-          width: 50,
-          decoration: BoxDecoration(
-            color: widget.draggingColor ?? VzColor.redVizeo,
-            borderRadius: BorderRadius.circular(25.0),
-          ),
-        ),
+        feedback: widget.child,
         onDragCompleted: widget.onDragCompleted,
         rootOverlay: widget.rootOverlay,
         onDragStarted: widget.onDragStarted,
