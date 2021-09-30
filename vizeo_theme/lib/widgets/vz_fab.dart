@@ -37,7 +37,7 @@ class _VzFabState extends State<VzFab> {
       key: const Key("VzFab"),
       height: widget.size + 5,
       color: widget.backgroundColor,
-      hoverColor: VzColor.backgroundPrimary(),
+      hoverColor: widget.backgroundColor.withOpacity(0.2),
       shape: CircleBorder(
         side: BorderSide(
           width: widget.borderSize,
