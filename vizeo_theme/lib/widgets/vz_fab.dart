@@ -31,7 +31,7 @@ class _VzFabState extends State<VzFab> {
 
   @override
   Widget build(BuildContext context) {
-    final colorPressed = widget.iconColorPressed ?? VzColor.backgroundPrimary();
+    final colorPressed = widget.iconColorPressed /* ?? VzColor.backgroundPrimary()*/;
 
     return MaterialButton(
       key: const Key("VzFab"),
