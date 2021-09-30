@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:vizeo_theme/themes/vz_colors.dart';
 
@@ -9,7 +8,7 @@ class VzFab extends StatefulWidget {
   late final Color iconColor;
   late final Color? iconColorPressed;
   late final Color borderColor;
-  late final Color backgroundColor;
+  Color? backgroundColor;
   late final double borderSize;
 
   VzFab(
@@ -17,7 +16,7 @@ class VzFab extends StatefulWidget {
       required this.onTap,
       this.iconColor = VzColor.redVizeo,
       this.borderColor = VzColor.redVizeo,
-      this.backgroundColor = VzColor.transparent,
+      this.backgroundColor,
       this.iconColorPressed,
       this.size = 20.0,
       this.borderSize = 1.0});
@@ -31,13 +30,13 @@ class _VzFabState extends State<VzFab> {
 
   @override
   Widget build(BuildContext context) {
-    final colorPressed = widget.iconColorPressed /* ?? VzColor.backgroundPrimary()*/;
+    final colorPressed = widget.iconColorPressed ?? VzColor.transparent;
 
     return MaterialButton(
       key: const Key("VzFab"),
       height: widget.size + 5,
       color: widget.backgroundColor,
-      hoverColor: widget.backgroundColor.withOpacity(0.2),
+      hoverColor: widget.backgroundColor,
       shape: CircleBorder(
         side: BorderSide(
           width: widget.borderSize,
