@@ -7,6 +7,7 @@ class VzText extends Text {
   late final int maxlines;
   final TextStyle? textStyleCustom;
   final Color? color;
+  TextOverflow? overflow;
 
   VzText.typePrimary({
     required this.data,
@@ -14,7 +15,9 @@ class VzText extends Text {
     this.maxlines = 10,
     this.color,
     this.textStyleCustom,
+    this.overflow,
   }) : super(data,
+            overflow: overflow,
             maxLines: maxlines,
             style: textStyleCustom ??
                 style.textStyle.copyWith(
@@ -27,9 +30,11 @@ class VzText extends Text {
     this.maxlines = 10,
     this.color,
     this.textStyleCustom,
+    this.overflow,
   }) : super(
           data,
           maxLines: maxlines,
+          overflow: overflow,
           style: textStyleCustom ??
               style.textStyle.copyWith(
                 color: color ?? ColorUtils.colorStyle(VzTextType.typeSecondary),
@@ -42,9 +47,11 @@ class VzText extends Text {
     this.maxlines = 10,
     this.color,
     this.textStyleCustom,
+    this.overflow,
   }) : super(
           data,
           maxLines: maxlines,
+          overflow: overflow,
           style: textStyleCustom ??
               style.textStyle.copyWith(
                 color: color ?? ColorUtils.colorStyle(VzTextType.typeTertiary),
