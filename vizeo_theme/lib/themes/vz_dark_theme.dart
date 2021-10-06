@@ -22,8 +22,6 @@ ThemeData vzThemeDark() {
     hintColor: VzColor.textTertiaryDark,
     buttonTheme: ButtonThemeData(
       buttonColor: VzColor.secondaryButton,
-      hoverColor: VzColor.secondaryButtonSoft,
-      focusColor: VzColor.secondaryButtonSoft,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
     ),
     cardTheme: CardTheme(
@@ -31,12 +29,10 @@ ThemeData vzThemeDark() {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
     ),
     checkboxTheme: CheckboxThemeData(
-      fillColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      fillColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return VzColor.backgroundPrimaryLight;
       }),
-      checkColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      checkColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return VzColor.backgroundPrimaryDark;
       }),
       shape: RoundedRectangleBorder(

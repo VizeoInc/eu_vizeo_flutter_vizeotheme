@@ -18,8 +18,6 @@ ThemeData vzThemeLight() {
     hintColor: VzColor.textTertiaryLight,
     buttonTheme: ButtonThemeData(
       buttonColor: VzColor.secondaryButton,
-      hoverColor: VzColor.secondaryButtonSoft,
-      focusColor: VzColor.secondaryButtonSoft,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(55.0)),
     ),
     cardTheme: CardTheme(

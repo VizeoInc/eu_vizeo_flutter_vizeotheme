@@ -8,7 +8,7 @@ class VzFab extends StatefulWidget {
   late final Color iconColor;
   late final Color? iconColorPressed;
   late final Color borderColor;
-  Color? backgroundColor;
+  late Color? backgroundColor;
   late final double borderSize;
 
   VzFab(
@@ -30,7 +30,7 @@ class _VzFabState extends State<VzFab> {
 
   @override
   Widget build(BuildContext context) {
-    final colorPressed = widget.iconColorPressed ?? VzColor.transparent;
+    final colorPressed = widget.iconColorPressed ?? VzColor.textOnRedVizeo;
 
     return MaterialButton(
       key: const Key("VzFab"),
