@@ -5,8 +5,8 @@ class VzSlider extends StatefulWidget {
   late double value;
   late Function(double) onChanged;
   late double? width;
-  late int? min;
-  late int? max;
+  late double min;
+  late double max;
   late int? division;
   late Color backColor;
   late Color cursorColor;
@@ -65,6 +65,7 @@ class _MySlider extends State<VzSlider> {
     return _slide;
   }
 
+  double _currentSliderValue = 20;
   @override
   Widget build(BuildContext context) {
     _slide = Slider(
@@ -72,7 +73,7 @@ class _MySlider extends State<VzSlider> {
       min: widget.min as double,
       max: widget.max as double,
       label: widget.label,
-      divisions: widget.division == null ? widget.max : widget.division,
+      divisions: widget.division == null ? widget.max as int : widget.division,
       activeColor: widget.isEnable ? widget.backColor : widget.backColor.withOpacity(0.2),
       thumbColor: widget.isEnable ? widget.cursorColor : widget.cursorColor.withOpacity(0.8),
       onChanged: (double newValue) {
