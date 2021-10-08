@@ -11,7 +11,7 @@ class VzText extends Text {
 
   VzText.typePrimary({
     required this.data,
-    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    TypeDeTextStyle style = TypeDeTextStyle.body3,
     this.maxlines = 10,
     this.color,
     this.textStyleCustom,
@@ -26,7 +26,7 @@ class VzText extends Text {
 
   VzText.typeSecondary({
     required this.data,
-    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    TypeDeTextStyle style = TypeDeTextStyle.body3,
     this.maxlines = 10,
     this.color,
     this.textStyleCustom,
@@ -43,7 +43,7 @@ class VzText extends Text {
 
   VzText.typeTertiary({
     required this.data,
-    TypeDeTextStyle style = TypeDeTextStyle.body1,
+    TypeDeTextStyle style = TypeDeTextStyle.body3,
     this.maxlines = 10,
     this.color,
     this.textStyleCustom,
