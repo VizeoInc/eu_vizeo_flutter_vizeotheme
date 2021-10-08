@@ -16,6 +16,7 @@ class VzTextForm extends StatefulWidget {
   final String? Function(String?)? validator;
   late final bool isEnable;
   final String? hint;
+  late double? hintSize;
   final FocusNode? focus;
   late final TextAlign textAlign;
   Function(PointerEnterEvent)? callbackOnEnter;
@@ -32,6 +33,7 @@ class VzTextForm extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.validator,
     this.hint,
+    this.hintSize,
     this.focus,
     this.width,
     this.textAlign = TextAlign.start,
@@ -48,6 +50,7 @@ class VzTextForm extends StatefulWidget {
     this.keyboardType = TextInputType.emailAddress,
     this.validator,
     this.hint = "Mail",
+    this.hintSize,
     this.focus,
     this.width,
     this.textAlign = TextAlign.start,
@@ -64,6 +67,7 @@ class VzTextForm extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.validator,
     this.hint = "Mot de Passe",
+    this.hintSize,
     this.focus,
     this.width,
     this.textAlign = TextAlign.start,
@@ -81,6 +85,7 @@ class VzTextForm extends StatefulWidget {
     this.keyboardType = TextInputType.phone,
     this.validator,
     this.hint = "Téléphone",
+    this.hintSize,
     this.focus,
     this.width,
     this.textAlign = TextAlign.start,
@@ -168,7 +173,7 @@ class _MyTextForm extends State<VzTextForm> {
       focusNode: widget.focus,
       controller: widget.controller,
       validator: widget.validator,
-      decoration: InputDecoration(hintText: widget.hint, hintStyle: TextStyle(fontSize: 12)),
+      decoration: InputDecoration(hintText: widget.hint, hintStyle: TextStyle(fontSize: widget.hintSize != null ? widget.hintSize : 14)),
     );
 
     return AnimatedContainer(
