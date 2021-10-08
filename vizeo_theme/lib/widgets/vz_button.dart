@@ -27,10 +27,13 @@ class VzButton extends StatefulWidget {
   late final bool isEnable;
   late final _TypeButton type;
   late final TypeDeTextStyle textStyleBasic;
-  final Widget? rightChild, leftChild;
+  final Widget? rightChild;
+  final Widget? leftChild;
   final FocusNode? focus;
   final TextStyle? textStyleCustom;
-  Color? backgroundColor, hoveredColor, textColor;
+  Color? backgroundColor;
+  Color? hoveredColor;
+  Color? textColor;
 
   VzButton({
     required this.onPressed,
