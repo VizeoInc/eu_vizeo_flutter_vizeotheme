@@ -7,15 +7,16 @@ import 'package:vizeo_theme/private/regex_utils.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 
 class VzTextForm extends StatefulWidget {
-  late final TextEditingController? controller;
-  late final double? width;
-  late final TextInputAction? textInputAction;
-  late void Function(String)? onFieldSubmitted;
+  final TextEditingController? controller;
+  final double? width;
+  final TextInputAction? textInputAction;
+  void Function(String)? onFieldSubmitted;
+  void Function(String)? onChanged;
   late final TextInputType keyboardType;
-  late final String? Function(String?)? validator;
+  final String? Function(String?)? validator;
   late final bool isEnable;
-  late final String? hint;
-  late final FocusNode? focus;
+  final String? hint;
+  final FocusNode? focus;
   late final TextAlign textAlign;
   Function(PointerEnterEvent)? callbackOnEnter;
   Function(PointerExitEvent)? callbackOnExit;
@@ -26,6 +27,7 @@ class VzTextForm extends StatefulWidget {
   VzTextForm({
     required this.controller,
     required this.onFieldSubmitted,
+    this.onChanged,
     this.textInputAction,
     this.keyboardType = TextInputType.text,
     this.validator,
@@ -41,6 +43,7 @@ class VzTextForm extends StatefulWidget {
   VzTextForm.typeMail({
     required this.controller,
     required this.onFieldSubmitted,
+    this.onChanged,
     this.textInputAction,
     this.keyboardType = TextInputType.emailAddress,
     this.validator,
@@ -56,6 +59,7 @@ class VzTextForm extends StatefulWidget {
   VzTextForm.typePassword({
     required this.controller,
     required this.onFieldSubmitted,
+    this.onChanged,
     this.textInputAction,
     this.keyboardType = TextInputType.text,
     this.validator,
@@ -72,6 +76,7 @@ class VzTextForm extends StatefulWidget {
   VzTextForm.typeTelNumber({
     required this.controller,
     required this.onFieldSubmitted,
+    this.onChanged,
     this.textInputAction,
     this.keyboardType = TextInputType.phone,
     this.validator,
@@ -113,6 +118,36 @@ class _MyTextForm extends State<VzTextForm> {
     return _myField;
   }
 
+  void _analyseTextInForm(String txt) {
+    switch (widget._vzTextFormType) {
+      case VzTextFormType.mail:
+        final isEmail = GetUtils.isEmail(txt);
+        debugPrint("is Email => $isEmail");
+        //TODO override error if wrong mail
+        break;
+      case VzTextFormType.password:
+        //TODO password check
+        final isGoodLegnthPwd = GetUtils.isLengthGreaterOrEqual(txt, 8);
+        final isOneCapitalize = regexUppercase(txt);
+        final isOneNumber = regexNumber(txt);
+        final isNotAlphaNumeric = !regexAlphaNumeric(txt);
+
+        debugPrint(
+            "is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
+        break;
+      case VzTextFormType.telephone:
+        final isPhone = GetUtils.isPhoneNumber(txt);
+        debugPrint("is Phone => $isPhone");
+        //TODO override error if wrong phone
+        break;
+      case VzTextFormType.general:
+        break;
+      default:
+        debugPrint(
+            "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     _myField = TextFormField(
@@ -123,34 +158,12 @@ class _MyTextForm extends State<VzTextForm> {
       obscureText: widget.isPassword,
       textInputAction: widget.textInputAction,
       textAlign: widget.textAlign,
+      onChanged: (txt) {
+        _analyseTextInForm(txt);
+        widget.onChanged!(txt);
+      },
       onFieldSubmitted: (txt) {
-        switch (widget._vzTextFormType) {
-          case VzTextFormType.mail:
-            final isEmail = GetUtils.isEmail(txt);
-            debugPrint("is Email => $isEmail");
-            //TODO override error if wrong mail
-            break;
-          case VzTextFormType.password:
-            //TODO password check
-            final isGoodLegnthPwd = GetUtils.isLengthGreaterOrEqual(txt, 8);
-            final isOneCapitalize = regexUppercase(txt);
-            final isOneNumber = regexNumber(txt);
-            final isNotAlphaNumeric = !regexAlphaNumeric(txt);
-
-            debugPrint(
-                "is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
-            break;
-          case VzTextFormType.telephone:
-            final isPhone = GetUtils.isPhoneNumber(txt);
-            debugPrint("is Phone => $isPhone");
-            //TODO override error if wrong phone
-            break;
-          case VzTextFormType.general:
-            break;
-          default:
-            debugPrint(
-                "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
-        }
+        _analyseTextInForm(txt);
         widget.onFieldSubmitted!(txt);
       },
       keyboardType: widget.keyboardType,
@@ -165,9 +178,9 @@ class _MyTextForm extends State<VzTextForm> {
     return AnimatedContainer(
       width: widget.width ?? MediaQuery.of(context).size.width,
       curve: Curves.decelerate,
-      duration: Duration(milliseconds: 150),
+      duration: const Duration(milliseconds: 150),
       decoration: ShapeDecoration(
-        shape: RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
             Radius.circular(ConstantValue.borderRadiusTextForm),
           ),
