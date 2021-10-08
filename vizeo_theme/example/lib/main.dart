@@ -9,6 +9,7 @@ import 'package:vizeo_theme/private/enum.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(EasyDynamicThemeWidget(
     initialThemeMode: ThemeMode.dark,
     child: const MyApp(),
@@ -96,7 +97,8 @@ class _WidgetTotalesState extends State<WidgetTotales> {
                     VzTextForm(
                       width: 200.0,
                       controller: textEditingControllerBase,
-                      onFieldSubmitted: (txt) {
+                      onFieldSubmitted: (txt) {},
+                      onChanged: (txt) {
                         _nameTest = textEditingControllerBase.text;
                         setState(() {});
                       },
