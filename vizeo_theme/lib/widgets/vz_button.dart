@@ -39,7 +39,7 @@ class VzButton extends StatefulWidget {
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.redVizeo,
-    this.textStyleBasic = TypeDeTextStyle.body1,
+    this.textStyleBasic = TypeDeTextStyle.body2,
     this.padding = const EdgeInsets.all(8.0),
     this.iconPadding = const EdgeInsets.all(8.0),
     this.rightChild,
@@ -57,7 +57,7 @@ class VzButton extends StatefulWidget {
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.redVizeoSoft,
-    this.textStyleBasic = TypeDeTextStyle.body1,
+    this.textStyleBasic = TypeDeTextStyle.body2,
     this.padding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.iconPadding = const EdgeInsets.only(left: 12),
     this.leftChild,
@@ -75,7 +75,7 @@ class VzButton extends StatefulWidget {
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.secondaryButtonSoft,
-    this.textStyleBasic = TypeDeTextStyle.body1,
+    this.textStyleBasic = TypeDeTextStyle.body2,
     this.padding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.iconPadding = const EdgeInsets.only(left: 12),
     this.radius = 5.0,
@@ -93,7 +93,7 @@ class VzButton extends StatefulWidget {
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.transparent,
-    this.textStyleBasic = TypeDeTextStyle.body1,
+    this.textStyleBasic = TypeDeTextStyle.body2,
     this.padding = const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
     this.iconPadding = const EdgeInsets.only(left: 8),
     this.radius = 5.0,
@@ -111,7 +111,7 @@ class VzButton extends StatefulWidget {
     this.title,
     this.backgroundColor,
     this.hoveredColor = VzColor.secondaryButtonSoft,
-    this.textStyleBasic = TypeDeTextStyle.body1,
+    this.textStyleBasic = TypeDeTextStyle.body2,
     this.padding = const EdgeInsets.symmetric(horizontal: 8),
     this.iconPadding = const EdgeInsets.only(left: 12),
     this.radius = 5.0,
@@ -225,32 +225,21 @@ class _VzButtonState extends State<VzButton> {
 
   ButtonStyle myStyleConfig(BuildContext context) {
     return ButtonStyle(
-      backgroundColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      backgroundColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         if (widget.type == _TypeButton.primary) {
-          return widget.isEnable
-              ? widget.backgroundColor!
-              : widget.backgroundColor!.withOpacity(0.3);
+          return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.secondary) {
-          return widget.isEnable
-              ? widget.backgroundColor!
-              : widget.backgroundColor!.withOpacity(0.3);
+          return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.tertiary) {
-          return widget.isEnable
-              ? widget.backgroundColor!
-              : widget.backgroundColor!.withOpacity(0.3);
+          return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
         }
         if (widget.type == _TypeButton.small) {
-          return widget.isEnable
-              ? widget.backgroundColor!
-              : widget.backgroundColor!.withOpacity(0.3);
+          return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
         }
 
-        return widget.isEnable
-            ? widget.backgroundColor!
-            : widget.backgroundColor!.withOpacity(0.3);
+        return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
       }),
 
       ///-----Shadow du bouton
@@ -259,16 +248,13 @@ class _VzButtonState extends State<VzButton> {
           borderRadius: BorderRadius.circular(widget.radius),
         ),
       ),
-      shadowColor:
-          MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      shadowColor: MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return Colors.transparent;
       }),
 
       side: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.focused)) {
-          return widget.isEnable
-              ? BorderSide(color: widget.backgroundColor!)
-              : null;
+          return widget.isEnable ? BorderSide(color: widget.backgroundColor!) : null;
         }
       }),
 
@@ -277,35 +263,23 @@ class _VzButtonState extends State<VzButton> {
         (states) {
           if (states.contains(MaterialState.pressed)) {
             if (widget.type == _TypeButton.primary) {
-              return widget.isEnable
-                  ? widget.backgroundColor!
-                  : widget.backgroundColor!.withOpacity(0.3);
+              return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
             }
             if (widget.type == _TypeButton.secondary) {
-              return widget.isEnable
-                  ? widget.backgroundColor!
-                  : widget.backgroundColor!.withOpacity(0.3);
+              return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
             }
             if (widget.type == _TypeButton.tertiary) {
-              return widget.isEnable
-                  ? widget.backgroundColor!
-                  : widget.backgroundColor!.withOpacity(0.3);
+              return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
             }
             if (widget.type == _TypeButton.small) {
-              return widget.isEnable
-                  ? widget.backgroundColor!
-                  : widget.backgroundColor!.withOpacity(0.3);
+              return widget.isEnable ? widget.backgroundColor! : widget.backgroundColor!.withOpacity(0.3);
             }
           }
           if (states.contains(MaterialState.focused)) {
-            return widget.isEnable
-                ? VzColor.white.withOpacity(0.15)
-                : Colors.transparent;
+            return widget.isEnable ? VzColor.white.withOpacity(0.15) : Colors.transparent;
           }
           if (states.contains(MaterialState.hovered)) {
-            return widget.isEnable
-                ? VzColor.white.withOpacity(0.15)
-                : Colors.transparent;
+            return widget.isEnable ? VzColor.white.withOpacity(0.15) : Colors.transparent;
           }
           return Colors.transparent;
         },
