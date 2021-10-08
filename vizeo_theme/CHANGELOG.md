@@ -42,3 +42,8 @@
 ## 0.0.48
 
 * correct size VzFab
+
+## 0.0.56
+
+* add onChanged on VzForm
+* add example inside project for testing lib more easily
