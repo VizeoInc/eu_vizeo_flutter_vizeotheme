@@ -26,7 +26,7 @@ class VzTextForm extends StatefulWidget {
 
   VzTextForm({
     required this.controller,
-    required this.onFieldSubmitted,
+    this.onFieldSubmitted,
     this.onChanged,
     this.textInputAction,
     this.keyboardType = TextInputType.text,
@@ -42,7 +42,7 @@ class VzTextForm extends StatefulWidget {
 
   VzTextForm.typeMail({
     required this.controller,
-    required this.onFieldSubmitted,
+    this.onFieldSubmitted,
     this.onChanged,
     this.textInputAction,
     this.keyboardType = TextInputType.emailAddress,
@@ -58,7 +58,7 @@ class VzTextForm extends StatefulWidget {
 
   VzTextForm.typePassword({
     required this.controller,
-    required this.onFieldSubmitted,
+    this.onFieldSubmitted,
     this.onChanged,
     this.textInputAction,
     this.keyboardType = TextInputType.text,
@@ -75,7 +75,7 @@ class VzTextForm extends StatefulWidget {
 
   VzTextForm.typeTelNumber({
     required this.controller,
-    required this.onFieldSubmitted,
+    this.onFieldSubmitted,
     this.onChanged,
     this.textInputAction,
     this.keyboardType = TextInputType.phone,

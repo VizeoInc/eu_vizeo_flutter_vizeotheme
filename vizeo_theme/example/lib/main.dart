@@ -97,7 +97,6 @@ class _WidgetTotalesState extends State<WidgetTotales> {
                     VzTextForm(
                       width: 200.0,
                       controller: textEditingControllerBase,
-                      onFieldSubmitted: (txt) {},
                       onChanged: (txt) {
                         _nameTest = textEditingControllerBase.text;
                         setState(() {});

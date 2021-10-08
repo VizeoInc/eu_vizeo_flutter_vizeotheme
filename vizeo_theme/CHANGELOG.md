@@ -47,3 +47,7 @@
 
 * add onChanged on VzForm
 * add example inside project for testing lib more easily
+
+## 0.0.57
+
+* add onFieldSubmitted on VzForm not required for choosing between onChanged or onFieldSubmitted
