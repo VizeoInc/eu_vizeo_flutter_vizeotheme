@@ -55,3 +55,7 @@
 ## 0.0.58
 
 * correction bug - VzForm - add check if onChanged or onFieldSubmitted are not empty
+
+## 0.0.59
+
+* correction bug - remove VzButton simple constructeur
