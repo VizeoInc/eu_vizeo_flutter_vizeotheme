@@ -164,12 +164,14 @@ class _MyTextForm extends State<VzTextForm> {
       textInputAction: widget.textInputAction,
       textAlign: widget.textAlign,
       onChanged: (txt) {
+        debugPrint("changed => ${widget.onChanged}");
         if (widget.onChanged != null) {
           _analyseTextInForm(txt);
           widget.onChanged!(txt);
         }
       },
       onFieldSubmitted: (txt) {
+        debugPrint("submitted => ${widget.onFieldSubmitted}");
         if (widget.onFieldSubmitted != null) {
           _analyseTextInForm(txt);
           widget.onFieldSubmitted!(txt);
