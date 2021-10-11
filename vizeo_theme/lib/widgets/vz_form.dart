@@ -127,7 +127,7 @@ class _MyTextForm extends State<VzTextForm> {
     switch (widget._vzTextFormType) {
       case VzTextFormType.mail:
         final isEmail = GetUtils.isEmail(txt);
-        debugPrint("is Email => $isEmail");
+        // debugPrint("is Email => $isEmail");
         //TODO override error if wrong mail
         break;
       case VzTextFormType.password:
@@ -137,12 +137,12 @@ class _MyTextForm extends State<VzTextForm> {
         final isOneNumber = regexNumber(txt);
         final isNotAlphaNumeric = !regexAlphaNumeric(txt);
 
-        debugPrint(
-            "is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
+        // debugPrint(
+        //     "is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
         break;
       case VzTextFormType.telephone:
         final isPhone = GetUtils.isPhoneNumber(txt);
-        debugPrint("is Phone => $isPhone");
+        // debugPrint("is Phone => $isPhone");
         //TODO override error if wrong phone
         break;
       case VzTextFormType.general:
@@ -164,14 +164,12 @@ class _MyTextForm extends State<VzTextForm> {
       textInputAction: widget.textInputAction,
       textAlign: widget.textAlign,
       onChanged: (txt) {
-        debugPrint("changed => ${widget.onChanged}");
         if (widget.onChanged != null) {
           _analyseTextInForm(txt);
           widget.onChanged!(txt);
         }
       },
       onFieldSubmitted: (txt) {
-        debugPrint("submitted => ${widget.onFieldSubmitted}");
         if (widget.onFieldSubmitted != null) {
           _analyseTextInForm(txt);
           widget.onFieldSubmitted!(txt);
