@@ -3,6 +3,7 @@ import 'package:example/second_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:vizeo_theme/private/enum.dart';
 
@@ -47,10 +48,31 @@ class _WidgetTotalesState extends State<WidgetTotales> {
   var _nameTest = "";
   var actualRadio;
 
-  final textEditingControllerBase = TextEditingController();
-  final textEditingControllerMail = TextEditingController();
-  final textEditingControllerPwd = TextEditingController();
-  final textEditingControllerPhone = TextEditingController();
+  late TextEditingController textEditingControllerBase;
+  late TextEditingController textEditingControllerMail;
+  late TextEditingController textEditingControllerPwd;
+  late TextEditingController textEditingControllerPhone;
+  late TextEditingController textEditingControllerOver;
+
+  @override
+  void initState() {
+    super.initState();
+    textEditingControllerBase = TextEditingController();
+    textEditingControllerMail = TextEditingController();
+    textEditingControllerPwd = TextEditingController();
+    textEditingControllerPhone = TextEditingController();
+    textEditingControllerOver = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    textEditingControllerBase.dispose();
+    textEditingControllerMail.dispose();
+    textEditingControllerPwd.dispose();
+    textEditingControllerPhone.dispose();
+    textEditingControllerOver.dispose();
+    super.dispose();
+  }
 
   final focudNode = FocusNode();
 
@@ -96,6 +118,27 @@ class _WidgetTotalesState extends State<WidgetTotales> {
                   children: [
                     VzTextForm(
                       width: 200.0,
+                      controller: textEditingControllerOver,
+                      hint: "Carotte",
+                      textInputAction: TextInputAction.next,
+                    ),
+                    VzTextForm.typePassword(
+                      width: 200.0,
+                      controller: textEditingControllerPwd,
+                      textInputAction: TextInputAction.done,
+                      hint: "*************",
+                      onFieldSubmitted: (txt) {
+                        _nameTest = textEditingControllerPwd.text;
+                        debugPrint("name test => $_nameTest");
+                        if (_nameTest.isNotEmpty) {
+                          Get.to(() => const SecondScreen());
+                        } else {
+                          debugPrint("HEU");
+                        }
+                      },
+                    ),
+                    VzTextForm(
+                      width: 200.0,
                       controller: textEditingControllerBase,
                       onChanged: (txt) {
                         _nameTest = textEditingControllerBase.text;
@@ -110,19 +153,6 @@ class _WidgetTotalesState extends State<WidgetTotales> {
                       onFieldSubmitted: (txt) {
                         _nameTest = textEditingControllerMail.text;
                         setState(() {});
-                      },
-                    ),
-                    VzTextForm.typePassword(
-                      width: 200.0,
-                      controller: textEditingControllerPwd,
-                      onFieldSubmitted: (txt) {
-                        _nameTest = textEditingControllerPwd.text;
-                        debugPrint("name test => $_nameTest");
-                        if (_nameTest.isNotEmpty) {
-                          Get.to(const SecondScreen());
-                        } else {
-                          debugPrint("HEU");
-                        }
                       },
                     ),
                     VzTextForm.typeTelNumber(
