@@ -137,7 +137,8 @@ class _MyTextForm extends State<VzTextForm> {
         final isOneNumber = regexNumber(txt);
         final isNotAlphaNumeric = !regexAlphaNumeric(txt);
 
-        debugPrint("is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
+        debugPrint(
+            "is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
         break;
       case VzTextFormType.telephone:
         final isPhone = GetUtils.isPhoneNumber(txt);
@@ -147,7 +148,8 @@ class _MyTextForm extends State<VzTextForm> {
       case VzTextFormType.general:
         break;
       default:
-        debugPrint("Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+        debugPrint(
+            "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
     }
   }
 
@@ -162,18 +164,25 @@ class _MyTextForm extends State<VzTextForm> {
       textInputAction: widget.textInputAction,
       textAlign: widget.textAlign,
       onChanged: (txt) {
-        _analyseTextInForm(txt);
-        widget.onChanged!(txt);
+        if (widget.onChanged != null) {
+          _analyseTextInForm(txt);
+          widget.onChanged!(txt);
+        }
       },
       onFieldSubmitted: (txt) {
-        _analyseTextInForm(txt);
-        widget.onFieldSubmitted!(txt);
+        if (widget.onFieldSubmitted != null) {
+          _analyseTextInForm(txt);
+          widget.onFieldSubmitted!(txt);
+        }
       },
       keyboardType: widget.keyboardType,
       focusNode: widget.focus,
       controller: widget.controller,
       validator: widget.validator,
-      decoration: InputDecoration(hintText: widget.hint, hintStyle: TextStyle(fontSize: widget.hintSize != null ? widget.hintSize : 14)),
+      decoration: InputDecoration(
+          hintText: widget.hint,
+          hintStyle: TextStyle(
+              fontSize: widget.hintSize != null ? widget.hintSize : 14)),
     );
 
     return AnimatedContainer(
@@ -186,7 +195,9 @@ class _MyTextForm extends State<VzTextForm> {
             Radius.circular(ConstantValue.borderRadiusTextForm),
           ),
         ),
-        color: widget.isEnable ? VzColor.backgroundSecondaryLight : VzColor.backgroundSecondaryLight.withOpacity(0.8),
+        color: widget.isEnable
+            ? VzColor.backgroundSecondaryLight
+            : VzColor.backgroundSecondaryLight.withOpacity(0.8),
       ),
       child: Stack(
         alignment: Alignment.centerRight,
@@ -202,7 +213,9 @@ class _MyTextForm extends State<VzTextForm> {
                       widget._isEyeEnable = false;
                     },
                     child: IconButton(
-                      icon: widget.isPassword ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+                      icon: widget.isPassword
+                          ? const Icon(Icons.visibility_off)
+                          : const Icon(Icons.visibility),
                       color: VzColor.redVizeo,
                       onPressed: () {
                         widget._isEyeEnable
