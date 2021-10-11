@@ -34,24 +34,6 @@ class VzButton extends StatefulWidget {
   Color? hoveredColor;
   Color? textColor;
 
-  VzButton({
-    required this.onPressed,
-    this.title,
-    this.backgroundColor,
-    this.hoveredColor = VzColor.redVizeo,
-    this.textStyleBasic = TypeDeTextStyle.body2,
-    this.padding = const EdgeInsets.all(8.0),
-    this.iconPadding = const EdgeInsets.all(8.0),
-    this.rightChild,
-    this.leftChild,
-    this.radius = 5.0,
-    this.isEnable = true,
-    this.focus,
-    this.textStyleCustom,
-    this.textColor: VzColor.white,
-    this.type = _TypeButton.notype,
-  });
-
   VzButton.typePrimary({
     required this.onPressed,
     this.title,
