@@ -51,3 +51,7 @@
 ## 0.0.57
 
 * add onFieldSubmitted on VzForm not required for choosing between onChanged or onFieldSubmitted
+
+## 0.0.58
+
+* correction bug - VzForm - add check if onChanged or onFieldSubmitted are not empty
