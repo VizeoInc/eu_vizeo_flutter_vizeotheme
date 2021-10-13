@@ -59,3 +59,7 @@
 ## 0.0.59
 
 * correction bug - remove VzButton simple constructeur
+
+## 0.0.60
+
+* add softWrap to VzText and defaut value true
