@@ -37,6 +37,7 @@ dependencies:
   vizeo_theme:
     path: ../
   easy_dynamic_theme: ^2.2.0
+  gap: ^2.0.0
 
 dev_dependencies:
   flutter_test:
