@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/themes/vz_dark_theme.dart';
-import 'package:vizeo_theme/themes/vz_light_theme.dart';
+import 'package:vizeo_theme/src/themes/vz_dark_theme.dart';
+import 'package:vizeo_theme/src/themes/vz_light_theme.dart';
 
 GlobalKey<NavigatorState> vzThemeKey = GlobalKey<NavigatorState>();
 

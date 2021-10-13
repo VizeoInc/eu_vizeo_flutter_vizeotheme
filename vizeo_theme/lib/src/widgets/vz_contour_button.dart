@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:vizeo_theme/src/private/vz_strings.dart';
-import 'package:vizeo_theme/themes/vz_colors.dart';
+import 'package:vizeo_theme/src/themes/vz_colors.dart';
 
 enum _TypeButton { primary, secondary, small, notype }
 

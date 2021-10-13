@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/themes/vz_colors.dart';
+import 'package:vizeo_theme/src/themes/vz_colors.dart';
 
 class VzRadioButton extends StatefulWidget {
   late final dynamic value;

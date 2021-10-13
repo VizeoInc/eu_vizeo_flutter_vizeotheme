@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/widgets/vz_item_draggable.dart';
+import 'package:vizeo_theme/src/widgets/vz_item_draggable.dart';
 
-class VzDropTargetList extends StatefulWidget {
+class VzDropTargetGrid extends StatefulWidget {
   late List<Widget> list;
   late double? height;
   late double? width;
@@ -11,7 +11,7 @@ class VzDropTargetList extends StatefulWidget {
   late void Function(DragTargetDetails<VzItemDraggable>)? onAcceptWithDetails;
   late void Function(VzItemDraggable?)? onLeave;
 
-  VzDropTargetList({
+  VzDropTargetGrid({
     required this.list,
     this.height,
     this.width,
@@ -23,21 +23,21 @@ class VzDropTargetList extends StatefulWidget {
   });
 
   @override
-  _VzDropTargetList createState() => _VzDropTargetList();
+  _VzDropTargetGrid createState() => _VzDropTargetGrid();
 
-  Container getVzDropTargetList() => getVzDropTargetList();
+  Container getVzDropTargetGrid() => getVzDropTargetGrid();
 }
 
-class _VzDropTargetList extends State<VzDropTargetList> {
-  late Container _vzDropTargetList;
+class _VzDropTargetGrid extends State<VzDropTargetGrid> {
+  late Container _vzDropTargetGrid;
 
-  Container getVzDropTargetList() {
-    return _vzDropTargetList;
+  Container getVzDropTargetGrid() {
+    return _vzDropTargetGrid;
   }
 
   @override
   Widget build(BuildContext context) {
-    return _vzDropTargetList = Container(
+    return _vzDropTargetGrid = Container(
       child: DragTarget<VzItemDraggable>(
         builder: (
           BuildContext context,
@@ -45,16 +45,12 @@ class _VzDropTargetList extends State<VzDropTargetList> {
           List<dynamic> rejected,
         ) {
           return Container(
-            height: widget.height,
-            width: widget.width,
-            color: widget.backgroundColor,
-            child: ListView.builder(
-              itemCount: widget.list.length,
-              itemBuilder: (BuildContext context, int index) {
-                return widget.list[index];
-              },
-            ),
-          );
+              height: widget.height,
+              width: widget.width,
+              color: widget.backgroundColor,
+              child: Wrap(
+                children: widget.list,
+              ));
         },
         onAccept: widget.onAccept,
         onWillAccept: widget.onWillAccept,

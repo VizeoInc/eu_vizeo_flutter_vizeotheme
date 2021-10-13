@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/widgets/vz_item_draggable.dart';
+import 'package:vizeo_theme/src/widgets/vz_item_draggable.dart';
 
-class VzDropTargetGrid extends StatefulWidget {
+class VzDropTargetList extends StatefulWidget {
   late List<Widget> list;
   late double? height;
   late double? width;
@@ -11,7 +11,7 @@ class VzDropTargetGrid extends StatefulWidget {
   late void Function(DragTargetDetails<VzItemDraggable>)? onAcceptWithDetails;
   late void Function(VzItemDraggable?)? onLeave;
 
-  VzDropTargetGrid({
+  VzDropTargetList({
     required this.list,
     this.height,
     this.width,
@@ -23,21 +23,21 @@ class VzDropTargetGrid extends StatefulWidget {
   });
 
   @override
-  _VzDropTargetGrid createState() => _VzDropTargetGrid();
+  _VzDropTargetList createState() => _VzDropTargetList();
 
-  Container getVzDropTargetGrid() => getVzDropTargetGrid();
+  Container getVzDropTargetList() => getVzDropTargetList();
 }
 
-class _VzDropTargetGrid extends State<VzDropTargetGrid> {
-  late Container _vzDropTargetGrid;
+class _VzDropTargetList extends State<VzDropTargetList> {
+  late Container _vzDropTargetList;
 
-  Container getVzDropTargetGrid() {
-    return _vzDropTargetGrid;
+  Container getVzDropTargetList() {
+    return _vzDropTargetList;
   }
 
   @override
   Widget build(BuildContext context) {
-    return _vzDropTargetGrid = Container(
+    return _vzDropTargetList = Container(
       child: DragTarget<VzItemDraggable>(
         builder: (
           BuildContext context,
@@ -45,12 +45,16 @@ class _VzDropTargetGrid extends State<VzDropTargetGrid> {
           List<dynamic> rejected,
         ) {
           return Container(
-              height: widget.height,
-              width: widget.width,
-              color: widget.backgroundColor,
-              child: Wrap(
-                children: widget.list,
-              ));
+            height: widget.height,
+            width: widget.width,
+            color: widget.backgroundColor,
+            child: ListView.builder(
+              itemCount: widget.list.length,
+              itemBuilder: (BuildContext context, int index) {
+                return widget.list[index];
+              },
+            ),
+          );
         },
         onAccept: widget.onAccept,
         onWillAccept: widget.onWillAccept,
