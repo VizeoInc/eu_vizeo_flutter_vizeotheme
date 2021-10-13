@@ -1,5 +1,4 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
-import 'package:example/second_screen.dart';
 import 'package:example/view/button_view.dart';
 import 'package:example/view/card_view.dart';
 import 'package:example/view/checkbox_slider_view.dart';
@@ -10,7 +9,6 @@ import 'package:example/view/text_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
-import 'package:flutter/services.dart';
 import 'package:gap/gap.dart';
 import 'package:get/get.dart';
 

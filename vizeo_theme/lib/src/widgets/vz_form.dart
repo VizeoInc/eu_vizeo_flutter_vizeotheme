@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:vizeo_theme/src/private/constants_value.dart';
 import 'package:vizeo_theme/src/private/enum.dart';
 import 'package:vizeo_theme/src/private/regex_utils.dart';
+import 'package:vizeo_theme/src/widgets/vz_box_customisation.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 
 class VzTextForm extends StatefulWidget {
@@ -186,16 +187,7 @@ class _MyTextForm extends State<VzTextForm> {
       width: widget.width ?? MediaQuery.of(context).size.width,
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 150),
-      decoration: ShapeDecoration(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(
-            Radius.circular(ConstantValue.borderRadiusTextForm),
-          ),
-        ),
-        color: widget.isEnable
-            ? VzColor.backgroundSecondaryLight
-            : VzColor.backgroundSecondaryLight.withOpacity(0.8),
-      ),
+      decoration: VzBox.vzBoxDecoration(),
       child: Stack(
         alignment: Alignment.centerRight,
         children: [

@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:vizeo_theme/src/private/constants_value.dart';
 import 'package:vizeo_theme/src/themes/vz_colors.dart';
 
-BoxDecoration vzBoxDecoration({
+class VzBox {
+
+
+static BoxDecoration vzBoxDecoration({
   Color colorBorder = VzColor.transparent,
   BorderStyle style = BorderStyle.none,
   double width = 1.0,
@@ -17,17 +20,19 @@ BoxDecoration vzBoxDecoration({
     borderRadius: BorderRadius.circular(
       ConstantValue.borderRadiusTextForm,
     ),
-    color: colorBackground ?? VzColor.backgroundPrimary(),
+    color: colorBackground ?? VzColor.backgroundPrimary(isReverse: true),
     boxShadow: [
       vzBoxShadow(),
     ],
   );
 }
 
-BoxShadow vzBoxShadow() {
+static BoxShadow vzBoxShadow() {
   return BoxShadow(
     color: VzColor.textPrimary()!.withOpacity(0.15),
     blurRadius: 5,
     offset: const Offset(0, 3), // changes position of shadow
   );
+}
+
 }
