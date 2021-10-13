@@ -7,34 +7,41 @@ class VzText extends Text {
   late final int maxlines;
   final TextStyle? textStyleCustom;
   final Color? color;
-  TextOverflow? overflow;
+  final TextOverflow? overflow;
+  final bool softWrap;
 
   VzText.typePrimary({
     required this.data,
     TypeDeTextStyle style = TypeDeTextStyle.body2,
     this.maxlines = 10,
-    this.color,
-    this.textStyleCustom,
-    this.overflow,
-  }) : super(data,
-            overflow: overflow,
-            maxLines: maxlines,
-            style: textStyleCustom ??
-                style.textStyle.copyWith(
-                  color: color ?? ColorUtils.colorStyle(VzTextType.typePrimary),
-                ));
-
-  VzText.typeSecondary({
-    required this.data,
-    TypeDeTextStyle style = TypeDeTextStyle.body2,
-    this.maxlines = 10,
+    this.softWrap = true,
     this.color,
     this.textStyleCustom,
     this.overflow,
   }) : super(
           data,
-          maxLines: maxlines,
           overflow: overflow,
+          softWrap: softWrap,
+          maxLines: maxlines,
+          style: textStyleCustom ??
+              style.textStyle.copyWith(
+                color: color ?? ColorUtils.colorStyle(VzTextType.typePrimary),
+              ),
+        );
+
+  VzText.typeSecondary({
+    required this.data,
+    TypeDeTextStyle style = TypeDeTextStyle.body2,
+    this.maxlines = 10,
+    this.softWrap = true,
+    this.color,
+    this.textStyleCustom,
+    this.overflow,
+  }) : super(
+          data,
+          overflow: overflow,
+          softWrap: softWrap,
+          maxLines: maxlines,
           style: textStyleCustom ??
               style.textStyle.copyWith(
                 color: color ?? ColorUtils.colorStyle(VzTextType.typeSecondary),
@@ -45,13 +52,15 @@ class VzText extends Text {
     required this.data,
     TypeDeTextStyle style = TypeDeTextStyle.body2,
     this.maxlines = 10,
+    this.softWrap = true,
     this.color,
     this.textStyleCustom,
     this.overflow,
   }) : super(
           data,
-          maxLines: maxlines,
           overflow: overflow,
+          softWrap: softWrap,
+          maxLines: maxlines,
           style: textStyleCustom ??
               style.textStyle.copyWith(
                 color: color ?? ColorUtils.colorStyle(VzTextType.typeTertiary),
