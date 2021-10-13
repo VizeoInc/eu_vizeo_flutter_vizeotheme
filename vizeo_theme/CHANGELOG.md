@@ -63,3 +63,6 @@
 ## 0.0.60
 
 * add softWrap to VzText and defaut value true
+* add textAlign to VzText
+* add key to VzText
+* add textScaleFactor to VzText
