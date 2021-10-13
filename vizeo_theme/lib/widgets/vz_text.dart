@@ -9,20 +9,29 @@ class VzText extends Text {
   final Color? color;
   final TextOverflow? overflow;
   final bool softWrap;
+  final TextAlign textAlign;
+  final Key? key;
+  final double? textScaleFactor;
 
   VzText.typePrimary({
     required this.data,
     TypeDeTextStyle style = TypeDeTextStyle.body2,
     this.maxlines = 10,
     this.softWrap = true,
+    this.textAlign = TextAlign.start,
     this.color,
     this.textStyleCustom,
     this.overflow,
+    this.key,
+    this.textScaleFactor,
   }) : super(
           data,
           overflow: overflow,
           softWrap: softWrap,
           maxLines: maxlines,
+          textAlign: textAlign,
+          key: key,
+          textScaleFactor: textScaleFactor,
           style: textStyleCustom ??
               style.textStyle.copyWith(
                 color: color ?? ColorUtils.colorStyle(VzTextType.typePrimary),
@@ -34,14 +43,20 @@ class VzText extends Text {
     TypeDeTextStyle style = TypeDeTextStyle.body2,
     this.maxlines = 10,
     this.softWrap = true,
+    this.textAlign = TextAlign.start,
     this.color,
     this.textStyleCustom,
     this.overflow,
+    this.key,
+    this.textScaleFactor,
   }) : super(
           data,
           overflow: overflow,
           softWrap: softWrap,
           maxLines: maxlines,
+          textAlign: textAlign,
+          key: key,
+          textScaleFactor: textScaleFactor,
           style: textStyleCustom ??
               style.textStyle.copyWith(
                 color: color ?? ColorUtils.colorStyle(VzTextType.typeSecondary),
@@ -53,14 +68,20 @@ class VzText extends Text {
     TypeDeTextStyle style = TypeDeTextStyle.body2,
     this.maxlines = 10,
     this.softWrap = true,
+    this.textAlign = TextAlign.start,
     this.color,
     this.textStyleCustom,
     this.overflow,
+    this.key,
+    this.textScaleFactor,
   }) : super(
           data,
           overflow: overflow,
           softWrap: softWrap,
           maxLines: maxlines,
+          textAlign: textAlign,
+          key: key,
+          textScaleFactor: textScaleFactor,
           style: textStyleCustom ??
               style.textStyle.copyWith(
                 color: color ?? ColorUtils.colorStyle(VzTextType.typeTertiary),
