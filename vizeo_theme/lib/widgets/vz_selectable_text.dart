@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/private/enum.dart';
-import 'package:vizeo_theme/private/color_utils_lib.dart';
+import 'package:vizeo_theme/src/private/enum.dart';
+import 'package:vizeo_theme/src/private/color_utils_lib.dart';
 
 class VzTextSelectable extends SelectableText {
   final String data;

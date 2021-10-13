@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
-import 'package:vizeo_theme/private/enum.dart';
 
 import 'package:vizeo_theme/vizeo_theme.dart';
 

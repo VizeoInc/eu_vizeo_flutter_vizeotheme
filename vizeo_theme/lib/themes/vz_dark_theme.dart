@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/private/constants_value.dart';
+import 'package:vizeo_theme/src/private/constants_value.dart';
+import 'package:vizeo_theme/src/private/vz_strings.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
-import 'package:vizeo_theme/private/vz_strings.dart';
 
 // class VzThemeDarkBis extends ThemeData {
 //   VzThemeDarkBis() : super(accentColor: VzColor.textTertiaryDark);

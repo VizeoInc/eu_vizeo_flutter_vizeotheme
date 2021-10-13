@@ -17,3 +17,4 @@ export 'widgets/vz_item_draggable.dart';
 export 'themes/vz_light_theme.dart';
 export 'themes/vz_dark_theme.dart';
 export 'themes/vz_colors.dart';
+export 'src/private/enum.dart';

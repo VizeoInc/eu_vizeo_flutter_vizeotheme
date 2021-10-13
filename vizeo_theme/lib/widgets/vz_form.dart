@@ -1,9 +1,9 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vizeo_theme/private/constants_value.dart';
-import 'package:vizeo_theme/private/enum.dart';
-import 'package:vizeo_theme/private/regex_utils.dart';
+import 'package:vizeo_theme/src/private/constants_value.dart';
+import 'package:vizeo_theme/src/private/enum.dart';
+import 'package:vizeo_theme/src/private/regex_utils.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 
 class VzTextForm extends StatefulWidget {
@@ -136,9 +136,6 @@ class _MyTextForm extends State<VzTextForm> {
         final isOneCapitalize = regexUppercase(txt);
         final isOneNumber = regexNumber(txt);
         final isNotAlphaNumeric = !regexAlphaNumeric(txt);
-
-        // debugPrint(
-        //     "is Good Pwd => ${isGoodLegnthPwd && isOneCapitalize && isOneNumber && isNotAlphaNumeric}");
         break;
       case VzTextFormType.telephone:
         final isPhone = GetUtils.isPhoneNumber(txt);
