@@ -66,3 +66,8 @@
 * add textAlign to VzText
 * add key to VzText
 * add textScaleFactor to VzText
+
+## 0.0.61
+
+* add VzBox - contain BoxDecoration + BoxShadow
+* add vzBoxShadow to VzForm 
