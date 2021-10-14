@@ -10,6 +10,7 @@ import 'package:vizeo_theme/vizeo_theme.dart';
 class VzTextForm extends StatefulWidget {
   final TextEditingController? controller;
   final double? width;
+  final double? height;
   final TextInputAction? textInputAction;
   void Function(String)? onFieldSubmitted;
   void Function(String)? onChanged;
@@ -37,6 +38,7 @@ class VzTextForm extends StatefulWidget {
     this.hintSize,
     this.focus,
     this.width,
+    this.height,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -54,6 +56,7 @@ class VzTextForm extends StatefulWidget {
     this.hintSize,
     this.focus,
     this.width,
+    this.height,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -71,6 +74,7 @@ class VzTextForm extends StatefulWidget {
     this.hintSize,
     this.focus,
     this.width,
+    this.height,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -89,6 +93,7 @@ class VzTextForm extends StatefulWidget {
     this.hintSize,
     this.focus,
     this.width,
+    this.height,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -146,8 +151,7 @@ class _MyTextForm extends State<VzTextForm> {
       case VzTextFormType.general:
         break;
       default:
-        debugPrint(
-            "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+        debugPrint("Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
     }
   }
 
@@ -177,14 +181,12 @@ class _MyTextForm extends State<VzTextForm> {
       focusNode: widget.focus,
       controller: widget.controller,
       validator: widget.validator,
-      decoration: InputDecoration(
-          hintText: widget.hint,
-          hintStyle: TextStyle(
-              fontSize: widget.hintSize != null ? widget.hintSize : 14)),
+      decoration: InputDecoration(hintText: widget.hint, hintStyle: TextStyle(fontSize: widget.hintSize != null ? widget.hintSize : 14)),
     );
 
     return AnimatedContainer(
       width: widget.width ?? MediaQuery.of(context).size.width,
+      height: widget.height ?? MediaQuery.of(context).size.height,
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 150),
       decoration: VzBox.vzBoxDecoration(),
@@ -202,9 +204,7 @@ class _MyTextForm extends State<VzTextForm> {
                       widget._isEyeEnable = false;
                     },
                     child: IconButton(
-                      icon: widget.isPassword
-                          ? const Icon(Icons.visibility_off)
-                          : const Icon(Icons.visibility),
+                      icon: widget.isPassword ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
                       color: VzColor.redVizeo,
                       onPressed: () {
                         widget._isEyeEnable
