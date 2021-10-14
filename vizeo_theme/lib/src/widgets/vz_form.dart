@@ -38,7 +38,7 @@ class VzTextForm extends StatefulWidget {
     this.hintSize,
     this.focus,
     this.width,
-    this.height,
+    this.height = 40,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -56,7 +56,7 @@ class VzTextForm extends StatefulWidget {
     this.hintSize,
     this.focus,
     this.width,
-    this.height,
+    this.height = 40,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -74,7 +74,7 @@ class VzTextForm extends StatefulWidget {
     this.hintSize,
     this.focus,
     this.width,
-    this.height,
+    this.height = 40,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -93,7 +93,7 @@ class VzTextForm extends StatefulWidget {
     this.hintSize,
     this.focus,
     this.width,
-    this.height,
+    this.height = 40,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -186,7 +186,7 @@ class _MyTextForm extends State<VzTextForm> {
 
     return AnimatedContainer(
       width: widget.width ?? MediaQuery.of(context).size.width,
-      height: widget.height ?? MediaQuery.of(context).size.height,
+      height: widget.height,
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 150),
       decoration: VzBox.vzBoxDecoration(),
