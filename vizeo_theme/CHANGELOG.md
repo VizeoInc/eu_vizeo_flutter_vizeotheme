@@ -71,3 +71,7 @@
 
 * add VzBox - contain BoxDecoration + BoxShadow
 * add vzBoxShadow to VzForm 
+
+## 0.0.62
+
+* update VzContourButton 

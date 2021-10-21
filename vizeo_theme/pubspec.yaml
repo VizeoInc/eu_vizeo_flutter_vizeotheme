@@ -1,6 +1,6 @@
 name: vizeo_theme
 description: Vizeo Theme
-version: 0.0.61
+version: 0.0.62
 publish_to: 'none'
 homepage: https://github.com/VIZEODEV/eu_vizeo_flutter_vizeotheme
 
@@ -21,17 +21,6 @@ dev_dependencies:
 
 
 flutter:
-
-  # To add assets to your package, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
-  #
-  # For details regarding assets in packages, see
-  # https://flutter.dev/assets-and-images/#from-packages
-  #
-  # An image asset can refer to one or more resolution-specific "variants", see
-  # https://flutter.dev/assets-and-images/#resolution-aware.
   fonts:
     - family: Icons_App
       fonts:
