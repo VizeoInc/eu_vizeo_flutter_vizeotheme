@@ -11,12 +11,6 @@ enum _TypeButton {
   notype,
 }
 
-// TODO
-// mettre une annotation pour dire que si texrtStyleCustom use alors prend le dessu sur le textStyleType
-// aussi pour le text
-// tout sa avant 14H
-// apres bosse projet perso
-
 class VzButton extends StatefulWidget {
   final String? title;
   final VoidCallback? onPressed;

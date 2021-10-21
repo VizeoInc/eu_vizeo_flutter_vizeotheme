@@ -20,7 +20,7 @@ static BoxDecoration vzBoxDecoration({
     borderRadius: BorderRadius.circular(
       ConstantValue.borderRadiusTextForm,
     ),
-    color: colorBackground ?? VzColor.backgroundPrimaryLight, //FIXME temp
+    color: colorBackground ?? VzColor.backgroundPrimaryLight,
     boxShadow: [
       vzBoxShadow(),
     ],

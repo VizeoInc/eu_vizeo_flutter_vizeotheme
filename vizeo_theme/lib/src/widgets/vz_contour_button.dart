@@ -5,36 +5,20 @@ import 'package:vizeo_theme/src/themes/vz_colors.dart';
 enum _TypeButton { primary, secondary, small, notype }
 
 class VzContourButton extends StatefulWidget {
-  late final String? title, font;
+  late final String? title;
   late final VoidCallback? onPressed;
-  late Color color, textColor;
+  late final Color color;
+  late final Color textColor;
   late final double radius;
   late final EdgeInsets padding;
   late final EdgeInsets iconPadding;
-  final Widget? rightChild, leftChild;
+  final Widget? rightChild;
+  final Widget? leftChild;
   late final double myFontSize;
   late final FontWeight myFontWeight;
   late final bool isEnable;
   final FocusNode? focus;
   late final _TypeButton type;
-
-  VzContourButton({
-    required this.onPressed,
-    required this.title,
-    this.textColor = VzColor.textPrimaryLight,
-    this.color = VzColor.transparent,
-    this.radius = 5.0,
-    this.padding = const EdgeInsets.all(8.0),
-    this.iconPadding = const EdgeInsets.all(8.0),
-    this.rightChild,
-    this.leftChild,
-    this.myFontSize = 18,
-    this.myFontWeight = FontWeight.w700,
-    this.font = myFontFamily,
-    this.isEnable = true,
-    this.focus,
-    this.type = _TypeButton.notype,
-  });
 
   VzContourButton.typePrimary({
     required this.onPressed,
@@ -48,7 +32,6 @@ class VzContourButton extends StatefulWidget {
     this.radius = 5.0,
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
-    this.font = myFontFamily,
     this.isEnable = true,
     this.focus,
     this.type = _TypeButton.primary,
@@ -66,7 +49,6 @@ class VzContourButton extends StatefulWidget {
     this.rightChild,
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
-    this.font = myFontFamily,
     this.isEnable = true,
     this.focus,
     this.type = _TypeButton.secondary,
@@ -84,7 +66,6 @@ class VzContourButton extends StatefulWidget {
     this.rightChild,
     this.myFontSize = 18,
     this.myFontWeight = FontWeight.w700,
-    this.font = myFontFamily,
     this.isEnable = true,
     this.focus,
     this.type = _TypeButton.small,
@@ -117,33 +98,6 @@ class _VzContourButtonState extends State<VzContourButton> {
       setState(() {});
     });
   }
-
-  /*List<Widget> maListChild() {
-    final List<Widget> listChild = [];
-    if (widget.myLeftChild != null) {
-      listChild.add(widget.myLeftChild!);
-      listChild.add(Padding(
-        padding: widget.myIconPadding,
-      ));
-    }
-    if (widget.myTitle != null) {
-      listChild.add(Text(
-        widget.myTitle!,
-        style: TextStyle(
-          fontSize: widget.myFontSize,
-          fontWeight: widget.myFontWeight,
-          fontFamily: widget.myFont,
-        ),
-      ));
-    }
-    if (widget.myRightChild != null) {
-      listChild.add(Padding(
-        padding: widget.myIconPadding,
-      ));
-      listChild.add(widget.myRightChild!);
-    }
-    return listChild;
-  }*/
 
   ButtonStyle myStyleConfig(BuildContext context) {
     return ButtonStyle(
@@ -261,7 +215,7 @@ class _VzContourButtonState extends State<VzContourButton> {
             style: TextStyle(
               fontSize: widget.myFontSize,
               fontWeight: widget.myFontWeight,
-              fontFamily: widget.font,
+              fontFamily: myFontFamily,
             ),
           ),
         ),
