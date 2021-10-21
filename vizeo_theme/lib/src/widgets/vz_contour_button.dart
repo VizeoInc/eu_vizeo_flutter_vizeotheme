@@ -7,8 +7,8 @@ enum _TypeButton { primary, secondary, small, notype }
 class VzContourButton extends StatefulWidget {
   late final String? title;
   late final VoidCallback? onPressed;
-  late final Color color;
-  late final Color textColor;
+  late Color color;
+  late Color textColor;
   late final double radius;
   late final EdgeInsets padding;
   late final EdgeInsets iconPadding;
