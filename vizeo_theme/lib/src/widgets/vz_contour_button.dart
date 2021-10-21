@@ -14,8 +14,8 @@ class VzContourButton extends StatefulWidget {
   late final EdgeInsets iconPadding;
   final Widget? rightChild;
   final Widget? leftChild;
-  late final double myFontSize;
-  late final FontWeight myFontWeight;
+  late final double fontSize;
+  late final FontWeight fontWeight;
   late final bool isEnable;
   final FocusNode? focus;
   late final _TypeButton type;
@@ -30,8 +30,8 @@ class VzContourButton extends StatefulWidget {
     this.leftChild,
     this.rightChild,
     this.radius = 5.0,
-    this.myFontSize = 18,
-    this.myFontWeight = FontWeight.w700,
+    this.fontSize = 18,
+    this.fontWeight = FontWeight.w700,
     this.isEnable = true,
     this.focus,
     this.type = _TypeButton.primary,
@@ -47,8 +47,8 @@ class VzContourButton extends StatefulWidget {
     this.radius = 5.0,
     this.leftChild,
     this.rightChild,
-    this.myFontSize = 18,
-    this.myFontWeight = FontWeight.w700,
+    this.fontSize = 18,
+    this.fontWeight = FontWeight.w700,
     this.isEnable = true,
     this.focus,
     this.type = _TypeButton.secondary,
@@ -64,8 +64,8 @@ class VzContourButton extends StatefulWidget {
     this.radius = 5.0,
     this.leftChild,
     this.rightChild,
-    this.myFontSize = 18,
-    this.myFontWeight = FontWeight.w700,
+    this.fontSize = 18,
+    this.fontWeight = FontWeight.w700,
     this.isEnable = true,
     this.focus,
     this.type = _TypeButton.small,
@@ -213,8 +213,8 @@ class _VzContourButtonState extends State<VzContourButton> {
           child: Text(
             widget.title!,
             style: TextStyle(
-              fontSize: widget.myFontSize,
-              fontWeight: widget.myFontWeight,
+              fontSize: widget.fontSize,
+              fontWeight: widget.fontWeight,
               fontFamily: myFontFamily,
             ),
           ),
