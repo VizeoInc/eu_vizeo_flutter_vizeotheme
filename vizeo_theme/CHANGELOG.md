@@ -75,3 +75,8 @@
 ## 0.0.62
 
 * update VzContourButton 
+
+## 0.0.70
+
+* update VzText
+* add linux app example - for hotreload :yes: 
