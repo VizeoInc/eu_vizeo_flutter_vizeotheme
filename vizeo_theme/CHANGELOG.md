@@ -80,3 +80,7 @@
 
 * update VzText
 * add linux app example - for hotreload :yes: 
+## 0.0.71
+
+* update VzSlider perf
+* udpate padding VzButton
