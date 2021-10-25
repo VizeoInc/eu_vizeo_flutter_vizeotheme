@@ -65,15 +65,14 @@ class _MySlider extends State<VzSlider> {
     return _slide;
   }
 
-  double _currentSliderValue = 20;
   @override
   Widget build(BuildContext context) {
     _slide = Slider(
       value: widget.value.toDouble(),
-      min: widget.min as double,
-      max: widget.max as double,
+      min: widget.min,
+      max: widget.max,
       label: widget.label,
-      divisions: widget.division == null ? widget.max as int : widget.division,
+      divisions: widget.division ?? widget.max  as int,
       activeColor: widget.isEnable ? widget.backColor : widget.backColor.withOpacity(0.2),
       thumbColor: widget.isEnable ? widget.cursorColor : widget.cursorColor.withOpacity(0.8),
       onChanged: (double newValue) {
@@ -88,7 +87,7 @@ class _MySlider extends State<VzSlider> {
       },
     );
 
-    return Container(
+    return SizedBox(
       width: (widget.width != null) ? widget.width : null,
       child: _slide,
     );
