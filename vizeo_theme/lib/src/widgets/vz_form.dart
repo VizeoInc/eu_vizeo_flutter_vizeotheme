@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vizeo_theme/src/private/constants_value.dart';
 import 'package:vizeo_theme/src/private/enum.dart';
 import 'package:vizeo_theme/src/private/regex_utils.dart';
 import 'package:vizeo_theme/src/widgets/vz_box_customisation.dart';
@@ -26,6 +25,7 @@ class VzTextForm extends StatefulWidget {
   bool isPassword = false;
   bool _isEyeEnable = false;
   late final VzTextFormType _vzTextFormType;
+  final TextStyle? style;
 
   VzTextForm({
     required this.controller,
@@ -39,8 +39,10 @@ class VzTextForm extends StatefulWidget {
     this.focus,
     this.width,
     this.height = 40,
+    this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
+    
   }) : super() {
     _vzTextFormType = VzTextFormType.general;
   }
@@ -57,6 +59,7 @@ class VzTextForm extends StatefulWidget {
     this.focus,
     this.width,
     this.height = 40,
+    this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -75,6 +78,7 @@ class VzTextForm extends StatefulWidget {
     this.focus,
     this.width,
     this.height = 40,
+    this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -94,6 +98,7 @@ class VzTextForm extends StatefulWidget {
     this.focus,
     this.width,
     this.height = 40,
+    this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
   }) : super() {
@@ -151,7 +156,8 @@ class _MyTextForm extends State<VzTextForm> {
       case VzTextFormType.general:
         break;
       default:
-        debugPrint("Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+        debugPrint(
+            "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
     }
   }
 
@@ -161,7 +167,7 @@ class _MyTextForm extends State<VzTextForm> {
       autocorrect: false,
       obscuringCharacter: "*",
       enabled: widget.isEnable,
-      style: vzThemeLight().textTheme.bodyText1,
+      style: widget.style ?? vzThemeLight().textTheme.bodyText1,
       obscureText: widget.isPassword,
       textInputAction: widget.textInputAction,
       textAlign: widget.textAlign,
@@ -181,7 +187,10 @@ class _MyTextForm extends State<VzTextForm> {
       focusNode: widget.focus,
       controller: widget.controller,
       validator: widget.validator,
-      decoration: InputDecoration(hintText: widget.hint, hintStyle: TextStyle(fontSize: widget.hintSize != null ? widget.hintSize : 14)),
+      decoration: InputDecoration(
+          hintText: widget.hint,
+          hintStyle: TextStyle(
+              fontSize: widget.hintSize != null ? widget.hintSize : 14)),
     );
 
     return AnimatedContainer(
@@ -204,7 +213,9 @@ class _MyTextForm extends State<VzTextForm> {
                       widget._isEyeEnable = false;
                     },
                     child: IconButton(
-                      icon: widget.isPassword ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+                      icon: widget.isPassword
+                          ? const Icon(Icons.visibility_off)
+                          : const Icon(Icons.visibility),
                       color: VzColor.redVizeo,
                       onPressed: () {
                         widget._isEyeEnable

@@ -1,8 +1,8 @@
+import 'package:example/second_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 import 'package:get/get.dart';
 
-import '../second_screen.dart';
 
 class FormView extends StatefulWidget {
   const FormView({Key? key}) : super(key: key);
@@ -52,6 +52,7 @@ class _FormViewState extends State<FormView> {
               controller: textEditingControllerOver,
               hint: "Carotte",
               textInputAction: TextInputAction.next,
+              style: vzThemeDark().textTheme.headline1!.copyWith(color: Colors.amber),
             ),
             VzTextForm.typePassword(
               width: 200.0,

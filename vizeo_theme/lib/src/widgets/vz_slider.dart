@@ -72,7 +72,7 @@ class _MySlider extends State<VzSlider> {
       min: widget.min,
       max: widget.max,
       label: widget.label,
-      divisions: widget.division ?? widget.max  as int,
+      divisions: widget.division ?? widget.max as int,
       activeColor: widget.isEnable ? widget.backColor : widget.backColor.withOpacity(0.2),
       thumbColor: widget.isEnable ? widget.cursorColor : widget.cursorColor.withOpacity(0.8),
       onChanged: (double newValue) {
