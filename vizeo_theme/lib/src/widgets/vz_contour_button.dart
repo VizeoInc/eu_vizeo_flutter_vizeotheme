@@ -186,6 +186,7 @@ class _VzContourButtonState extends State<VzContourButton> {
         widget.type != _TypeContourButton.notype) {
       widget.color = VzColor.contourButtonSecondary();
     }
+    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5.0),
@@ -211,13 +212,13 @@ class _VzContourButtonState extends State<VzContourButton> {
                 return VzText.typeSecondary(
                   data: widget.title,
                   textStyleCustom: widget.textStyleCustom,
-                  color: widget.textColor ?? VzColor.backgroundTertiary(),
+                  color: widget.textColor ?? widget.color,
                 );
               case _TypeContourButton.small:
                 return VzText.typePrimary(
                   data: widget.title,
                   textStyleCustom: widget.textStyleCustom,
-                  color: widget.textColor ?? VzColor.backgroundTertiary(),
+                  color: widget.textColor ?? widget.color,
                 );
               default:
             }
