@@ -37,7 +37,7 @@ class _VzFabState extends State<VzFab> {
 
     return MaterialButton(
       key: widget.key,
-      height: widget.size + 5,
+      height: widget.size,
       color: widget.backgroundColor,
       hoverColor: widget.backgroundColor,
       shape: CircleBorder(
