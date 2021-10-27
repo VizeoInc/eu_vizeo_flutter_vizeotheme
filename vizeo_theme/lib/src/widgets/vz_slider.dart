@@ -68,11 +68,11 @@ class _MySlider extends State<VzSlider> {
   @override
   Widget build(BuildContext context) {
     _slide = Slider(
-      value: widget.value.toDouble(),
+      value: widget.value,
       min: widget.min,
       max: widget.max,
       label: widget.label,
-      divisions: widget.division ?? widget.max as int,
+      divisions: widget.division ?? widget.max.toInt(),
       activeColor: widget.isEnable ? widget.backColor : widget.backColor.withOpacity(0.2),
       thumbColor: widget.isEnable ? widget.cursorColor : widget.cursorColor.withOpacity(0.8),
       onChanged: (double newValue) {
