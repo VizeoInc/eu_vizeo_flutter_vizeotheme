@@ -89,3 +89,9 @@
 ## 0.0.72
 
 * add method for update TextStyle on VzForm
+
+## 0.0.73
+
+* rename some file
+* follow linterv rules
+* add VzSearchBar
