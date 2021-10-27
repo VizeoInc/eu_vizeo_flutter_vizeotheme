@@ -2,14 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:vizeo_theme/src/themes/vz_colors.dart';
 
 class VzFab extends StatefulWidget {
-  late final Function() onTap;
-  late final IconData icon;
-  late final double size;
-  late final Color iconColor;
-  late final Color? iconColorPressed;
-  late final Color borderColor;
-  late Color? backgroundColor;
-  late final double borderSize;
+  final Function() onTap;
+  final IconData icon;
+  final double size;
+  final Color iconColor;
+  final Color? iconColorPressed;
+  final Color borderColor;
+  final Color? backgroundColor;
+  final double borderSize;
+  final Key? key;
 
   VzFab({
     required this.icon,
@@ -20,6 +21,7 @@ class VzFab extends StatefulWidget {
     this.iconColorPressed,
     this.size = 20.0,
     this.borderSize = 1.0,
+    this.key,
   });
 
   @override
@@ -34,7 +36,7 @@ class _VzFabState extends State<VzFab> {
     final colorPressed = widget.iconColorPressed ?? VzColor.textOnRedVizeo;
 
     return MaterialButton(
-      key: const Key("VzFab"),
+      key: widget.key,
       height: widget.size + 5,
       color: widget.backgroundColor,
       hoverColor: widget.backgroundColor,
