@@ -43,8 +43,7 @@ class VzButton extends StatefulWidget {
     this.focus,
     this.textStyleCustom,
     this.textColor: VzColor.white,
-    this.type = _TypeButton.primary,
-  });
+  }) : type = _TypeButton.primary, super();
 
   VzButton.typeSecondary({
     required this.onPressed,
@@ -61,8 +60,7 @@ class VzButton extends StatefulWidget {
     this.focus,
     this.textStyleCustom,
     this.textColor: VzColor.white,
-    this.type = _TypeButton.secondary,
-  });
+  }): type = _TypeButton.secondary, super();
 
   VzButton.typeTertiary({
     required this.onPressed,
@@ -79,8 +77,8 @@ class VzButton extends StatefulWidget {
     this.focus,
     this.textStyleCustom,
     this.textColor: VzColor.white,
-    this.type = _TypeButton.tertiary,
-  });
+  }): type = _TypeButton.tertiary, super();
+  
 
   VzButton.typeSmall({
     required this.onPressed,
@@ -97,8 +95,7 @@ class VzButton extends StatefulWidget {
     this.focus,
     this.textStyleCustom,
     this.textColor: VzColor.white,
-    this.type = _TypeButton.small,
-  });
+  }) : type = _TypeButton.small, super();
 
   @override
   _VzButtonState createState() => _VzButtonState();

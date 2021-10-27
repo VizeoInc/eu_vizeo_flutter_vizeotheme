@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/src/private/vz_strings.dart';
 import 'package:vizeo_theme/src/themes/vz_colors.dart';
+import 'package:vizeo_theme/src/widgets/vz_text.dart';
 
-enum _TypeButton { primary, secondary, small, notype }
+enum _TypeContourButton {
+  primary,
+  secondary,
+  small,
+  notype,
+}
 
 class VzContourButton extends StatefulWidget {
-  late final String? title;
-  late final VoidCallback? onPressed;
+  final String title;
+  final VoidCallback? onPressed;
   late Color color;
-  late Color textColor;
+  late Color? textColor;
   late final double radius;
   late final EdgeInsets padding;
   late final EdgeInsets iconPadding;
@@ -18,13 +23,13 @@ class VzContourButton extends StatefulWidget {
   late final FontWeight fontWeight;
   late final bool isEnable;
   final FocusNode? focus;
-  late final _TypeButton type;
+  final TextStyle? textStyleCustom;
+  late final _TypeContourButton type;
 
   VzContourButton.typePrimary({
     required this.onPressed,
     required this.title,
-    this.textColor = VzColor.redVizeo,
-    this.color = VzColor.redVizeo,
+    this.textColor,
     this.padding = const EdgeInsets.all(4.0),
     this.iconPadding = const EdgeInsets.only(left: 12),
     this.leftChild,
@@ -34,14 +39,15 @@ class VzContourButton extends StatefulWidget {
     this.fontWeight = FontWeight.w700,
     this.isEnable = true,
     this.focus,
-    this.type = _TypeButton.primary,
-  });
+    this.textStyleCustom,
+  })  : type = _TypeContourButton.primary,
+        color = VzColor.redVizeo,
+        super();
 
   VzContourButton.typeSecondary({
     required this.onPressed,
     required this.title,
-    this.textColor = VzColor.textOnRedVizeo,
-    this.color = VzColor.transparent,
+    this.textColor,
     this.padding = const EdgeInsets.all(4.0),
     this.iconPadding = const EdgeInsets.only(left: 12),
     this.radius = 5.0,
@@ -51,14 +57,15 @@ class VzContourButton extends StatefulWidget {
     this.fontWeight = FontWeight.w700,
     this.isEnable = true,
     this.focus,
-    this.type = _TypeButton.secondary,
-  });
+    this.textStyleCustom,
+  })  : type = _TypeContourButton.secondary,
+        color = VzColor.textOnRedVizeo,
+        super();
 
   VzContourButton.typeSmall({
     required this.onPressed,
     required this.title,
-    this.textColor = VzColor.textOnRedVizeo,
-    this.color = VzColor.transparent,
+    this.textColor,
     this.padding = const EdgeInsets.all(4.0),
     this.iconPadding = const EdgeInsets.only(left: 12),
     this.radius = 5.0,
@@ -68,22 +75,17 @@ class VzContourButton extends StatefulWidget {
     this.fontWeight = FontWeight.w700,
     this.isEnable = true,
     this.focus,
-    this.type = _TypeButton.small,
-  });
+    this.textStyleCustom,
+  })  : type = _TypeContourButton.small,
+        color = Colors.amber,
+        super();
 
   @override
   _VzContourButtonState createState() => _VzContourButtonState();
-
-  Container getMyButton() => getMyButton();
 }
 
 class _VzContourButtonState extends State<VzContourButton> {
   bool hasFocus = false;
-  late Container _button;
-
-  Container getMyButton() {
-    return _button;
-  }
 
   @override
   void initState() {
@@ -103,19 +105,17 @@ class _VzContourButtonState extends State<VzContourButton> {
     return ButtonStyle(
       backgroundColor:
           MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
-        if (widget.type == _TypeButton.primary) {
+        if (widget.type == _TypeContourButton.primary) {
           return widget.isEnable
               ? VzColor.transparent
               : VzColor.secondaryButton.withOpacity(0.3);
         }
-        if (widget.type == _TypeButton.secondary) {
-          //widget.myBackgroundColor = VzColor.secondaryButtonColor(context: context, isReverse: false);
+        if (widget.type == _TypeContourButton.secondary) {
           return widget.isEnable
               ? VzColor.transparent
               : VzColor.secondaryButton.withOpacity(0.3);
         }
-        if (widget.type == _TypeButton.small) {
-          //widget.myBackgroundColor = VzColor.secondaryButtonColor(context: context, isReverse: false);
+        if (widget.type == _TypeContourButton.small) {
           return widget.isEnable
               ? VzColor.transparent
               : VzColor.secondaryButton.withOpacity(0.3);
@@ -137,30 +137,20 @@ class _VzContourButtonState extends State<VzContourButton> {
         return Colors.transparent;
       }),
 
-      side: MaterialStateProperty.resolveWith((states) {
-        if (states.contains(MaterialState.focused)) {
-          return widget.isEnable
-              ? BorderSide(
-                  color: widget.textColor,
-                )
-              : null;
-        }
-      }),
-
       /// style du fond suivant les etats
       overlayColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.pressed)) {
-          if (widget.type == _TypeButton.primary) {
+          if (widget.type == _TypeContourButton.primary) {
             return widget.isEnable
                 ? widget.color
                 : VzColor.secondaryButton.withOpacity(0.3);
           }
-          if (widget.type == _TypeButton.secondary) {
+          if (widget.type == _TypeContourButton.secondary) {
             return widget.isEnable
                 ? widget.color
                 : VzColor.secondaryButton.withOpacity(0.3);
           }
-          if (widget.type == _TypeButton.small) {
+          if (widget.type == _TypeContourButton.small) {
             return widget.isEnable
                 ? widget.color
                 : VzColor.secondaryButton.withOpacity(0.3);
@@ -169,19 +159,18 @@ class _VzContourButtonState extends State<VzContourButton> {
         if (states.contains(MaterialState.focused)) {
           return widget.isEnable
               ? widget.color.withOpacity(0.2)
-              : Colors.transparent;
+              : VzColor.transparent;
         }
         if (states.contains(MaterialState.hovered)) {
           return widget.isEnable
               ? widget.color.withOpacity(0.2)
-              : Colors.transparent;
+              : VzColor.transparent;
         }
 
-        return Colors.transparent;
+        return VzColor.transparent;
       }),
 
       /// style du text suivant les etats
-
       foregroundColor: MaterialStateProperty.resolveWith((states) {
         if (states.contains(MaterialState.pressed)) {
           return VzColor.white;
@@ -193,33 +182,46 @@ class _VzContourButtonState extends State<VzContourButton> {
 
   @override
   Widget build(BuildContext context) {
-    if (widget.type != _TypeButton.primary &&
-        widget.type != _TypeButton.notype) {
+    if (widget.type != _TypeContourButton.primary &&
+        widget.type != _TypeContourButton.notype) {
       widget.color = VzColor.contourButtonSecondary();
     }
-    return _button = Container(
+    return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(5.0),
         border: Border.all(
           color: widget.color,
         ),
       ),
       child: ElevatedButton(
         onPressed: widget.onPressed,
-
-        ///-----Background du bouton
         style: myStyleConfig(context),
         focusNode: widget.focus,
         child: Padding(
           padding: widget.padding,
-          child: Text(
-            widget.title!,
-            style: TextStyle(
-              fontSize: widget.fontSize,
-              fontWeight: widget.fontWeight,
-              fontFamily: myFontFamily,
-            ),
-          ),
+          child: () {
+            switch (widget.type) {
+              case _TypeContourButton.primary:
+                return VzText.typePrimary(
+                  data: widget.title,
+                  textStyleCustom: widget.textStyleCustom,
+                  color: widget.textColor ?? VzColor.redVizeo,
+                );
+              case _TypeContourButton.secondary:
+                return VzText.typeSecondary(
+                  data: widget.title,
+                  textStyleCustom: widget.textStyleCustom,
+                  color: widget.textColor ?? VzColor.backgroundTertiary(),
+                );
+              case _TypeContourButton.small:
+                return VzText.typePrimary(
+                  data: widget.title,
+                  textStyleCustom: widget.textStyleCustom,
+                  color: widget.textColor ?? VzColor.backgroundTertiary(),
+                );
+              default:
+            }
+          }(),
         ),
       ),
     );

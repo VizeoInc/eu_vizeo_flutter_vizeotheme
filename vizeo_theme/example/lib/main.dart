@@ -1,4 +1,5 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:example/view/button_contour_view.dart';
 import 'package:example/view/button_view.dart';
 import 'package:example/view/card_view.dart';
 import 'package:example/view/checkbox_slider_view.dart';
@@ -66,6 +67,9 @@ class _WidgetTotalesState extends State<WidgetTotales> {
             Gap(space),
             TitlePart(title: "VzButton"),
             ButtonView(),
+            Gap(space),
+            TitlePart(title: "VzContourButton"),
+            ButtonContourView(),
             Gap(space),
             TitlePart(title: "VzCard"),
             CardView(),
