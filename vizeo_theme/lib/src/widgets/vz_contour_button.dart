@@ -128,8 +128,10 @@ class _VzContourButtonState extends State<VzContourButton> {
 
       ///-----Shadow du bouton
       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-          RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(widget.radius))),
+        RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(widget.radius),
+        ),
+      ),
       shadowColor:
           MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
         return Colors.transparent;

@@ -10,11 +10,11 @@ class TextView extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
+          children: const [
             VzText.typePrimary(data: "Primary"),
             VzText.typePrimary(
               data: "Primary Custom",
-              textStyleCustom: const TextStyle(
+              textStyleCustom: TextStyle(
                 color: Colors.green,
                 fontSize: 34,
                 fontWeight: FontWeight.bold,
@@ -23,7 +23,7 @@ class TextView extends StatelessWidget {
             VzText.typeSecondary(data: "Secondary"),
             VzText.typeSecondary(
               data: "Secondary Custom",
-              textStyleCustom: const TextStyle(
+              textStyleCustom: TextStyle(
                 color: Colors.yellowAccent,
                 fontSize: 10.0,
                 fontWeight: FontWeight.bold,
@@ -32,7 +32,7 @@ class TextView extends StatelessWidget {
             VzText.typeTertiary(data: "Tertiary"),
             VzText.typeTertiary(
               data: "Tertiary Custom",
-              textStyleCustom: const TextStyle(
+              textStyleCustom: TextStyle(
                 color: Colors.red,
                 fontSize: 8.0,
                 fontStyle: FontStyle.italic,
@@ -42,16 +42,42 @@ class TextView extends StatelessWidget {
         ),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            VzText.typePrimary(data: "H1", style: TypeDeTextStyle.h1),
-            VzText.typePrimary(data: "H2", style: TypeDeTextStyle.h2),
-            VzText.typePrimary(data: "H3", style: TypeDeTextStyle.h3),
-            VzText.typePrimary(data: "H4", style: TypeDeTextStyle.h4),
-            VzText.typePrimary(data: "H5", style: TypeDeTextStyle.h5),
-            VzText.typePrimary(data: "H6", style: TypeDeTextStyle.h6),
-            VzText.typePrimary(data: "Body1"),
-            VzText.typePrimary(data: "Body2", style: TypeDeTextStyle.body2),
-            VzText.typePrimary(data: "Body3", style: TypeDeTextStyle.body3),
+          children: const [
+            VzText.typePrimary(
+              data: "H1",
+              style: TypeDeTextStyle.h1,
+            ),
+            VzText.typePrimary(
+              data: "H2",
+              style: TypeDeTextStyle.h2,
+            ),
+            VzText.typePrimary(
+              data: "H3",
+              style: TypeDeTextStyle.h3,
+            ),
+            VzText.typePrimary(
+              data: "H4",
+              style: TypeDeTextStyle.h4,
+            ),
+            VzText.typePrimary(
+              data: "H5",
+              style: TypeDeTextStyle.h5,
+            ),
+            VzText.typePrimary(
+              data: "H6",
+              style: TypeDeTextStyle.h6,
+            ),
+            VzText.typePrimary(
+              data: "Body1",
+            ),
+            VzText.typePrimary(
+              data: "Body2",
+              style: TypeDeTextStyle.body2,
+            ),
+            VzText.typePrimary(
+              data: "Body3",
+              style: TypeDeTextStyle.body3,
+            ),
           ],
         ),
         Row(
