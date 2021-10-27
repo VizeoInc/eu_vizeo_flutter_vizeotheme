@@ -7,7 +7,7 @@ export 'src/widgets/vz_button.dart';
 export 'src/widgets/vz_fab.dart';
 export 'src/widgets/vz_radio_button.dart';
 export 'src/widgets/vz_selectable_text.dart';
-export 'src/widgets/vz_form.dart';
+export 'src/widgets/vz_text_form.dart';
 export 'src/widgets/vz_slider.dart';
 export 'src/widgets/vz_switch.dart';
 export 'src/widgets/vz_contour_button.dart';
