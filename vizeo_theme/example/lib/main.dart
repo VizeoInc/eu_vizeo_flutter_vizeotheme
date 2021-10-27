@@ -5,6 +5,7 @@ import 'package:example/view/checkbox_slider_view.dart';
 import 'package:example/view/color_view.dart';
 import 'package:example/view/fab_view.dart';
 import 'package:example/view/form_view.dart';
+import 'package:example/view/search_view.dart';
 import 'package:example/view/text_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -77,6 +78,9 @@ class _WidgetTotalesState extends State<WidgetTotales> {
             Gap(space),
             TitlePart(title: "VzFab"),
             FabView(),
+            Gap(space),
+            TitlePart(title: "VzSearch Bar"),
+            SearchView(),
             Gap(space),
           ],
         ),
