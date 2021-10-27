@@ -5,14 +5,12 @@ import 'package:vizeo_theme/src/private/regex_utils.dart';
 import 'package:vizeo_theme/src/widgets/vz_box_customisation.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 
-
 enum VzTextFormType {
   mail,
   password,
   telephone,
   general,
 }
-
 
 class VzTextForm extends StatefulWidget {
   final TextEditingController? controller;
@@ -50,7 +48,6 @@ class VzTextForm extends StatefulWidget {
     this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
-    
   }) : super() {
     _vzTextFormType = VzTextFormType.general;
   }
@@ -120,7 +117,6 @@ class VzTextForm extends StatefulWidget {
 
 class _MyTextForm extends State<VzTextForm> {
   late TextFormField _myField;
-  final _formKey = GlobalKey<FormState>();
   bool hasFocus = false;
 
   @override
@@ -165,7 +161,8 @@ class _MyTextForm extends State<VzTextForm> {
         break;
       default:
         debugPrint(
-            "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType");
+          "Euh La y a un gros souci => sorti des 4 valeurs de l'enum VzTextFormType",
+        );
     }
   }
 
@@ -196,9 +193,11 @@ class _MyTextForm extends State<VzTextForm> {
       controller: widget.controller,
       validator: widget.validator,
       decoration: InputDecoration(
-          hintText: widget.hint,
-          hintStyle: TextStyle(
-              fontSize: widget.hintSize != null ? widget.hintSize : 14)),
+        hintText: widget.hint,
+        hintStyle: TextStyle(
+          fontSize: widget.hintSize ?? 14,
+        ),
+      ),
     );
 
     return AnimatedContainer(

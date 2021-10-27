@@ -11,15 +11,16 @@ class VzFab extends StatefulWidget {
   late Color? backgroundColor;
   late final double borderSize;
 
-  VzFab(
-      {required this.icon,
-      required this.onTap,
-      this.iconColor = VzColor.redVizeo,
-      this.borderColor = VzColor.redVizeo,
-      this.backgroundColor,
-      this.iconColorPressed,
-      this.size = 20.0,
-      this.borderSize = 1.0});
+  VzFab({
+    required this.icon,
+    required this.onTap,
+    this.iconColor = VzColor.redVizeo,
+    this.borderColor = VzColor.redVizeo,
+    this.backgroundColor,
+    this.iconColorPressed,
+    this.size = 20.0,
+    this.borderSize = 1.0,
+  });
 
   @override
   State<VzFab> createState() => _VzFabState();

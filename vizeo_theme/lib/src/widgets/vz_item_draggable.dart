@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/src/themes/vz_colors.dart';
 
 class VzItemDraggable extends StatefulWidget {
   late Widget child;
@@ -44,7 +43,6 @@ class _VzItemDraggable extends State<VzItemDraggable> {
       child: Draggable<Widget>(
         // Data is the value this Draggable stores.
         data: widget,
-        child: widget.child,
         childWhenDragging: widget.childWhenDragging,
         feedback: widget.child,
         onDragCompleted: widget.onDragCompleted,
@@ -52,6 +50,7 @@ class _VzItemDraggable extends State<VzItemDraggable> {
         onDragStarted: widget.onDragStarted,
         onDragUpdate: widget.onDragUpdate,
         onDragEnd: widget.onDragEnd,
+        child: widget.child,
       ),
     );
   }

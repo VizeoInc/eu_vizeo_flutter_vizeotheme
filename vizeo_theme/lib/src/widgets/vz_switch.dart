@@ -26,14 +26,15 @@ class _MySwitch extends State<VzSwitch> {
   @override
   Widget build(BuildContext context) {
     return _switch = CupertinoSwitch(
-        value: widget.value,
-        trackColor: VzColor.redNegativeWarning,
-        activeColor: VzColor.greenValidate,
-        onChanged: (bool value) {
-          setState(() {
-            widget.value = !widget.value;
-            widget.onChanged(value);
-          });
+      value: widget.value,
+      trackColor: VzColor.redNegativeWarning,
+      activeColor: VzColor.greenValidate,
+      onChanged: (bool value) {
+        setState(() {
+          widget.value = !widget.value;
+          widget.onChanged(value);
         });
+      },
+    );
   }
 }
