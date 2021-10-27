@@ -71,10 +71,3 @@ extension TypeDeStyleExt on TypeDeTextStyle {
     }
   }
 }
-
-enum VzTextFormType {
-  mail,
-  password,
-  telephone,
-  general,
-}

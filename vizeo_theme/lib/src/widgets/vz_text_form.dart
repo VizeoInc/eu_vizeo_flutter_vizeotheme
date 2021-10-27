@@ -1,10 +1,18 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:vizeo_theme/src/private/enum.dart';
 import 'package:vizeo_theme/src/private/regex_utils.dart';
 import 'package:vizeo_theme/src/widgets/vz_box_customisation.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
+
+
+enum VzTextFormType {
+  mail,
+  password,
+  telephone,
+  general,
+}
+
 
 class VzTextForm extends StatefulWidget {
   final TextEditingController? controller;
