@@ -11,15 +11,25 @@ class FabView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            VzFab(
-              icon: Icons.add_rounded,
-              onTap: () => debugPrint("FAB CUSTOM"),
-              size: 50.0,
+            Container(
+              color: Colors.amber,
+              child: VzFab(
+                icon: Icons.add_rounded,
+                onTap: () => debugPrint("FAB 50"),
+                size: 50.0,
+              ),
+            ),
+            Container(
+              color: Colors.amberAccent,
+              child: VzFab(
+                icon: Icons.add_rounded,
+                onTap: () => debugPrint("FAB Base"),
+              ),
             ),
             VzFab(
               icon: Icons.add_rounded,
-              onTap: () => null,
-              size: 50.0,
+              onTap: () => debugPrint("FAB 10"),
+              size: 10.0,
             ),
           ],
         )

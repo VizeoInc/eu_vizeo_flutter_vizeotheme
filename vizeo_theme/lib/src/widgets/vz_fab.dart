@@ -12,7 +12,7 @@ class VzFab extends StatefulWidget {
   final double borderSize;
   final Key? key;
 
-  VzFab({
+  const VzFab({
     required this.icon,
     required this.onTap,
     this.iconColor = VzColor.redVizeo,
@@ -35,27 +35,33 @@ class _VzFabState extends State<VzFab> {
   Widget build(BuildContext context) {
     final colorPressed = widget.iconColorPressed ?? VzColor.textOnRedVizeo;
 
-    return MaterialButton(
-      key: widget.key,
-      height: widget.size,
-      color: widget.backgroundColor,
-      hoverColor: widget.backgroundColor,
-      shape: CircleBorder(
-        side: BorderSide(
-          width: widget.borderSize,
-          color: widget.borderColor,
+    return Material(
+      type: MaterialType.transparency,
+      child: Ink(
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: widget.borderColor,
+            width: widget.borderSize,
+          ),
+          color: widget.backgroundColor,
+          shape: BoxShape.circle,
         ),
-      ),
-      onPressed: widget.onTap,
-      highlightColor: VzColor.redVizeo,
-      onHighlightChanged: (_) {
-        isPressed = !isPressed;
-        setState(() {});
-      },
-      child: Icon(
-        widget.icon,
-        size: widget.size,
-        color: isPressed ? colorPressed : widget.iconColor,
+        child: InkWell(
+          borderRadius: BorderRadius.circular(
+            1000.0,
+          ),
+          highlightColor: VzColor.redVizeo,
+          onHighlightChanged: (_) {
+            isPressed = !isPressed;
+            setState(() {});
+          },
+          onTap: widget.onTap,
+          child: Icon(
+            widget.icon,
+            size: widget.size,
+            color: isPressed ? colorPressed : widget.iconColor,
+          ),
+        ),
       ),
     );
   }
