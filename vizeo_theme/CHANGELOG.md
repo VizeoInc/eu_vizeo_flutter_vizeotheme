@@ -95,3 +95,4 @@
 * rename some file
 * follow linterv rules
 * add VzSearchBar
+* correct bug width VzFab
