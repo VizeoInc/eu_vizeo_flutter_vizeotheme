@@ -21,7 +21,8 @@ class VzTextForm extends StatefulWidget {
   void Function(String)? onChanged;
   late final TextInputType keyboardType;
   final String? Function(String?)? validator;
-  late final bool isEnable;
+  final bool isEnable;
+  final bool isReadOnly;
   final String? hint;
   late double? hintSize;
   final FocusNode? focus;
@@ -48,6 +49,7 @@ class VzTextForm extends StatefulWidget {
     this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
+    this.isReadOnly = false,
   }) : super() {
     _vzTextFormType = VzTextFormType.general;
   }
@@ -67,6 +69,7 @@ class VzTextForm extends StatefulWidget {
     this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
+    this.isReadOnly = false,
   }) : super() {
     _vzTextFormType = VzTextFormType.mail;
   }
@@ -86,6 +89,7 @@ class VzTextForm extends StatefulWidget {
     this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
+    this.isReadOnly = false,
   }) : super() {
     isPassword = true;
     _vzTextFormType = VzTextFormType.password;
@@ -106,6 +110,7 @@ class VzTextForm extends StatefulWidget {
     this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
+    this.isReadOnly = false,
   }) : super() {
     _vzTextFormType = VzTextFormType.telephone;
   }
@@ -192,6 +197,7 @@ class _MyTextForm extends State<VzTextForm> {
       focusNode: widget.focus,
       controller: widget.controller,
       validator: widget.validator,
+      readOnly: widget.isReadOnly,
       decoration: InputDecoration(
         hintText: widget.hint,
         hintStyle: TextStyle(

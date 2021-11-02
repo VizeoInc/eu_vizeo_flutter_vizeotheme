@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 import 'package:get/get.dart';
 
-
 class FormView extends StatefulWidget {
   const FormView({Key? key}) : super(key: key);
 
@@ -27,7 +26,7 @@ class _FormViewState extends State<FormView> {
     textEditingControllerMail = TextEditingController();
     textEditingControllerPwd = TextEditingController();
     textEditingControllerPhone = TextEditingController();
-    textEditingControllerOver = TextEditingController();
+    textEditingControllerOver = TextEditingController(text: "Disable");
   }
 
   @override
@@ -48,11 +47,14 @@ class _FormViewState extends State<FormView> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             VzTextForm(
+              isReadOnly: true,
               width: 200.0,
               controller: textEditingControllerOver,
-              hint: "Carotte",
               textInputAction: TextInputAction.next,
-              style: vzThemeDark().textTheme.headline1!.copyWith(color: Colors.amber),
+              style: vzThemeDark()
+                  .textTheme
+                  .headline1!
+                  .copyWith(color: Colors.amber),
             ),
             VzTextForm.typePassword(
               width: 200.0,
