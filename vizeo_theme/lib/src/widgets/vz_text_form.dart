@@ -235,7 +235,7 @@ class _MyTextForm extends State<VzTextForm> {
                             ? setState(() {
                                 widget.isPassword = !widget.isPassword;
                               })
-                            : print("error");
+                            : debugPrint("error");
                       },
                     ),
                   ),
