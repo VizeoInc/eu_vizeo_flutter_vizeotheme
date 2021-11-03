@@ -57,6 +57,10 @@ class VzColor {
   static const Color redNegativeWarning = Color(0xFFCE464B);
   static const Color greenValidate = Color(0xFF2CA099);
 
+  static const Color importanceHigh = Color(0xFFE94C1B);
+  static const Color importanceMedium = Color(0xFFF2C230);
+  static const Color importanceLow = Color(0xFF93C700);
+
   static const Color transparent = Colors.transparent;
   static const Color white = Colors.white;
 
