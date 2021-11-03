@@ -100,3 +100,5 @@
 ## 0.0.74
 
 * VzForm modifie design when not enable and readOnly
+* update VzColor - add color importance
+* upaate VzColor - change BackgroundPrimaryLight
