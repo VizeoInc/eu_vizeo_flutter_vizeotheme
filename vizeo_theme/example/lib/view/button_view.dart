@@ -32,7 +32,7 @@ class ButtonView extends StatelessWidget {
                 title: "TERTIARY",
                 onPressed: () => debugPrint("TERTIARY"),
                 // backgroundColor: VzColor.white,
-                textColor: VzColor.redNegativeWarning,
+                textColor: VzColor.redError,
               ),
             ),
             Padding(
@@ -40,7 +40,7 @@ class ButtonView extends StatelessWidget {
               child: VzButton.typeSmall(
                 title: "SMALL",
                 onPressed: () => debugPrint("SMALL"),
-                textColor: VzColor.greenValidate,
+                textColor: VzColor.greenValidation,
               ),
             ),
             Padding(

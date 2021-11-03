@@ -28,41 +28,45 @@ MaterialColor createMaterialColor(Color color) {
 
 class VzColor {
   static const Color redVizeo = Color(0xFFF24C52);
-  static const Color redVizeoSoft = Color(0xFFF16066);
-  static const Color secondaryButton = Color(0xFF273464);
-  static const Color secondaryButtonSoft = Color(0xFF374475);
-  static const Color tertiaryButtonHovered = Color(0xFFF24C52);
-  static const Color textOnRedVizeo = Color(0xFFECEFFF);
-
-  static const Color accentDark = Color(0xFF666B84);
-
-  static const Color backgroundPrimaryDark = Color(0xFF101735);
-  static const Color backgroundSecondaryDark = Color(0xFF1D2445);
-  static const Color backgroundTertiaryDark = Color(0xFF30395A);
-
-  static const Color textPrimaryDark = Color(0xFFECEFFF);
-  static const Color textSecondaryDark = Color(0xFFBBBFD2);
-  static const Color textTertiaryDark = Color(0xFF979BB1);
-
-  static const Color accentLight = Color(0xFFA1A5B9);
-
-  static const Color backgroundPrimaryLight = Color(0xFFEAEAEF);
-  static const Color backgroundSecondaryLight = Color(0xFFF3F4F8);
-  static const Color backgroundTertiaryLight = Color(0xFFF9FAFD);
-
-  static const Color textPrimaryLight = Color(0xFF16204E);
-  static const Color textSecondaryLight = Color(0xFF495175);
-  static const Color textTertiaryLight = Color(0xFF6F7592);
-
-  static const Color redNegativeWarning = Color(0xFFCE464B);
-  static const Color greenValidate = Color(0xFF2CA099);
+  static const Color textOnRedVizeo = Color(0xFFFFFFFF);
+  static const Color redError = Color(0xFFE26868);
+  static const Color greenValidation = Color(0xFF5DC896);
 
   static const Color importanceHigh = Color(0xFFE94C1B);
   static const Color importanceMedium = Color(0xFFF2C230);
   static const Color importanceLow = Color(0xFF93C700);
 
+
+  static const Color backgroundPrimaryDark = Color(0xFF101735);
+  static const Color backgroundSecondaryDark = Color(0xFF1B2445);
+  static const Color backgroundTertiaryDark = Color(0xFF31385A);
+
+  static const Color accentDark = Color(0xFF676A83);
+
+  static const Color textPrimaryDark = Color(0xFFEBEEF8);
+  static const Color textSecondaryDark = Color(0xFFBCC0D3);
+  static const Color textTertiaryDark = Color(0xFF979BB1);
+
+
+  static const Color backgroundPrimaryLight = Color(0xFFEAEAEF);
+  static const Color backgroundSecondaryLight = Color(0xFFF2F3F8);
+  static const Color backgroundTertiaryLight = Color(0xFF989BB1);
+
+  static const Color accentLight = Color(0xFF9FA5B9);
+
+  static const Color textPrimaryLight = Color(0xFF16204E);
+  static const Color textSecondaryLight = Color(0xFF485176);
+  static const Color textTertiaryLight = Color(0xFF6F7592);
+
   static const Color transparent = Colors.transparent;
   static const Color white = Colors.white;
+
+
+  // not really use old colors
+  static const Color redVizeoSoft = Color(0xFFF16066);
+  static const Color secondaryButton = Color(0xFF273464);
+  static const Color secondaryButtonSoft = Color(0xFF374475);
+  static const Color tertiaryButtonHovered = Color(0xFFF24C52);
 
   static Color backgroundPrimary({bool isReverse = false}) {
     if (isReverse) {

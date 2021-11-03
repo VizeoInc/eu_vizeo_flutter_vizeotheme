@@ -94,7 +94,7 @@ ThemeData vzThemeLight() {
       secondaryVariant: VzColor.backgroundTertiaryLight,
       surface: VzColor.backgroundPrimaryLight,
       background: VzColor.backgroundPrimaryLight,
-      error: VzColor.redNegativeWarning,
+      error: VzColor.redError,
       onPrimary: VzColor.textOnRedVizeo,
       onSecondary: VzColor.textSecondaryDark,
       onSurface: VzColor.textPrimaryLight,
