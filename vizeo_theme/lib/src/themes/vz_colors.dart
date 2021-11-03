@@ -50,7 +50,7 @@ class VzColor {
 
   static const Color backgroundPrimaryLight = Color(0xFFEAEAEF);
   static const Color backgroundSecondaryLight = Color(0xFFF2F3F8);
-  static const Color backgroundTertiaryLight = Color(0xFF989BB1);
+  static const Color backgroundTertiaryLight = Color(0xFFFBFCFE);
 
   static const Color accentLight = Color(0xFF9FA5B9);
 
