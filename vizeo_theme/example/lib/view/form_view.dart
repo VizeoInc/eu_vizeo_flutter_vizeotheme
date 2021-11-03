@@ -17,6 +17,7 @@ class _FormViewState extends State<FormView> {
   late final TextEditingController textEditingControllerPwd;
   late final TextEditingController textEditingControllerPhone;
   late final TextEditingController textEditingControllerOver;
+  late final TextEditingController textEditingControllerOver2;
   final focudNode = FocusNode();
 
   @override
@@ -27,6 +28,7 @@ class _FormViewState extends State<FormView> {
     textEditingControllerPwd = TextEditingController();
     textEditingControllerPhone = TextEditingController();
     textEditingControllerOver = TextEditingController(text: "Disable");
+    textEditingControllerOver2 = TextEditingController(text: "Not Enable");
   }
 
   @override
@@ -55,6 +57,15 @@ class _FormViewState extends State<FormView> {
                   .textTheme
                   .headline1!
                   .copyWith(color: Colors.amber),
+            ),
+            VzTextForm(
+              isEnable: false,
+              width: 200.0,
+              controller: textEditingControllerOver2,
+              onFieldSubmitted: (txt) {
+                _nameTest = textEditingControllerOver2.text;
+                setState(() {});
+              },
             ),
             VzTextForm.typePassword(
               width: 200.0,
@@ -93,7 +104,7 @@ class _FormViewState extends State<FormView> {
               width: 200.0,
               controller: textEditingControllerPhone,
               onFieldSubmitted: (txt) {
-                _nameTest = textEditingControllerBase.text;
+                _nameTest = textEditingControllerPhone.text;
                 setState(() {});
               },
             ),

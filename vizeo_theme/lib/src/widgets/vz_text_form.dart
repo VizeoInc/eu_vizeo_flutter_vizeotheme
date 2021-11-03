@@ -203,6 +203,14 @@ class _MyTextForm extends State<VzTextForm> {
         hintStyle: TextStyle(
           fontSize: widget.hintSize ?? 14,
         ),
+        disabledBorder: const OutlineInputBorder(
+          borderSide: BorderSide.none,
+        ),
+        errorBorder: const OutlineInputBorder(
+          borderSide: BorderSide(
+            color: VzColor.redVizeo,
+          ),
+        ),
       ),
     );
 
@@ -211,7 +219,8 @@ class _MyTextForm extends State<VzTextForm> {
       height: widget.height,
       curve: Curves.decelerate,
       duration: const Duration(milliseconds: 150),
-      decoration: VzBox.vzBoxDecoration(),
+      decoration: VzBox.vzBoxDecoration(
+          colorBackground: widget.isEnable ? null : VzColor.accentColor()),
       child: Stack(
         alignment: Alignment.centerRight,
         children: [
