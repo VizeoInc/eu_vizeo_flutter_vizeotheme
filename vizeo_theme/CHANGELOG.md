@@ -96,3 +96,7 @@
 * follow linterv rules
 * add VzSearchBar
 * correct bug width VzFab
+
+## 0.0.74
+
+* VzForm modifie design when not enable and readOnly
