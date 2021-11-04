@@ -7,6 +7,7 @@ class VzText extends StatelessWidget {
     required this.data,
     this.style = TypeDeTextStyle.body2,
     this.maxlines = 1,
+    this.softWrap = true,
     this.textAlign = TextAlign.start,
     this.isReadOnly = false,
     this.color,
@@ -22,6 +23,7 @@ class VzText extends StatelessWidget {
     required this.data,
     this.style = TypeDeTextStyle.body2,
     this.maxlines = 1,
+    this.softWrap = true,
     this.textAlign = TextAlign.start,
     this.isReadOnly = false,
     this.color,
@@ -37,6 +39,7 @@ class VzText extends StatelessWidget {
     required this.data,
     this.style = TypeDeTextStyle.body2,
     this.maxlines = 1,
+    this.softWrap = true,
     this.textAlign = TextAlign.start,
     this.isReadOnly = false,
     this.color,
@@ -59,15 +62,27 @@ class VzText extends StatelessWidget {
   final VzTextType type;
   final bool isReadOnly;
   final Function()? onTap;
+  final bool softWrap;
 
   @override
   Widget build(BuildContext context) {
     final colorText = color ?? ColorUtils.colorStyle(type);
 
-    return SelectableText(
+    return isReadOnly ? Text(
+      data,
+      overflow: overflow,
+      softWrap: softWrap,
+      maxLines: maxlines,
+      textAlign: textAlign,
+      key: key,
+      textScaleFactor: textScaleFactor,
+      style: textStyleCustom ??
+          style.textStyle.copyWith(
+            color: colorText
+          ),
+    ) : SelectableText(
       data,
       maxLines: maxlines,
-      enableInteractiveSelection: !isReadOnly,
       onTap: onTap,
       style: textStyleCustom ??
           style.textStyle.copyWith(

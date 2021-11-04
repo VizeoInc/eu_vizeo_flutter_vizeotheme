@@ -114,3 +114,4 @@
 ## 0.1.0
 
 * change versionning 
+* vorrect bug for VzButton next not selectable

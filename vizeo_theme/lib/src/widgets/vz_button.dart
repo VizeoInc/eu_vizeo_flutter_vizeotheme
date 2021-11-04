@@ -145,6 +145,7 @@ class _VzButtonState extends State<VzButton> {
             style: widget.textStyleBasic,
             textStyleCustom: widget.textStyleCustom,
             color: widget.textColor,
+            isReadOnly: true,
           );
           break;
         case _TypeButton.secondary:
@@ -153,6 +154,7 @@ class _VzButtonState extends State<VzButton> {
             style: widget.textStyleBasic,
             textStyleCustom: widget.textStyleCustom,
             color: widget.textColor,
+            isReadOnly: true,
           );
           break;
         case _TypeButton.tertiary:
@@ -161,6 +163,7 @@ class _VzButtonState extends State<VzButton> {
             style: widget.textStyleBasic,
             textStyleCustom: widget.textStyleCustom,
             color: widget.textColor,
+            isReadOnly: true,
           );
           break;
         case _TypeButton.small:
@@ -169,14 +172,16 @@ class _VzButtonState extends State<VzButton> {
             style: widget.textStyleBasic,
             textStyleCustom: widget.textStyleCustom,
             color: widget.textColor,
+            isReadOnly: true,
           );
           break;
         case _TypeButton.notype:
-          title = Text(
-            widget.title!,
-            style: const TextStyle(
-              color: VzColor.white,
-            ),
+          title = VzText.typeTertiary(
+            data: widget.title!,
+            style: widget.textStyleBasic,
+            textStyleCustom: widget.textStyleCustom,
+            color: widget.textColor,
+            isReadOnly: true,
           );
           break;
         default:
