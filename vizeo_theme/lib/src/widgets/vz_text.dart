@@ -6,41 +6,47 @@ class VzText extends StatelessWidget {
   const VzText.typePrimary({
     required this.data,
     this.style = TypeDeTextStyle.body2,
-    this.maxlines = 10,
-    this.softWrap = true,
+    this.maxlines = 1,
     this.textAlign = TextAlign.start,
+    this.isReadOnly = false,
     this.color,
     this.textStyleCustom,
     this.overflow,
     this.textScaleFactor,
+    this.onTap,
     Key? key,
-  }) : super(key: key);
+  })  : type = VzTextType.typePrimary,
+        super(key: key);
 
   const VzText.typeSecondary({
     required this.data,
     this.style = TypeDeTextStyle.body2,
-    this.maxlines = 10,
-    this.softWrap = true,
+    this.maxlines = 1,
     this.textAlign = TextAlign.start,
+    this.isReadOnly = false,
     this.color,
     this.textStyleCustom,
     this.overflow,
     this.textScaleFactor,
+    this.onTap,
     Key? key,
-  }) : super(key: key);
+  })  : type = VzTextType.typeSecondary,
+        super(key: key);
 
   const VzText.typeTertiary({
     required this.data,
     this.style = TypeDeTextStyle.body2,
-    this.maxlines = 10,
-    this.softWrap = true,
+    this.maxlines = 1,
     this.textAlign = TextAlign.start,
+    this.isReadOnly = false,
     this.color,
     this.textStyleCustom,
     this.overflow,
     this.textScaleFactor,
+    this.onTap,
     Key? key,
-  }) : super(key: key);
+  })  : type = VzTextType.typeTertiary,
+        super(key: key);
 
   final String data;
   final int maxlines;
@@ -48,24 +54,29 @@ class VzText extends StatelessWidget {
   final TypeDeTextStyle style;
   final Color? color;
   final TextOverflow? overflow;
-  final bool softWrap;
   final TextAlign textAlign;
   final double? textScaleFactor;
+  final VzTextType type;
+  final bool isReadOnly;
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    final colorText = color ?? ColorUtils.colorStyle(type);
+
+    return SelectableText(
       data,
-      overflow: overflow,
-      softWrap: softWrap,
       maxLines: maxlines,
-      textAlign: textAlign,
-      key: key,
-      textScaleFactor: textScaleFactor,
+      enableInteractiveSelection: !isReadOnly,
+      onTap: onTap,
       style: textStyleCustom ??
           style.textStyle.copyWith(
-            color: color ?? ColorUtils.colorStyle(VzTextType.typeTertiary),
+            color: colorText,
           ),
+      toolbarOptions: const ToolbarOptions(
+        copy: true,
+        selectAll: true,
+      ),
     );
   }
 }
