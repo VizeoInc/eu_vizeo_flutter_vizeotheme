@@ -106,3 +106,7 @@
 ## 0.0.80
 
 * VzColor follow [Design System](https://xd.adobe.com/view/6fae4edb-37c5-494d-abf7-dec045aaf12c-3afd/screen/f6f6eab4-9fb1-49ca-8a5a-3b6c59bf4f7a/specs/)
+
+## 0.0.81
+
+* fusion VzText and VzTextSelectable in only VzText and all text are selectable

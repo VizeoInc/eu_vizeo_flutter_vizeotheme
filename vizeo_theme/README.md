@@ -8,4 +8,4 @@ Vizeo Theme
 
 ## Getting Started
 
-v0.0.1 => add to private repo
+Je sais pas quoi mettre
