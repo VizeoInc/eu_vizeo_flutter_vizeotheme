@@ -110,3 +110,7 @@
 ## 0.0.81
 
 * fusion VzText and VzTextSelectable in only VzText and all text are selectable
+
+## 0.1.0
+
+* change versionning 
