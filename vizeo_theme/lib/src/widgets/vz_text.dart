@@ -68,30 +68,33 @@ class VzText extends StatelessWidget {
   Widget build(BuildContext context) {
     final colorText = color ?? ColorUtils.colorStyle(type);
 
-    return isReadOnly ? Text(
-      data,
-      overflow: overflow,
-      softWrap: softWrap,
-      maxLines: maxlines,
-      textAlign: textAlign,
-      key: key,
-      textScaleFactor: textScaleFactor,
-      style: textStyleCustom ??
-          style.textStyle.copyWith(
-            color: colorText
-          ),
-    ) : SelectableText(
-      data,
-      maxLines: maxlines,
-      onTap: onTap,
-      style: textStyleCustom ??
-          style.textStyle.copyWith(
-            color: colorText,
-          ),
-      toolbarOptions: const ToolbarOptions(
-        copy: true,
-        selectAll: true,
-      ),
-    );
+    return isReadOnly
+        ? Text(
+            data,
+            overflow: overflow,
+            softWrap: softWrap,
+            maxLines: maxlines,
+            textAlign: textAlign,
+            key: key,
+            textScaleFactor: textScaleFactor,
+            style: textStyleCustom ?? style.textStyle.copyWith(color: colorText),
+          )
+        : SelectableText(
+            data,
+            scrollPhysics: NeverScrollableScrollPhysics(),
+            maxLines: maxlines,
+            textAlign: textAlign,
+            textWidthBasis: TextWidthBasis.parent,
+            onTap: onTap,
+            textScaleFactor: textScaleFactor,
+            style: textStyleCustom ??
+                style.textStyle.copyWith(
+                  color: colorText,
+                ),
+            toolbarOptions: const ToolbarOptions(
+              copy: true,
+              selectAll: true,
+            ),
+          );
   }
 }
