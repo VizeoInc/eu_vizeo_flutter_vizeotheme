@@ -79,8 +79,10 @@ class VzText extends StatelessWidget {
             textScaleFactor: textScaleFactor,
             style: textStyleCustom ?? style.textStyle.copyWith(color: colorText),
           )
-        : SelectableText(
-            data,
+        : SelectableText.rich(
+            TextSpan(
+              text: data,
+            ),
             scrollPhysics: NeverScrollableScrollPhysics(),
             maxLines: maxlines,
             textAlign: textAlign,
