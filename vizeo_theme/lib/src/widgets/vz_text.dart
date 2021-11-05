@@ -86,6 +86,10 @@ class VzText extends StatelessWidget {
             textAlign: textAlign,
             key: key,
             textWidthBasis: TextWidthBasis.parent,
+            strutStyle: StrutStyle.fromTextStyle(textStyleCustom ??
+                style.textStyle.copyWith(
+                  color: colorText,
+                )),
             onTap: onTap,
             textScaleFactor: textScaleFactor,
             style: textStyleCustom ??
