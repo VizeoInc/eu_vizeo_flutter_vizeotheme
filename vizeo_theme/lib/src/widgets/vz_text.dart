@@ -84,6 +84,7 @@ class VzText extends StatelessWidget {
             scrollPhysics: NeverScrollableScrollPhysics(),
             maxLines: maxlines,
             textAlign: textAlign,
+            key: key,
             textWidthBasis: TextWidthBasis.parent,
             onTap: onTap,
             textScaleFactor: textScaleFactor,
