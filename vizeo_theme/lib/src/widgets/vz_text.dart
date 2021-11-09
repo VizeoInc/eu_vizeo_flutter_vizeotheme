@@ -1,3 +1,5 @@
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:vizeo_theme/src/private/enum.dart';
 import 'package:vizeo_theme/src/private/color_utils_lib.dart';
@@ -6,7 +8,7 @@ class VzText extends StatelessWidget {
   const VzText.typePrimary({
     required this.data,
     this.style = TypeDeTextStyle.body2,
-    this.maxlines = 1,
+    this.maxlines = 10, //take effect only if isReadOnly is true
     this.softWrap = true,
     this.textAlign = TextAlign.start,
     this.isReadOnly = false,
@@ -22,7 +24,7 @@ class VzText extends StatelessWidget {
   const VzText.typeSecondary({
     required this.data,
     this.style = TypeDeTextStyle.body2,
-    this.maxlines = 1,
+    this.maxlines = 10, //take effect only if isReadOnly is true
     this.softWrap = true,
     this.textAlign = TextAlign.start,
     this.isReadOnly = false,
@@ -38,7 +40,7 @@ class VzText extends StatelessWidget {
   const VzText.typeTertiary({
     required this.data,
     this.style = TypeDeTextStyle.body2,
-    this.maxlines = 1,
+    this.maxlines = 10, //take effect only if isReadOnly is true
     this.softWrap = true,
     this.textAlign = TextAlign.start,
     this.isReadOnly = false,
@@ -77,27 +79,25 @@ class VzText extends StatelessWidget {
             textAlign: textAlign,
             key: key,
             textScaleFactor: textScaleFactor,
-            style: textStyleCustom ?? style.textStyle.copyWith(color: colorText),
-          )
-        : SelectableText.rich(
-            TextSpan(
-              text: data,
-            ),
-            scrollPhysics: NeverScrollableScrollPhysics(),
-            maxLines: maxlines,
-            textAlign: textAlign,
-            key: key,
-            textWidthBasis: TextWidthBasis.parent,
-            strutStyle: StrutStyle.fromTextStyle(textStyleCustom ??
-                style.textStyle.copyWith(
-                  color: colorText,
-                )),
-            onTap: onTap,
-            textScaleFactor: textScaleFactor,
             style: textStyleCustom ??
                 style.textStyle.copyWith(
                   color: colorText,
                 ),
+          )
+        : SelectableText(
+            data,
+            scrollPhysics: const NeverScrollableScrollPhysics(),
+            // maxLines: numMaxLines,
+            textAlign: textAlign,
+            key: key,
+            textWidthBasis: TextWidthBasis.parent,
+            // minLines: 1,
+            style: textStyleCustom ??
+                style.textStyle.copyWith(
+                  color: colorText,
+                ),
+            onTap: onTap,
+            textScaleFactor: textScaleFactor,
             toolbarOptions: const ToolbarOptions(
               copy: true,
               selectAll: true,

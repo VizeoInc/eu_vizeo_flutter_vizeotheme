@@ -7,7 +7,9 @@ import 'package:example/view/color_view.dart';
 import 'package:example/view/fab_view.dart';
 import 'package:example/view/form_view.dart';
 import 'package:example/view/search_view.dart';
+import 'package:example/view/text_size.dart';
 import 'package:example/view/text_view.dart';
+import 'package:example/view/text_view_selectable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -59,8 +61,6 @@ class _WidgetTotalesState extends State<WidgetTotales> {
         child: ListView(
           shrinkWrap: true,
           children: const [
-            TitlePart(title: "VzText"),
-            TextView(),
             Gap(space),
             TitlePart(title: "VzForm"),
             FormView(),
@@ -85,6 +85,15 @@ class _WidgetTotalesState extends State<WidgetTotales> {
             Gap(space),
             TitlePart(title: "VzSearch Bar"),
             SearchView(),
+            Gap(space),
+            TitlePart(title: "Text Size"),
+            TextSize(),
+            Gap(space),
+            TitlePart(title: "VzText"),
+            TextView(),
+            Gap(space),
+            TitlePart(title: "VzText Selectable"),
+            TextViewSelectable(),
             Gap(space),
           ],
         ),
