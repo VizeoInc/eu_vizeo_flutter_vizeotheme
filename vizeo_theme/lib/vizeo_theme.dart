@@ -14,6 +14,7 @@ export 'src/widgets/vz_contour_button.dart';
 export 'src/widgets/vz_drop_target_grid.dart';
 export 'src/widgets/vz_drop_target_list.dart';
 export 'src/widgets/vz_item_draggable.dart';
+export 'src/widgets/vz_box_customisation.dart';
 export 'src/widgets/vz_widget_utils.dart';
 
 
