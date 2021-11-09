@@ -119,3 +119,7 @@
 ## 0.1.1
 
 * correct bug for Text when it's selectable
+
+## 0.1.2
+
+* add widget extension (withPaddingWidget, withExpandedWidget, withFlexibleWidget)
