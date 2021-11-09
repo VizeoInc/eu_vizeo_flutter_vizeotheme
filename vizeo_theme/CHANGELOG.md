@@ -115,3 +115,7 @@
 
 * change versionning 
 * vorrect bug for VzButton next not selectable
+
+## 0.1.1
+
+* correct bug for Text when it's selectable
