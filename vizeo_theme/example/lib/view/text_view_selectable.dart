@@ -57,6 +57,8 @@ obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
 nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
 tenetur error, harum nesciunt ipsum debitis quas aliquid.""",
           color: Colors.indigo[200],
+        ).withPaddingWidget(
+          padding: const EdgeInsets.all(32.0),
         ),
         const Gap(10.0),
         const VzText.typePrimary(
