@@ -207,18 +207,21 @@ class _VzContourButtonState extends State<VzContourButton> {
                   data: widget.title,
                   textStyleCustom: widget.textStyleCustom,
                   color: widget.textColor ?? VzColor.redVizeo,
+                  isReadOnly: true,
                 );
               case _TypeContourButton.secondary:
                 return VzText.typeSecondary(
                   data: widget.title,
                   textStyleCustom: widget.textStyleCustom,
                   color: widget.textColor ?? widget.color,
+                  isReadOnly: true,
                 );
               case _TypeContourButton.small:
                 return VzText.typePrimary(
                   data: widget.title,
                   textStyleCustom: widget.textStyleCustom,
                   color: widget.textColor ?? widget.color,
+                  isReadOnly: true,
                 );
               default:
             }
