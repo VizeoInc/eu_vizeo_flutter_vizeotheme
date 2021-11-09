@@ -53,11 +53,7 @@ class _ContainerColor extends StatelessWidget {
     return Container(
       width: 50,
       height: 50,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: const BorderRadius.all(Radius.circular(10)),
-        border: Border.all(),
-      ),
+      decoration: VzBox.vzBoxDecoration(colorBackground: color),
     );
   }
 }
