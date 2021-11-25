@@ -10,16 +10,30 @@ class SearchView extends StatefulWidget {
 
 class _SearchViewState extends State<SearchView> {
   final textEditingController = TextEditingController();
+  final textEditingController2 = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: VzSearchBar(
-        controller: textEditingController,
-        width: MediaQuery.of(context).size.width * 0.5,
-        onFieldSubmitted: (txt) {
-          debugPrint("Search => $txt");
-        },
-      ),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        VzSearchBar(
+          controller: textEditingController,
+          hint: "Enable",
+          width: MediaQuery.of(context).size.width * 0.45,
+          onFieldSubmitted: (txt) {
+            debugPrint("Search => $txt");
+          },
+        ),
+        VzSearchBar(
+          controller: textEditingController2,
+          isEnable: false,
+          hint: "Not Enable",
+          width: MediaQuery.of(context).size.width * 0.45,
+          onFieldSubmitted: (txt) {
+            debugPrint("Search => $txt");
+          },
+        ),
+      ],
     );
   }
 }

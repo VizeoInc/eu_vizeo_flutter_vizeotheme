@@ -16,7 +16,9 @@ class VzSearchBar extends StatefulWidget {
   final FocusNode? focus;
   late final TextAlign textAlign;
   final TextStyle? style;
+  late double? hintSize;
   final Key? key;
+  final bool isReadOnly;
 
   VzSearchBar({
     required this.controller,
@@ -26,12 +28,14 @@ class VzSearchBar extends StatefulWidget {
     this.keyboardType = TextInputType.text,
     this.validator,
     this.hint,
+    this.hintSize,
     this.focus,
     this.width,
-    this.height = 40.0,
+    this.height = 40,
     this.style,
     this.textAlign = TextAlign.start,
     this.isEnable = true,
+    this.isReadOnly = false,
     this.key,
   }) : super();
 
@@ -49,58 +53,39 @@ class _MyVzSearchBar extends State<VzSearchBar> {
 
   @override
   Widget build(BuildContext context) {
-    _myField = TextFormField(
-      key: widget.key,
-      autocorrect: false,
-      obscuringCharacter: "*",
-      enabled: widget.isEnable,
-      style: widget.style ?? vzThemeLight().textTheme.bodyText1,
-      textInputAction: widget.textInputAction,
-      textAlign: widget.textAlign,
-      onChanged: (txt) {
-        if (widget.onChanged != null) {
-          widget.onChanged!(txt);
-        }
-      },
-      onFieldSubmitted: (txt) {
-        if (widget.onFieldSubmitted != null) {
-          widget.onFieldSubmitted!(txt);
-        }
-      },
-      keyboardType: widget.keyboardType,
-      focusNode: widget.focus,
-      controller: widget.controller,
-      validator: widget.validator,
-      decoration: InputDecoration(
-        hintText: widget.hint,
-        hintStyle: widget.style ?? vzThemeLight().textTheme.bodyText1,
-      ),
-    );
-
-    return AnimatedContainer(
-      width: widget.width ?? MediaQuery.of(context).size.width,
-      height: widget.height,
-      curve: Curves.decelerate,
-      duration: const Duration(milliseconds: 150),
-      decoration: VzBox.vzBoxDecoration(),
-      child: Stack(
-        alignment: Alignment.centerRight,
-        children: [
-          _myField,
-          Positioned(
-            child: IconButton(
-              icon: const Icon(Icons.search_outlined),
-              color: VzColor.backgroundTertiaryDark,
-              onPressed: () {
-                final text = widget.controller?.text;
-                if (text != null) {
-                  widget.onFieldSubmitted!(text);
-                }
-              },
-            ),
+    return Stack(
+      alignment: Alignment.centerRight,
+      children: [
+        VzTextForm(
+          controller: widget.controller,
+          onFieldSubmitted: widget.onFieldSubmitted,
+          onChanged: widget.onChanged,
+          textInputAction: widget.textInputAction,
+          keyboardType: widget.keyboardType,
+          validator: widget.validator,
+          hint: widget.hint,
+          hintSize: widget.hintSize,
+          focus: widget.focus,
+          width: widget.width ,
+          height: widget.height,
+          style: widget.style,
+          textAlign: widget.textAlign,
+          isEnable: widget.isEnable,
+          isReadOnly: widget.isReadOnly,
+        ),
+        Positioned(
+          child: IconButton(
+            icon: const Icon(Icons.search_outlined),
+            color: VzColor.backgroundTertiaryDark,
+            onPressed: () {
+              final text = widget.controller?.text;
+              if (text != null) {
+                widget.onFieldSubmitted!(text);
+              }
+            },
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

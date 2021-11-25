@@ -117,6 +117,7 @@ class _FormViewState extends State<FormView> {
           data: "Valeur Text Field Base => $_nameTest",
         ),
         VzTextForm(
+          width: MediaQuery.of(context).size.width * 0.8,
           controller: textEditingControllerBase,
           onFieldSubmitted: (txt) => debugPrint(""),
         ),
