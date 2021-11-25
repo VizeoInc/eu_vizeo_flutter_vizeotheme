@@ -147,11 +147,8 @@ class _MyTextForm extends State<VzTextForm> {
     switch (widget._vzTextFormType) {
       case VzTextFormType.mail:
         final isEmail = GetUtils.isEmail(txt);
-        // debugPrint("is Email => $isEmail");
-        //TODO override error if wrong mail
         break;
       case VzTextFormType.password:
-        //TODO password check
         final isGoodLegnthPwd = GetUtils.isLengthGreaterOrEqual(txt, 8);
         final isOneCapitalize = regexUppercase(txt);
         final isOneNumber = regexNumber(txt);
@@ -159,8 +156,6 @@ class _MyTextForm extends State<VzTextForm> {
         break;
       case VzTextFormType.telephone:
         final isPhone = GetUtils.isPhoneNumber(txt);
-        // debugPrint("is Phone => $isPhone");
-        //TODO override error if wrong phone
         break;
       case VzTextFormType.general:
         break;
@@ -202,6 +197,7 @@ class _MyTextForm extends State<VzTextForm> {
         hintText: widget.hint,
         hintStyle: TextStyle(
           fontSize: widget.hintSize ?? 14,
+          color: VzColor.accentLight,
         ),
         disabledBorder: const OutlineInputBorder(
           borderSide: BorderSide.none,
