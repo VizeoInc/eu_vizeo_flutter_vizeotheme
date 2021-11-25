@@ -127,3 +127,4 @@
 ## 0.1.3
 
 * correction VzSearchBar follow new directive for VzForm
+* update color VzForm, follow design system

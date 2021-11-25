@@ -202,7 +202,8 @@ class _MyTextForm extends State<VzTextForm> {
         disabledBorder: const OutlineInputBorder(
           borderSide: BorderSide.none,
         ),
-        
+        filled: !widget.isEnable,
+        fillColor: VzColor.formIncatif,
         errorBorder: const OutlineInputBorder(
           borderSide: BorderSide(
             color: VzColor.redVizeo,
