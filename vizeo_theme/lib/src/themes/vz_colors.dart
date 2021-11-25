@@ -36,7 +36,6 @@ class VzColor {
   static const Color importanceMedium = Color(0xFFF2C230);
   static const Color importanceLow = Color(0xFF93C700);
 
-
   static const Color backgroundPrimaryDark = Color(0xFF101735);
   static const Color backgroundSecondaryDark = Color(0xFF1B2445);
   static const Color backgroundTertiaryDark = Color(0xFF31385A);
@@ -46,7 +45,6 @@ class VzColor {
   static const Color textPrimaryDark = Color(0xFFEBEEF8);
   static const Color textSecondaryDark = Color(0xFFBCC0D3);
   static const Color textTertiaryDark = Color(0xFF979BB1);
-
 
   static const Color backgroundPrimaryLight = Color(0xFFEAEAEF);
   static const Color backgroundSecondaryLight = Color(0xFFF2F3F8);
@@ -61,6 +59,7 @@ class VzColor {
   static const Color transparent = Colors.transparent;
   static const Color white = Colors.white;
 
+  static const Color formIncatif = Color(0xFFD2D5DF);
 
   // not really use old colors
   static const Color redVizeoSoft = Color(0xFFF16066);

@@ -66,7 +66,7 @@ class _MyVzSearchBar extends State<VzSearchBar> {
           hint: widget.hint,
           hintSize: widget.hintSize,
           focus: widget.focus,
-          width: widget.width ,
+          width: widget.width,
           height: widget.height,
           style: widget.style,
           textAlign: widget.textAlign,
@@ -76,7 +76,7 @@ class _MyVzSearchBar extends State<VzSearchBar> {
         Positioned(
           child: IconButton(
             icon: const Icon(Icons.search_outlined),
-            color: VzColor.backgroundTertiaryDark,
+            color: VzColor.accentLight,
             onPressed: () {
               final text = widget.controller?.text;
               if (text != null) {

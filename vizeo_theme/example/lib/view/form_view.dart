@@ -27,8 +27,8 @@ class _FormViewState extends State<FormView> {
     textEditingControllerMail = TextEditingController();
     textEditingControllerPwd = TextEditingController();
     textEditingControllerPhone = TextEditingController();
-    textEditingControllerOver = TextEditingController(text: "Disable");
-    textEditingControllerOver2 = TextEditingController(text: "Not Enable");
+    textEditingControllerOver = TextEditingController();
+    textEditingControllerOver2 = TextEditingController();
   }
 
   @override
@@ -50,6 +50,7 @@ class _FormViewState extends State<FormView> {
           children: [
             VzTextForm(
               isReadOnly: true,
+              hint: "Disable",
               width: 200.0,
               controller: textEditingControllerOver,
               textInputAction: TextInputAction.next,
@@ -60,6 +61,7 @@ class _FormViewState extends State<FormView> {
             ),
             VzTextForm(
               isEnable: false,
+              hint: "Not Enable",
               width: 200.0,
               controller: textEditingControllerOver2,
               onFieldSubmitted: (txt) {
