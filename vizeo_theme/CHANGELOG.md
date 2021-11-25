@@ -123,3 +123,7 @@
 ## 0.1.2
 
 * add widget extension (withPaddingWidget, withExpandedWidget, withFlexibleWidget)
+
+## 0.1.3
+
+* correction VzSearchBar follow new directive for VzForm
