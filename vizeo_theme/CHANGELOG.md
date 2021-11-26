@@ -128,3 +128,8 @@
 
 * correction VzSearchBar follow new directive for VzForm
 * update color VzForm, follow design system
+
+## 0.1.4
+
+* add widget extension withCenter
+* add widget extension showHimself
