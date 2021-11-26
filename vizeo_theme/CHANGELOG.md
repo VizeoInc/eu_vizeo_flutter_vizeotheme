@@ -1,16 +1,21 @@
+# CHANGELOG
+
 ## 0.0.1
 
 * Add to private repo
+
 ## 0.0.18
 
 * themeData
 * principal component
 * convert part of -> to export for create some private part fo the lib
+
 ## 0.0.19
 
 * checkbox
 * VZTextForm
 * add [Get](https://github.com/jonataslaw/getx)
+
 ## 0.0.20
 
 * VzTextForm remove width required
@@ -70,16 +75,16 @@
 ## 0.0.61
 
 * add VzBox - contain BoxDecoration + BoxShadow
-* add vzBoxShadow to VzForm 
+* add vzBoxShadow to VzForm
 
 ## 0.0.62
 
-* update VzContourButton 
+* update VzContourButton
 
 ## 0.0.70
 
 * update VzText
-* add linux app example - for hotreload :yes: 
+* add linux app example - for hotreload :yes:
 
 ## 0.0.71
 
