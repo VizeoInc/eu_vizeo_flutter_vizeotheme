@@ -143,3 +143,4 @@
 ## 0.1.5
 
 * VzFab add circleSize
+* VzFab mini size

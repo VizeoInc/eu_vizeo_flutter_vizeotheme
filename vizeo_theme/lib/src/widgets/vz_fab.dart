@@ -20,7 +20,7 @@ class VzFab extends StatefulWidget {
     this.borderColor = VzColor.redVizeo,
     this.backgroundColor,
     this.iconColorPressed,
-    this.size = 20.0,
+    this.size = 15.0,
     this.circleSize,
     this.borderSize = 1.0,
     this.key,
@@ -36,7 +36,8 @@ class _VzFabState extends State<VzFab> {
   @override
   Widget build(BuildContext context) {
     final colorPressed = widget.iconColorPressed ?? VzColor.textOnRedVizeo;
-    final double borderRadius = widget.circleSize != null ? widget.circleSize! / 2 : widget.size / 2;
+    final double borderRadius =
+        widget.circleSize != null ? widget.circleSize! / 2 : widget.size / 2;
 
     return Material(
       type: MaterialType.transparency,
@@ -52,9 +53,7 @@ class _VzFabState extends State<VzFab> {
           shape: BoxShape.circle,
         ),
         child: InkWell(
-          borderRadius: BorderRadius.circular(
-             borderRadius
-          ),
+          borderRadius: BorderRadius.circular(borderRadius),
           highlightColor: VzColor.redVizeo,
           onHighlightChanged: (_) {
             isPressed = !isPressed;
