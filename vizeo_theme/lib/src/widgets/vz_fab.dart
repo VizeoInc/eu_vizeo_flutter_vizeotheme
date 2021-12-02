@@ -42,8 +42,8 @@ class _VzFabState extends State<VzFab> {
     return Material(
       type: MaterialType.transparency,
       child: Ink(
-        width: widget.circleSize ?? widget.size + 5,
-        height: widget.circleSize ?? widget.size + 5,
+        width: widget.circleSize ?? widget.size + 7,
+        height: widget.circleSize ?? widget.size + 7,
         decoration: BoxDecoration(
           border: Border.all(
             color: widget.borderColor,
