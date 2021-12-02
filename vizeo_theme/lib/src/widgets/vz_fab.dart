@@ -20,7 +20,7 @@ class VzFab extends StatefulWidget {
     this.borderColor = VzColor.redVizeo,
     this.backgroundColor,
     this.iconColorPressed,
-    this.size = 15.0,
+    this.size = 20.0,
     this.circleSize,
     this.borderSize = 1.0,
     this.key,
@@ -42,8 +42,8 @@ class _VzFabState extends State<VzFab> {
     return Material(
       type: MaterialType.transparency,
       child: Ink(
-        width: widget.circleSize ?? widget.size + 15,
-        height: widget.circleSize ?? widget.size + 15,
+        width: widget.circleSize ?? widget.size + 5,
+        height: widget.circleSize ?? widget.size + 5,
         decoration: BoxDecoration(
           border: Border.all(
             color: widget.borderColor,
