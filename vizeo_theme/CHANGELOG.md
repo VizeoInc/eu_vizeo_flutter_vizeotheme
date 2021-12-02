@@ -24,6 +24,7 @@
 
 * bug fix
 * add ENUM for different TextStyle  h1,h2,h3,h4,h5,h6,body1,body2,body3,
+
 ## 0.0.44
 
 * bug fix
@@ -138,3 +139,7 @@
 
 * add widget extension withCenter
 * add widget extension showHimself
+
+## 0.1.5
+
+* VzFab add circleSize
