@@ -5,6 +5,7 @@ class VzFab extends StatefulWidget {
   final Function() onTap;
   final IconData icon;
   final double size;
+  final double? circleSize;
   final Color iconColor;
   final Color? iconColorPressed;
   final Color borderColor;
@@ -20,6 +21,7 @@ class VzFab extends StatefulWidget {
     this.backgroundColor,
     this.iconColorPressed,
     this.size = 20.0,
+    this.circleSize,
     this.borderSize = 1.0,
     this.key,
   });
@@ -34,10 +36,13 @@ class _VzFabState extends State<VzFab> {
   @override
   Widget build(BuildContext context) {
     final colorPressed = widget.iconColorPressed ?? VzColor.textOnRedVizeo;
+    final double borderRadius = widget.circleSize != null ? widget.circleSize! / 2 : widget.size / 2;
 
     return Material(
       type: MaterialType.transparency,
       child: Ink(
+        width: widget.circleSize ?? widget.size + 15,
+        height: widget.circleSize ?? widget.size + 15,
         decoration: BoxDecoration(
           border: Border.all(
             color: widget.borderColor,
@@ -48,7 +53,7 @@ class _VzFabState extends State<VzFab> {
         ),
         child: InkWell(
           borderRadius: BorderRadius.circular(
-            1000.0,
+             borderRadius
           ),
           highlightColor: VzColor.redVizeo,
           onHighlightChanged: (_) {
