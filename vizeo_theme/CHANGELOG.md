@@ -144,3 +144,7 @@
 
 * VzFab add circleSize
 * VzFab mini size
+
+## 0.1.6
+
+* VzFab add padding on icon (40% de la taille de l'icon)
