@@ -11,11 +11,9 @@ class TextView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: const [
-            SizedBox(
-              child: VzText.typePrimary(
-                data: "Primary",
-                isReadOnly: true,
-              ),
+            VzText.typePrimary(
+              data: "Primary",
+              isReadOnly: true,
             ),
             VzText.typePrimary(
               data: "Primary Custom",

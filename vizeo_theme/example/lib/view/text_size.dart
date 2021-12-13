@@ -8,56 +8,41 @@ class TextSize extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: const [
-            VzText.typePrimary(
-              data: "H1",
-              style: TypeDeTextStyle.h1,
-              isReadOnly: true,
-            ),
-            VzText.typePrimary(
-              data: "H2",
-              style: TypeDeTextStyle.h2,
-              isReadOnly: true,
-            ),
-            VzText.typePrimary(
-              data: "H3",
-              style: TypeDeTextStyle.h3,
-              isReadOnly: true,
-            ),
-            VzText.typePrimary(
-              data: "H4",
-              style: TypeDeTextStyle.h4,
-              isReadOnly: true,
-            ),
-            VzText.typePrimary(
-              data: "H5",
-              style: TypeDeTextStyle.h5,
-              isReadOnly: true,
-            ),
-            VzText.typePrimary(
-              data: "H6",
-              style: TypeDeTextStyle.h6,
-              isReadOnly: true,
-            ),
-            VzText.typePrimary(
-              data: "Body1",
-              isReadOnly: true,
-            ),
-            VzText.typePrimary(
-              data: "Body2",
-              style: TypeDeTextStyle.body2,
-              isReadOnly: true,
-            ),
-            VzText.typePrimary(
-              data: "Body3",
-              style: TypeDeTextStyle.body3,
-              isReadOnly: true,
+        Wrap(
+          spacing: 25.0,
+          runSpacing: 25.0,
+          children: [
+            ...[
+              TypeDeTextStyle.h1,
+              TypeDeTextStyle.h2,
+              TypeDeTextStyle.h3,
+              TypeDeTextStyle.h4,
+              TypeDeTextStyle.h5,
+              TypeDeTextStyle.h6,
+              TypeDeTextStyle.body1,
+              TypeDeTextStyle.body2,
+              TypeDeTextStyle.body3,
+            ].map(
+              (style) => _StyleVzTextPrimary(
+                style: style,
+              ),
             ),
           ],
         ),
       ],
+    );
+  }
+}
+
+class _StyleVzTextPrimary extends StatelessWidget {
+  _StyleVzTextPrimary({required this.style, Key? key}) : super(key: key);
+  final TypeDeTextStyle style;
+  @override
+  Widget build(BuildContext context) {
+    return VzText.typePrimary(
+      data: style.name,
+      style: style,
+      isReadOnly: true,
     );
   }
 }

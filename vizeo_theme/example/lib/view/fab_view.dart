@@ -11,29 +11,28 @@ class FabView extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            Container(
-              color: Colors.amber,
-              child: VzFab(
-                icon: Icons.question_answer_outlined,
-                onTap: () => debugPrint("FAB 50"),
-                size: 50.0,
-              ),
+            VzFab(
+              icon: Icons.question_answer_outlined,
+              onTap: () => debugPrint("FAB 50"),
+              size: 100.0,
             ),
-            Container(
-              color: Colors.amber,
-              child: VzFab(
-                icon: Icons.add_rounded,
-                onTap: () => debugPrint("FAB 50"),
-                size: 50.0,
-                circleSize: 70,
-              ),
+            VzFab(
+              icon: Icons.question_answer_outlined,
+              onTap: () => debugPrint("FAB 50"),
+              size: 50.0,
             ),
-            Container(
-              color: Colors.amberAccent,
-              child: VzFab(
-                icon: Icons.add_rounded,
-                onTap: () => debugPrint("FAB Base"),
-              ),
+            VzFab(
+              icon: Icons.add_rounded,
+              onTap: () => debugPrint("FAB 50"),
+              size: 50.0,
+            ),
+            VzFab(
+              icon: Icons.add_rounded,
+              onTap: () => debugPrint("FAB Base"),
+            ),
+            VzFab(
+              icon: Icons.question_answer_outlined,
+              onTap: () => debugPrint("FAB Base"),
             ),
             VzFab(
               icon: Icons.add_rounded,
