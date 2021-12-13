@@ -29,15 +29,15 @@ class VzDropTargetGrid extends StatefulWidget {
 }
 
 class _VzDropTargetGrid extends State<VzDropTargetGrid> {
-  late Container _vzDropTargetGrid;
+  late Widget _vzDropTargetGrid;
 
-  Container getVzDropTargetGrid() {
+  Widget getVzDropTargetGrid() {
     return _vzDropTargetGrid;
   }
 
   @override
   Widget build(BuildContext context) {
-    return _vzDropTargetGrid = Container(
+    return _vzDropTargetGrid = SizedBox(
       child: DragTarget<VzItemDraggable>(
         builder: (
           BuildContext context,
@@ -45,12 +45,13 @@ class _VzDropTargetGrid extends State<VzDropTargetGrid> {
           List<dynamic> rejected,
         ) {
           return Container(
-              height: widget.height,
-              width: widget.width,
-              color: widget.backgroundColor,
-              child: Wrap(
-                children: widget.list,
-              ));
+            height: widget.height,
+            width: widget.width,
+            color: widget.backgroundColor,
+            child: Wrap(
+              children: widget.list,
+            ),
+          );
         },
         onAccept: widget.onAccept,
         onWillAccept: widget.onWillAccept,

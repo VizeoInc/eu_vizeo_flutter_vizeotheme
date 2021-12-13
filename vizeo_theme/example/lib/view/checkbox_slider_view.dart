@@ -11,7 +11,7 @@ class CheckboxSliderView extends StatefulWidget {
 class _CheckboxSliderViewState extends State<CheckboxSliderView> {
   bool checkBoxOne = false;
 
-  var actualRadio;
+  Object? actualRadio;
 
   List<Widget> vzRadio() {
     final List<Widget> l = [];

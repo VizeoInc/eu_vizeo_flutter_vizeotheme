@@ -29,15 +29,15 @@ class VzDropTargetList extends StatefulWidget {
 }
 
 class _VzDropTargetList extends State<VzDropTargetList> {
-  late Container _vzDropTargetList;
+  late Widget _vzDropTargetList;
 
-  Container getVzDropTargetList() {
+  Widget getVzDropTargetList() {
     return _vzDropTargetList;
   }
 
   @override
   Widget build(BuildContext context) {
-    return _vzDropTargetList = Container(
+    return _vzDropTargetList = SizedBox(
       child: DragTarget<VzItemDraggable>(
         builder: (
           BuildContext context,

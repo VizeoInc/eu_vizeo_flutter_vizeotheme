@@ -1,5 +1,3 @@
-import 'dart:ui' as ui;
-
 import 'package:flutter/material.dart';
 import 'package:vizeo_theme/src/private/enum.dart';
 import 'package:vizeo_theme/src/private/color_utils_lib.dart';

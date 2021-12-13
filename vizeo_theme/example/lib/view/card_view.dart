@@ -10,19 +10,19 @@ class CardView extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [
+          children: const [
             Card(
-              margin: const EdgeInsets.all(50),
+              margin:  EdgeInsets.all(50),
               child: Padding(
-                padding: const EdgeInsets.all(32.0),
+                padding:  EdgeInsets.all(32.0),
                 child: VzText.typePrimary(data: "card border true"),
               ),
             ),
             Card(
-              margin: const EdgeInsets.all(50),
+              margin:  EdgeInsets.all(50),
               borderOnForeground: false,
               child: Padding(
-                padding: const EdgeInsets.all(32.0),
+                padding:  EdgeInsets.all(32.0),
                 child: VzText.typePrimary(data: "card border false"),
               ),
             )

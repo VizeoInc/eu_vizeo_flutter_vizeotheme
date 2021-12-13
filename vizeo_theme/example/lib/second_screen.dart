@@ -14,7 +14,7 @@ class SecondScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            VzText.typePrimary(
+            const VzText.typePrimary(
               data: "Second Screen",
             ),
             VzButton.typePrimary(

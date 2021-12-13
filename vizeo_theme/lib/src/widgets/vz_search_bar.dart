@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:vizeo_theme/src/widgets/vz_box_customisation.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
 
 class VzSearchBar extends StatefulWidget {

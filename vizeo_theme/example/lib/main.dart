@@ -10,7 +10,6 @@ import 'package:example/view/search_view.dart';
 import 'package:example/view/text_size.dart';
 import 'package:example/view/text_view.dart';
 import 'package:example/view/text_view_selectable.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:gap/gap.dart';

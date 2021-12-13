@@ -119,7 +119,7 @@
 
 ## 0.1.0
 
-* change versionning 
+* change versionning
 * vorrect bug for VzButton next not selectable
 
 ## 0.1.1

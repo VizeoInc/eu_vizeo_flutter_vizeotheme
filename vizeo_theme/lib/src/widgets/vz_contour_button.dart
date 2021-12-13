@@ -186,7 +186,6 @@ class _VzContourButtonState extends State<VzContourButton> {
         widget.type != _TypeContourButton.notype) {
       widget.color = VzColor.contourButtonSecondary();
     }
-    final isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(5.0),

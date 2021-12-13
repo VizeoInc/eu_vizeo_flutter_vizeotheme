@@ -20,26 +20,27 @@ class _VzCheckboxState extends State<VzCheckbox> {
   @override
   Widget build(BuildContext context) {
     return Checkbox(
-        activeColor: widget.isEnable
+      activeColor: widget.isEnable
+          ? VzColor.backgroundPrimary(isReverse: true)
+          : VzColor.backgroundPrimary(isReverse: true).withOpacity(0.4),
+      fillColor: MaterialStateProperty.resolveWith((states) {
+        return widget.isEnable
             ? VzColor.backgroundPrimary(isReverse: true)
-            : VzColor.backgroundPrimary(isReverse: true).withOpacity(0.4),
-        fillColor: MaterialStateProperty.resolveWith((states) {
-          return widget.isEnable
-              ? VzColor.backgroundPrimary(isReverse: true)
-              : VzColor.backgroundPrimary(isReverse: true).withOpacity(0.4);
-        }),
-        value: widget.value,
-        onChanged: (bool? value) {
-          if (widget.isEnable) {
-            setState(() {
-              widget.value = !widget.value;
-              if (value != null) {
-                widget.onChanged(value);
-              } else {
-                debugPrint("Heu tu a mal affecter ta variable a value");
-              }
-            });
-          }
-        });
+            : VzColor.backgroundPrimary(isReverse: true).withOpacity(0.4);
+      }),
+      value: widget.value,
+      onChanged: (bool? value) {
+        if (widget.isEnable) {
+          setState(() {
+            widget.value = !widget.value;
+            if (value != null) {
+              widget.onChanged(value);
+            } else {
+              debugPrint("Heu tu a mal affecter ta variable a value");
+            }
+          });
+        }
+      },
+    );
   }
 }

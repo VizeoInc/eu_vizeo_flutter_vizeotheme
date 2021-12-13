@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../../vizeo_theme.dart';
@@ -36,8 +35,8 @@ extension MiseEnForme on Widget {
     );
   }
 
- Future<dynamic> showHimself(){
- return showDialog(
+  Future<dynamic> showHimself() {
+    return showDialog(
       context: vzThemeKey.currentContext!,
       builder: (context) {
         return SimpleDialog(
@@ -46,6 +45,7 @@ extension MiseEnForme on Widget {
             this,
           ],
         );
-      });
-}
+      },
+    );
+  }
 }
