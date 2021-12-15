@@ -1,6 +1,6 @@
 name: vizeo_theme
 description: Vizeo Theme
-version: 0.1.6
+version: 0.1.7
 publish_to: 'none'
 homepage: https://github.com/VIZEODEV/eu_vizeo_flutter_vizeotheme
 
@@ -28,3 +28,32 @@ flutter:
     - family: DIN2014
       fonts:
         - asset: assets/fonts/DIN2014-Regular.ttf
+          weight: 500
+        - asset: fonts/DIN2014-Bold.ttf
+          weight: 900
+        - asset: fonts/DIN2014-DemiBold.ttf
+          weight: 600
+        - asset: fonts/DIN2014-ExtraBold.ttf
+          weight: 800
+        - asset: fonts/DIN2014-Light.ttf
+          weight: 300
+        - asset: fonts/DIN2014-ExtraLight.ttf
+          weight: 200
+        - asset: fonts/DIN2014-Bolditalic.ttf
+          weight: 900
+          style: italic
+        - asset: fonts/DIN2014-DemiBoldItalic.ttf
+          weight: 600
+          style: italic
+        - asset: fonts/DIN2014-ExtraBoldItalic.ttf
+          weight: 800
+          style: italic
+        - asset: fonts/DIN2014-Italic.ttf
+          weight: 500
+          style: italic
+        - asset: fonts/DIN2014-LightItalic.ttf
+          weight: 300
+          style: italic
+        - asset: fonts/DIN2014-ExtraLightItalic.ttf
+          weight: 200
+          style: italic
