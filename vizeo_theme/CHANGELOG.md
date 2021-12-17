@@ -148,3 +148,7 @@
 ## 0.1.6
 
 * VzFab add padding on icon (40% de la taille de l'icon)
+
+## 0.1.91
+
+* un truc fait par Antoine lui demandais il a pas mit le change log
