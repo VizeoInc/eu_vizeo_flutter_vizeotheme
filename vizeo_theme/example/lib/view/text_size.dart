@@ -39,8 +39,11 @@ class _StyleVzTextPrimary extends StatelessWidget {
   final TypeDeTextStyle style;
   @override
   Widget build(BuildContext context) {
+    final fontWeight =
+        style.textStyle.fontWeight == FontWeight.w700 ? "bold" : "regular";
+    if (style.textStyle.fontWeight == FontWeight.w700) {}
     return VzText.typePrimary(
-      data: style.name,
+      data: "${style.name}/$fontWeight/${style.textStyle.fontSize}px",
       style: style,
       isReadOnly: true,
     );
