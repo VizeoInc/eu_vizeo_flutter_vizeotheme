@@ -27,12 +27,19 @@ class FabView extends StatelessWidget {
               size: 50.0,
             ),
             VzFab(
+              size: 24.0,
               icon: Icons.add_rounded,
-              onTap: () => debugPrint("FAB Base"),
+              onTap: () => debugPrint("FAB add_rounded"),
             ),
             VzFab(
+              size: 24.0,
               icon: Icons.question_answer_outlined,
-              onTap: () => debugPrint("FAB Base"),
+              onTap: () => debugPrint("FAB question_answer_outlined"),
+            ),
+            VzFab(
+              size: 24.0,
+              icon: Icons.check,
+              onTap: () => debugPrint("FAB check"),
             ),
             VzFab(
               icon: Icons.add_rounded,
