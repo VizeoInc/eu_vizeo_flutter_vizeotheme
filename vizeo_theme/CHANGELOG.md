@@ -152,3 +152,7 @@
 ## 0.1.91
 
 * un truc fait par Antoine lui demandais il a pas mit le change log
+
+## 0.1.9"
+
+* update size Vzfab 
