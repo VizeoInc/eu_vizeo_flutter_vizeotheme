@@ -153,6 +153,10 @@
 
 * un truc fait par Antoine lui demandais il a pas mit le change log
 
-## 0.1.9"
+## 0.1.92
 
-* update size Vzfab 
+* update size Vzfab
+
+## 0.1.93
+
+* add withContainerTitle to Widget Extension - no verification
