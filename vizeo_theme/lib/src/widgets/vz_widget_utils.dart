@@ -55,7 +55,11 @@ extension MiseEnForme on Widget {
       decoration: BoxDecoration(
         borderRadius: radiusGlobal,
         color: VzColor.backgroundSecondary(),
-        border: Border.all(color: VzColor.backgroundSecondary(isReverse: true,),),
+        border: Border.all(
+          color: VzColor.backgroundSecondary(
+            isReverse: true,
+          ),
+        ),
       ),
       child: Column(
         children: [
@@ -69,7 +73,9 @@ extension MiseEnForme on Widget {
               style: TypeDeTextStyle.body1,
               color: VzColor.textPrimary(isReverse: true),
             ).withPaddingWidget().withCenter(),
-          ).withPaddingWidget().withFlexibleWidget(),
+          ),
+          // ignore: unnecessary_this
+          this.withPaddingWidget().withFlexibleWidget(),
         ],
       ),
     );
