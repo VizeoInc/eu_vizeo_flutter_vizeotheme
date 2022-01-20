@@ -62,7 +62,7 @@ class _MyVzSearchBar extends State<VzSearchBar> {
           textInputAction: widget.textInputAction,
           keyboardType: widget.keyboardType,
           validator: widget.validator,
-          hint: widget.hint,
+          hint: widget.hint ?? "Recherche...",
           hintSize: widget.hintSize,
           focus: widget.focus,
           width: widget.width,
