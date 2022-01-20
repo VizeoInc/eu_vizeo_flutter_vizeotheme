@@ -160,3 +160,7 @@
 ## 0.1.93
 
 * add withContainerTitle to Widget Extension - no verification
+
+## 0.2
+
+* add text "Recherche.." to VzSearchBar
