@@ -134,6 +134,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "platform",
+      "rootUri": "file:///Users/maxvy/flutter/.pub-cache/hosted/pub.dartlang.org/platform-3.1.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "sky_engine",
       "rootUri": "file:///Users/maxvy/flutter/bin/cache/pkg/sky_engine",
       "packageUri": "lib/",
@@ -191,10 +197,10 @@
       "name": "vizeo_theme",
       "rootUri": "../",
       "packageUri": "lib/",
-      "languageVersion": "2.12"
+      "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-02-24T14:12:30.964558Z",
+  "generated": "2022-02-24T15:52:06.191963Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }
