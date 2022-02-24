@@ -164,3 +164,7 @@
 ## 0.2
 
 * add text "Recherche.." to VzSearchBar
+
+## 0.2.1
+
+* add package flemme
