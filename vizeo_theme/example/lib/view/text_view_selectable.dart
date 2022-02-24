@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:vizeo_theme/vizeo_theme.dart';
+import 'package:flemme/flemme.dart';
 
 class TextViewSelectable extends StatelessWidget {
   const TextViewSelectable({Key? key}) : super(key: key);
@@ -57,7 +58,7 @@ obcaecati tenetur iure eius earum ut molestias architecto voluptate aliquam
 nihil, eveniet aliquid culpa officia aut! Impedit sit sunt quaerat, odit,
 tenetur error, harum nesciunt ipsum debitis quas aliquid.""",
           color: Colors.indigo[200],
-        ).withPaddingWidget(
+        ).withPadding(
           padding: const EdgeInsets.all(32.0),
         ),
         const Gap(10.0),
